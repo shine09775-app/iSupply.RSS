@@ -1,0 +1,3179 @@
+﻿[
+    {
+        "plant_no":  "13AL",
+        "name_en":  "kharabaw",
+        "plant_name":  "คาราบาว",
+        "plant_name_cn":  "卡阿拉阿巴阿瓦厂",
+        "latitude":  13.685944,
+        "longitude":  100.549459,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "13AX",
+        "name_en":  "bangpla 3",
+        "plant_name":  "บางปลา 3",
+        "plant_name_cn":  "巴阿昂巴拉阿3厂",
+        "latitude":  13.556374,
+        "longitude":  100.757623,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "13B1",
+        "name_en":  "bangna km.36/2",
+        "plant_name":  "บางนา กม.36/2",
+        "plant_name_cn":  "邦纳甲玛.36/2厂",
+        "latitude":  13.562333,
+        "longitude":  100.919667,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "13B3",
+        "name_en":  "eprng",
+        "plant_name":  "เปรง",
+        "plant_name_cn":  "艾巴拉昂厂",
+        "latitude":  13.69471,
+        "longitude":  100.897136,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "13B6",
+        "name_en":  "aephrksa 2",
+        "plant_name":  "แพรกษา 2",
+        "plant_name_cn":  "艾帕拉甲沙阿2厂",
+        "latitude":  13.575941,
+        "longitude":  100.651506,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "13BJ",
+        "name_en":  "sayaihm 2",
+        "plant_name":  "สายไหม 2",
+        "plant_name_cn":  "赛迈2厂",
+        "latitude":  13.922586,
+        "longitude":  100.688324,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "13BL",
+        "name_en":  "thabchang",
+        "plant_name":  "ทับช้าง",
+        "plant_name_cn":  "塔安巴察้阿昂厂",
+        "latitude":  13.735171,
+        "longitude":  100.691358,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "13FW",
+        "name_en":  "phraram 4/5",
+        "plant_name":  "พระราม 4/5",
+        "plant_name_cn":  "帕拉ะ拉阿玛4/5厂",
+        "latitude":  13.725948,
+        "longitude":  100.549383,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "13FY",
+        "name_en":  "bnaik 3",
+        "plant_name":  "บ่อนไก่ 3",
+        "plant_name_cn":  "巴่阿纳艾甲่3厂",
+        "latitude":  13.726116,
+        "longitude":  100.549756,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "13L4",
+        "name_en":  "raypraeths thakham",
+        "plant_name":  "อรัญประเทศ ท่าข้าม",
+        "plant_name_cn":  "阿拉安亚巴拉ะ艾塔沙塔่阿卡้阿玛厂",
+        "latitude":  13.65258,
+        "longitude":  102.54867,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "13L6",
+        "name_en":  "banchang",
+        "plant_name":  "บ้านฉาง",
+        "plant_name_cn":  "巴้阿纳察阿昂厂",
+        "latitude":  12.727038,
+        "longitude":  101.057716,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "13LJ",
+        "name_en":  "aeklng",
+        "plant_name":  "แกลง",
+        "plant_name_cn":  "艾甲拉昂厂",
+        "latitude":  12.78952,
+        "longitude":  101.645714,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "13LM",
+        "name_en":  "aehlmaemphimph",
+        "plant_name":  "แหลมแม่พิมพ์",
+        "plant_name_cn":  "艾哈拉玛艾玛่帕伊玛帕์厂",
+        "latitude":  12.657152,
+        "longitude":  101.584685,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "13LN",
+        "name_en":  "kbinthrburi 2",
+        "plant_name":  "กบินทร์บุรี 2",
+        "plant_name_cn":  "甲巴伊纳塔拉์巴乌拉伊2厂",
+        "latitude":  13.984896,
+        "longitude":  101.775096,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "13LO",
+        "name_en":  "ektewy 4",
+        "plant_name":  "เกตเวย์ 4",
+        "plant_name_cn":  "艾甲达艾瓦亚์4厂",
+        "latitude":  13.6185966,
+        "longitude":  101.3090948,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "13LP",
+        "name_en":  "bangna km.36/4",
+        "plant_name":  "บางนา กม.36/4",
+        "plant_name_cn":  "邦纳甲玛.36/4厂",
+        "latitude":  13.56212,
+        "longitude":  100.91956,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "13LQ",
+        "name_en":  "mtasiti 3",
+        "plant_name":  "อมตะซิตี้ 3",
+        "plant_name_cn":  "安美德萨伊达伊้3厂",
+        "latitude":  12.956544,
+        "longitude":  101.103573,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "13LR",
+        "name_en":  "nikhmekhrue bps.3",
+        "plant_name":  "นิคมเครือฯ บปซ.3",
+        "plant_name_cn":  "工业区艾卡拉厄阿ฯ巴巴萨.3厂",
+        "latitude":  12.832716,
+        "longitude":  101.237539,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "13LS",
+        "name_en":  "aemnamkhu",
+        "plant_name":  "แม่น้ำคู้",
+        "plant_name_cn":  "艾玛่纳้安卡乌้厂",
+        "latitude":  12.8924431,
+        "longitude":  101.2393386,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "13M2",
+        "name_en":  "eninomk",
+        "plant_name":  "เนินโมก",
+        "plant_name_cn":  "艾纳伊纳奥玛甲厂",
+        "latitude":  13.28359,
+        "longitude":  101.249151,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "13NW",
+        "name_en":  "prachantkham",
+        "plant_name":  "ประจันตคาม",
+        "plant_name_cn":  "巴拉ะ扎安纳达卡阿玛厂",
+        "latitude":  14.049792,
+        "longitude":  101.622878,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "13QX",
+        "name_en":  "salalamdwn",
+        "plant_name":  "ศาลาลำดวน",
+        "plant_name_cn":  "沙阿拉阿拉安达瓦纳厂",
+        "latitude":  13.918116,
+        "longitude":  101.939289,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "13QZ",
+        "name_en":  "sraburi HSR",
+        "plant_name":  "สระบุรี HSR",
+        "plant_name_cn":  "沙拉武里HSR厂",
+        "latitude":  14.55251,
+        "longitude":  100.962271,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "13T2",
+        "name_en":  "orchna 2",
+        "plant_name":  "โรจนะ 2",
+        "plant_name_cn":  "罗勇那2厂",
+        "latitude":  14.32513,
+        "longitude":  100.6451,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "13UE",
+        "name_en":  "bangpain 2",
+        "plant_name":  "บางปะอิน 2",
+        "plant_name_cn":  "巴阿昂巴ะ阿伊纳2厂",
+        "latitude":  14.165786,
+        "longitude":  100.56055,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "13UI",
+        "name_en":  "bayphaswangmanaw",
+        "plant_name":  "บายพาสวังมะนาว",
+        "plant_name_cn":  "巴阿亚帕阿沙瓦安昂玛ะ纳阿瓦厂",
+        "latitude":  13.18481,
+        "longitude":  99.690675,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "14A2",
+        "name_en":  "buengkal",
+        "plant_name":  "บึงกาฬ",
+        "plant_name_cn":  "汶干厂",
+        "latitude":  18.355226,
+        "longitude":  103.65269,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "14AI",
+        "name_en":  "pakchng 1-rthaifkhwamerwsung",
+        "plant_name":  "ปากช่อง 1-รถไฟความเร็วสูง",
+        "plant_name_cn":  "巴阿甲察่阿昂1-高铁厂",
+        "latitude":  14.766953697695,
+        "longitude":  101.459348034109,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "14AJ",
+        "name_en":  "pakchng 2-rthaifkhwamerwsung",
+        "plant_name":  "ปากช่อง 2-รถไฟความเร็วสูง",
+        "plant_name_cn":  "巴阿甲察่阿昂2-高铁厂",
+        "latitude":  14.766953697695,
+        "longitude":  101.459348034109,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "14AR",
+        "name_en":  "rthaifkhwamerwsungokhrach-banaihm 1",
+        "plant_name":  "รถไฟความเร็วสูงโคราช-บ้านใหม่ 1",
+        "plant_name_cn":  "高铁呵叻-巴้阿纳艾哈玛่1厂",
+        "latitude":  14.954154,
+        "longitude":  102.014356,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "14AS",
+        "name_en":  "rthaifkhwamerwsungokhrach-banaihm 2",
+        "plant_name":  "รถไฟความเร็วสูงโคราช-บ้านใหม่ 2",
+        "plant_name_cn":  "高铁呵叻-巴้阿纳艾哈玛่2厂",
+        "latitude":  14.954052,
+        "longitude":  102.014348,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "14AY",
+        "name_en":  "ratnwapi",
+        "plant_name":  "รัตนวาปี",
+        "plant_name_cn":  "拉安达纳瓦阿巴伊厂",
+        "latitude":  18.284734,
+        "longitude":  103.285326,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "14AZ",
+        "name_en":  "nkhrphnm 4",
+        "plant_name":  "นครพนม 4",
+        "plant_name_cn":  "那空帕农4厂",
+        "latitude":  17.498513,
+        "longitude":  104.709765,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "14B2",
+        "name_en":  "brbue",
+        "plant_name":  "บรบือ",
+        "plant_name_cn":  "巴拉巴厄阿厂",
+        "latitude":  16.051359,
+        "longitude":  103.094003,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "14B7",
+        "name_en":  "pakchng 3 -rthaifkhwamerwsung",
+        "plant_name":  "ปากช่อง 3 -รถไฟความเร็วสูง",
+        "plant_name_cn":  "巴阿甲察่阿昂3-高铁厂",
+        "latitude":  14.672855,
+        "longitude":  101.370086,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "14B9",
+        "name_en":  "rthaifkhwamerwsung-okhrach 2",
+        "plant_name":  "รถไฟความเร็วสูง-โคราช 2",
+        "plant_name_cn":  "高铁-呵叻2厂",
+        "latitude":  14.932821,
+        "longitude":  102.053126,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "14ฺB7",
+        "name_en":  "pakchng 3 -rthaifkhwamerwsung",
+        "plant_name":  "ปากช่อง 3 -รถไฟความเร็วสูง",
+        "plant_name_cn":  "巴阿甲察่阿昂3-高铁厂",
+        "latitude":  14.672855,
+        "longitude":  101.370086,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "15BB",
+        "name_en":  "nkhrsri-phaththnanth",
+        "plant_name":  "นครศรีฯ-พัทธนันท์",
+        "plant_name_cn":  "纳卡拉沙拉伊ฯ-帕安塔塔纳安纳塔์厂",
+        "latitude":  8.320116,
+        "longitude":  99.971722,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "15BF",
+        "name_en":  "echingthael 3",
+        "plant_name":  "เชิงทะเล 3",
+        "plant_name_cn":  "艾察伊昂塔ะ艾拉3厂",
+        "latitude":  7.96665,
+        "longitude":  98.345469,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "15BG",
+        "name_en":  "sakhu 2",
+        "plant_name":  "สาคู 2",
+        "plant_name_cn":  "沙阿卡乌2厂",
+        "latitude":  8.05529,
+        "longitude":  98.33199,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "15BJ",
+        "name_en":  "kata",
+        "plant_name":  "กะตะ",
+        "plant_name_cn":  "甲ะ达ะ厂",
+        "latitude":  7.816,
+        "longitude":  98.297,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "15BL",
+        "name_en":  "ethphkrasatri phuekt",
+        "plant_name":  "เทพกระษัตรี ภูเก็ต",
+        "plant_name_cn":  "艾塔帕甲拉ะ沙安达拉伊普吉厂",
+        "latitude":  8.0891379,
+        "longitude":  98.352077,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "15CE",
+        "name_en":  "thungsng 4",
+        "plant_name":  "ทุ่งสง 4",
+        "plant_name_cn":  "塔乌่昂沙昂4厂",
+        "latitude":  8.11113,
+        "longitude":  99.67003,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "15CF",
+        "name_en":  "phiramid-nkhrsrithrrmrach",
+        "plant_name":  "พีระมิด-นครศรีธรรมราช",
+        "plant_name_cn":  "帕伊拉ะ玛伊达-洛坤厂",
+        "latitude":  8.31769,
+        "longitude":  99.97216,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "15CP",
+        "name_en":  "siwil-sieka",
+        "plant_name":  "ซีวิล-สิเกา",
+        "plant_name_cn":  "萨伊瓦伊拉-沙伊艾甲阿厂",
+        "latitude":  7.557235,
+        "longitude":  99.444246,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "15CQ",
+        "name_en":  "phiramid-pakphnang",
+        "plant_name":  "พีระมิด-ปากพนัง",
+        "plant_name_cn":  "帕伊拉ะ玛伊达-巴阿甲帕纳安昂厂",
+        "latitude":  8.335459,
+        "longitude":  100.178829,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "15FC",
+        "name_en":  "khlngaenga 2",
+        "plant_name":  "คลองแงะ 2",
+        "plant_name_cn":  "卡拉阿昂艾昂ะ2厂",
+        "latitude":  6.753937,
+        "longitude":  100.453598,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "15GA",
+        "name_en":  "nbphitam-si.si.chakrkl",
+        "plant_name":  "นบพิตำ-ซี.ซี.จักรกล",
+        "plant_name_cn":  "纳巴帕伊达安-萨伊.萨伊.扎安甲拉甲拉厂",
+        "latitude":  8.694531,
+        "longitude":  99.792486,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "15GC",
+        "name_en":  "yala-phanthwiml",
+        "plant_name":  "ยะลา-พันธ์วิมล",
+        "plant_name_cn":  "也拉-帕安纳塔์瓦伊玛拉厂",
+        "latitude":  6.528611,
+        "longitude":  101.211337,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "15HC",
+        "name_en":  "surasdr-phraaesng",
+        "plant_name":  "สุราษฎร์-พระแสง",
+        "plant_name_cn":  "素叻-帕拉ะ艾沙昂厂",
+        "latitude":  8.3125,
+        "longitude":  99.1347,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "19A3",
+        "name_en":  "echiyngaihm-santhray 2",
+        "plant_name":  "เชียงใหม่-สันทราย 2",
+        "plant_name_cn":  "清迈-沙安纳塔拉阿亚2厂",
+        "latitude":  18.939878,
+        "longitude":  98.98439,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "19A9",
+        "name_en":  "nkhrswrrkh-chumaesng 2",
+        "plant_name":  "นครสวรรค์-ชุมแสง 2",
+        "plant_name_cn":  "那空沙旺-察乌玛艾沙昂2厂",
+        "latitude":  15.87492,
+        "longitude":  100.32241,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "19AI",
+        "name_en":  "echiyngray-nangael 2",
+        "plant_name":  "เชียงราย-นางแล 2",
+        "plant_name_cn":  "清莱-纳阿昂艾拉2厂",
+        "latitude":  20.015849,
+        "longitude":  99.869282,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "19AJ",
+        "name_en":  "nkhrswrrkh-chngaekh 2",
+        "plant_name":  "นครสวรรค์-ช่องแค 2",
+        "plant_name_cn":  "那空沙旺-察่阿昂艾卡2厂",
+        "latitude":  15.181135,
+        "longitude":  100.446794,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "19AK",
+        "name_en":  "echiyngray-thanghlwng 118(tn 1)",
+        "plant_name":  "เชียงราย-ทางหลวง 118(ตอน 1)",
+        "plant_name_cn":  "清莱-公路118(达阿纳1)厂",
+        "latitude":  19.716208,
+        "longitude":  99.600179,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "19AR",
+        "name_en":  "echiyngray-rimkk",
+        "plant_name":  "เชียงราย-ริมกก",
+        "plant_name_cn":  "清莱-拉伊玛甲甲厂",
+        "latitude":  19.933583,
+        "longitude":  99.812005,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "19AS",
+        "name_en":  "nkhrswrrkh-thanghlwng 117 (tn 1)",
+        "plant_name":  "นครสวรรค์-ทางหลวง 117 (ตอน 1)",
+        "plant_name_cn":  "那空沙旺-公路117(达阿纳1)厂",
+        "latitude":  15.86775,
+        "longitude":  100.117167,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "19AT",
+        "name_en":  "nkhrswrrkh-thanghlwng 117 (tn 2)",
+        "plant_name":  "นครสวรรค์-ทางหลวง 117 (ตอน 2)",
+        "plant_name_cn":  "那空沙旺-公路117(达阿纳2)厂",
+        "latitude":  15.964278,
+        "longitude":  100.119167,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "19BG",
+        "name_en":  "nan 3",
+        "plant_name":  "น่าน 3",
+        "plant_name_cn":  "难3厂",
+        "latitude":  18.8410989,
+        "longitude":  100.7383206,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "19CG",
+        "name_en":  "utrditth 2",
+        "plant_name":  "อุตรดิตถ์ 2",
+        "plant_name_cn":  "程逸2厂",
+        "latitude":  17.661677,
+        "longitude":  100.148474,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "19I1",
+        "name_en":  "echiyngaihm-dyhl 2",
+        "plant_name":  "เชียงใหม่-ดอยหล่อ 2",
+        "plant_name_cn":  "清迈-达阿亚哈拉่阿2厂",
+        "latitude":  18.522985,
+        "longitude":  98.853343,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "310C",
+        "name_en":  "rachwipha",
+        "plant_name":  "รัชวิภา",
+        "plant_name_cn":  "拉安察瓦伊帕阿厂",
+        "latitude":  13.832371,
+        "longitude":  100.551918,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "310L",
+        "name_en":  "rachwipha 2",
+        "plant_name":  "รัชวิภา 2",
+        "plant_name_cn":  "拉安察瓦伊帕阿2厂",
+        "latitude":  13.831954,
+        "longitude":  100.551746,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "310M",
+        "name_en":  "bangokhl 3",
+        "plant_name":  "บางโคล่ 3",
+        "plant_name_cn":  "巴阿昂奥卡拉่3厂",
+        "latitude":  13.6891,
+        "longitude":  100.506789,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "310T",
+        "name_en":  "phraram 9/5",
+        "plant_name":  "พระราม 9/5",
+        "plant_name_cn":  "帕拉ะ拉阿玛9/5厂",
+        "latitude":  13.754786,
+        "longitude":  100.592418,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "311A",
+        "name_en":  "chumphr",
+        "plant_name":  "ชุมพร",
+        "plant_name_cn":  "春蓬厂",
+        "latitude":  10.506598,
+        "longitude":  99.168525,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "311B",
+        "name_en":  "surasdrthani",
+        "plant_name":  "สุราษฎร์ธานี",
+        "plant_name_cn":  "素叻他尼厂",
+        "latitude":  9.091851,
+        "longitude":  99.325146,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "311C",
+        "name_en":  "phunphin",
+        "plant_name":  "พุนพิน",
+        "plant_name_cn":  "帕乌纳帕伊纳厂",
+        "latitude":  9.037726,
+        "longitude":  99.171278,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "311D",
+        "name_en":  "smuy",
+        "plant_name":  "สมุย",
+        "plant_name_cn":  "苏梅厂",
+        "latitude":  9.47066,
+        "longitude":  99.960139,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "311N",
+        "name_en":  "sriwichay",
+        "plant_name":  "ศรีวิชัย",
+        "plant_name_cn":  "沙拉伊瓦伊察安亚厂",
+        "latitude":  9.141207,
+        "longitude":  99.20972,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "311P",
+        "name_en":  "thakub",
+        "plant_name":  "ท่ากูบ",
+        "plant_name_cn":  "塔่阿甲乌巴厂",
+        "latitude":  9.075232,
+        "longitude":  99.300918,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "311R",
+        "name_en":  "surasdr-esathethirn",
+        "plant_name":  "สุราษฎร์-เซาท์เทิร์น",
+        "plant_name_cn":  "素叻-艾萨阿塔์艾塔伊拉์纳厂",
+        "latitude":  9.153477,
+        "longitude":  99.514346,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "311S",
+        "name_en":  "surasdr-bangaihy",
+        "plant_name":  "สุราษฎร์-บางใหญ่",
+        "plant_name_cn":  "素叻-巴阿昂艾哈亚่厂",
+        "latitude":  9.117351,
+        "longitude":  99.368147,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "311T",
+        "name_en":  "hlangswn",
+        "plant_name":  "หลังสวน",
+        "plant_name_cn":  "哈拉安昂沙瓦纳厂",
+        "latitude":  10.002342,
+        "longitude":  99.06468,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "312A",
+        "name_en":  "phuekt",
+        "plant_name":  "ภูเก็ต",
+        "plant_name_cn":  "普吉厂",
+        "latitude":  7.93465,
+        "longitude":  98.377756,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "312C",
+        "name_en":  "okhkkly",
+        "plant_name":  "โคกกลอย",
+        "plant_name_cn":  "奥卡甲甲拉阿亚厂",
+        "latitude":  8.228928,
+        "longitude":  98.297531,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "312G",
+        "name_en":  "krabi",
+        "plant_name":  "กระบี่",
+        "plant_name_cn":  "甲米厂",
+        "latitude":  8.137685,
+        "longitude":  98.862334,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "312I",
+        "name_en":  "phuekt 2",
+        "plant_name":  "ภูเก็ต 2",
+        "plant_name_cn":  "普吉2厂",
+        "latitude":  7.934526,
+        "longitude":  98.377848,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "312J",
+        "name_en":  "sakhu",
+        "plant_name":  "สาคู",
+        "plant_name_cn":  "沙阿卡乌厂",
+        "latitude":  8.05524,
+        "longitude":  98.331741,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "312K",
+        "name_en":  "kathu",
+        "plant_name":  "กะทู้",
+        "plant_name_cn":  "甲ะ塔乌้厂",
+        "latitude":  7.898055,
+        "longitude":  98.337368,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "312L",
+        "name_en":  "echingthael",
+        "plant_name":  "เชิงทะเล",
+        "plant_name_cn":  "艾察伊昂塔ะ艾拉厂",
+        "latitude":  7.984652,
+        "longitude":  98.321786,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "312M",
+        "name_en":  "awluek",
+        "plant_name":  "อ่าวลึก",
+        "plant_name_cn":  "阿่阿瓦拉厄甲厂",
+        "latitude":  8.42869,
+        "longitude":  98.77237,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "312Q",
+        "name_en":  "aehlmphanwa",
+        "plant_name":  "แหลมพันวา",
+        "plant_name_cn":  "艾哈拉玛帕安纳瓦阿厂",
+        "latitude":  7.840819,
+        "longitude":  98.393155,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "312S",
+        "name_en":  "chlng",
+        "plant_name":  "ฉลอง",
+        "plant_name_cn":  "察拉阿昂厂",
+        "latitude":  7.840795,
+        "longitude":  98.336124,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "312T",
+        "name_en":  "bangoch",
+        "plant_name":  "บางโจ",
+        "plant_name_cn":  "巴阿昂奥扎厂",
+        "latitude":  8.006127,
+        "longitude":  98.339151,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "312U",
+        "name_en":  "echingthael 2",
+        "plant_name":  "เชิงทะเล 2",
+        "plant_name_cn":  "艾察伊昂塔ะ艾拉2厂",
+        "latitude":  7.96664,
+        "longitude":  98.345957,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "313A",
+        "name_en":  "thungsng",
+        "plant_name":  "ทุ่งสง",
+        "plant_name_cn":  "塔乌่昂沙昂厂",
+        "latitude":  8.110831,
+        "longitude":  99.670423,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "313B",
+        "name_en":  "nkhrsrithrrmrach",
+        "plant_name":  "นครศรีธรรมราช",
+        "plant_name_cn":  "洛坤厂",
+        "latitude":  8.464782,
+        "longitude":  99.922036,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "313C",
+        "name_en":  "nkhrsrithrrmrach 2",
+        "plant_name":  "นครศรีธรรมราช 2",
+        "plant_name_cn":  "洛坤2厂",
+        "latitude":  8.399894,
+        "longitude":  100.013885,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "313E",
+        "name_en":  "trang",
+        "plant_name":  "ตรัง",
+        "plant_name_cn":  "董里厂",
+        "latitude":  7.564039,
+        "longitude":  99.674908,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "313H",
+        "name_en":  "phathlung",
+        "plant_name":  "พัทลุง",
+        "plant_name_cn":  "博他仑厂",
+        "latitude":  7.544582,
+        "longitude":  100.040325,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "313I",
+        "name_en":  "khwnkhnun",
+        "plant_name":  "ควนขนุน",
+        "plant_name_cn":  "卡瓦纳卡纳乌纳厂",
+        "latitude":  7.752665,
+        "longitude":  99.975675,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "313M",
+        "name_en":  "sritrang 2",
+        "plant_name":  "ศรีตรัง 2",
+        "plant_name_cn":  "沙拉伊董里2厂",
+        "latitude":  7.54984,
+        "longitude":  99.532187,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "313N",
+        "name_en":  "thasala 2",
+        "plant_name":  "ท่าศาลา 2",
+        "plant_name_cn":  "塔่阿沙阿拉阿2厂",
+        "latitude":  8.666183,
+        "longitude":  99.911639,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "3141",
+        "name_en":  "ekhaaihy",
+        "plant_name":  "เขาใหญ่",
+        "plant_name_cn":  "艾卡阿艾哈亚่厂",
+        "latitude":  14.52961,
+        "longitude":  101.468614,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "3144",
+        "name_en":  "chayphumi 2",
+        "plant_name":  "ชัยภูมิ 2",
+        "plant_name_cn":  "猜也奔2厂",
+        "latitude":  15.772312,
+        "longitude":  102.030428,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "3145",
+        "name_en":  "swangwirawngs",
+        "plant_name":  "สว่างวีระวงศ์",
+        "plant_name_cn":  "沙瓦่阿昂瓦伊拉ะ瓦昂沙์厂",
+        "latitude":  15.238878,
+        "longitude":  105.130449,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "3146",
+        "name_en":  "edchudm 2",
+        "plant_name":  "เดชอุดม 2",
+        "plant_name_cn":  "艾达察阿乌达玛2厂",
+        "latitude":  14.955331,
+        "longitude":  105.004429,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "3147",
+        "name_en":  "khnaekn-phrhmnimit",
+        "plant_name":  "ขอนแก่น-พรหมนิมิต",
+        "plant_name_cn":  "孔敬-帕拉哈玛纳伊玛伊达厂",
+        "latitude":  16.432975,
+        "longitude":  102.917012,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "3148",
+        "name_en":  "sungenin 3",
+        "plant_name":  "สูงเนิน 3",
+        "plant_name_cn":  "沙乌昂艾纳伊纳3厂",
+        "latitude":  14.895361,
+        "longitude":  101.924502,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "3149",
+        "name_en":  "oksumphisay",
+        "plant_name":  "โกสุมพิสัย",
+        "plant_name_cn":  "奥甲沙乌玛帕伊沙安亚厂",
+        "latitude":  16.253515,
+        "longitude":  103.0313,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "314A",
+        "name_en":  "sngkhla",
+        "plant_name":  "สงขลา",
+        "plant_name_cn":  "宋卡厂",
+        "latitude":  7.122764,
+        "longitude":  100.585404,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "314B",
+        "name_en":  "hadaihy 2",
+        "plant_name":  "หาดใหญ่ 2",
+        "plant_name_cn":  "合艾2厂",
+        "latitude":  6.98666,
+        "longitude":  100.437699,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "314O",
+        "name_en":  "punnkanth",
+        "plant_name":  "ปุณณกัณฑ์",
+        "plant_name_cn":  "巴乌纳纳甲安纳塔์厂",
+        "latitude":  7.02165,
+        "longitude":  100.581576,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "314R",
+        "name_en":  "sngkhla-khunthng",
+        "plant_name":  "สงขลา-ขุนทอง",
+        "plant_name_cn":  "宋卡-卡乌纳塔阿昂厂",
+        "latitude":  7.04745,
+        "longitude":  100.654012,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "314S",
+        "name_en":  "ratphumi 2",
+        "plant_name":  "รัตภูมิ 2",
+        "plant_name_cn":  "拉安达帕乌玛伊2厂",
+        "latitude":  7.131196,
+        "longitude":  100.311491,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "314U",
+        "name_en":  "krabiny",
+        "plant_name":  "กระบี่น้อย",
+        "plant_name_cn":  "甲米纳้阿亚厂",
+        "latitude":  8.139339,
+        "longitude":  98.96081,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "314V",
+        "name_en":  "hadaihy 4",
+        "plant_name":  "หาดใหญ่ 4",
+        "plant_name_cn":  "合艾4厂",
+        "latitude":  6.987205,
+        "longitude":  100.437484,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "319A",
+        "name_en":  "ladkrabang",
+        "plant_name":  "ลาดกระบัง",
+        "plant_name_cn":  "拉阿达甲拉ะ巴安昂厂",
+        "latitude":  13.860414,
+        "longitude":  100.731196,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "319B",
+        "name_en":  "hnngaekh",
+        "plant_name":  "หนองแค",
+        "plant_name_cn":  "哈纳阿昂艾卡厂",
+        "latitude":  14.388468,
+        "longitude":  100.831227,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "319C",
+        "name_en":  "phuenechiyngaihm",
+        "plant_name":  "พื้นเชียงใหม่",
+        "plant_name_cn":  "帕厄้纳清迈厂",
+        "latitude":  18.669041434425,
+        "longitude":  99.0509212017,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31AC",
+        "name_en":  "khlng 7",
+        "plant_name":  "คลอง 7",
+        "plant_name_cn":  "卡拉阿昂7厂",
+        "latitude":  14.020552,
+        "longitude":  100.752725,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31AD",
+        "name_en":  "samokhk",
+        "plant_name":  "สามโคก",
+        "plant_name_cn":  "沙阿玛奥卡甲厂",
+        "latitude":  14.062592,
+        "longitude":  100.529923,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31AE",
+        "name_en":  "echiyngrakaihy",
+        "plant_name":  "เชียงรากใหญ่",
+        "plant_name_cn":  "艾察伊亚昂拉阿甲艾哈亚่厂",
+        "latitude":  14.07184,
+        "longitude":  100.568836,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31AG",
+        "name_en":  "ratnathiebsr",
+        "plant_name":  "รัตนาธิเบศร์",
+        "plant_name_cn":  "拉安达纳阿塔伊艾巴沙拉์厂",
+        "latitude":  13.881023,
+        "longitude":  100.434706,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31AI",
+        "name_en":  "bangsn",
+        "plant_name":  "บางซ่อน",
+        "plant_name_cn":  "巴阿昂萨่阿纳厂",
+        "latitude":  13.816817,
+        "longitude":  100.513535,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31AJ",
+        "name_en":  "pakekrd",
+        "plant_name":  "ปากเกร็ด",
+        "plant_name_cn":  "巴阿甲艾甲拉็达厂",
+        "latitude":  13.908826,
+        "longitude":  100.507766,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31AO",
+        "name_en":  "phraram 9/3 ( aechngsm OH ephuekhay )",
+        "plant_name":  "พระราม 9/3 (  แจ้งซ่อม OH เพื่อขาย )",
+        "plant_name_cn":  "帕拉ะ拉阿玛9/3(艾扎้昂萨่阿玛OH艾帕厄่阿卡阿亚)厂",
+        "latitude":  13.744446,
+        "longitude":  100.638855,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31AP",
+        "name_en":  "tlingchan",
+        "plant_name":  "ตลิ่งชัน",
+        "plant_name_cn":  "达拉伊่昂察安纳厂",
+        "latitude":  13.784923,
+        "longitude":  100.455202,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31AQ",
+        "name_en":  "bangkhunethiyn 2",
+        "plant_name":  "บางขุนเทียน 2",
+        "plant_name_cn":  "巴阿昂卡乌纳艾塔伊亚纳2厂",
+        "latitude":  13.666446,
+        "longitude":  100.429553,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31AR",
+        "name_en":  "bangaekh",
+        "plant_name":  "บางแค",
+        "plant_name_cn":  "巴阿昂艾卡厂",
+        "latitude":  13.710482,
+        "longitude":  100.380597,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31AS",
+        "name_en":  "bangplakd 3",
+        "plant_name":  "บางปลากด 3",
+        "plant_name_cn":  "巴阿昂巴拉阿甲达3厂",
+        "latitude":  13.600289,
+        "longitude":  100.556297,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31AT",
+        "name_en":  "bangmd",
+        "plant_name":  "บางมด",
+        "plant_name_cn":  "巴阿昂玛达厂",
+        "latitude":  13.626053,
+        "longitude":  100.508404,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31AU",
+        "name_en":  "rasdrburna 2",
+        "plant_name":  "ราษฎร์บูรณะ 2",
+        "plant_name_cn":  "拉阿沙达拉์巴乌拉纳ะ2厂",
+        "latitude":  13.677463,
+        "longitude":  100.511719,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31AW",
+        "name_en":  "ekchay",
+        "plant_name":  "เอกชัย",
+        "plant_name_cn":  "艾阿甲察安亚厂",
+        "latitude":  13.652346,
+        "longitude":  100.390181,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31AY",
+        "name_en":  "khlng 9",
+        "plant_name":  "คลอง 9",
+        "plant_name_cn":  "卡拉阿昂9厂",
+        "latitude":  13.95942,
+        "longitude":  100.794995,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31B1",
+        "name_en":  "phrapraaedng",
+        "plant_name":  "พระประแดง",
+        "plant_name_cn":  "帕拉ะ巴拉ะ艾达昂厂",
+        "latitude":  13.651842,
+        "longitude":  100.554726,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31B2",
+        "name_en":  "minburi",
+        "plant_name":  "มีนบุรี",
+        "plant_name_cn":  "玛伊纳巴乌拉伊厂",
+        "latitude":  13.815788,
+        "longitude":  100.73865,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31B9",
+        "name_en":  "phraram 5",
+        "plant_name":  "พระราม 5",
+        "plant_name_cn":  "帕拉ะ拉阿玛5厂",
+        "latitude":  13.821872,
+        "longitude":  100.447895,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31BA",
+        "name_en":  "bnaik",
+        "plant_name":  "บ่อนไก่",
+        "plant_name_cn":  "巴่阿纳艾甲่厂",
+        "latitude":  13.725335,
+        "longitude":  100.549629,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31BB",
+        "name_en":  "bangchak",
+        "plant_name":  "บางจาก",
+        "plant_name_cn":  "巴阿昂扎阿甲厂",
+        "latitude":  13.6977858,
+        "longitude":  100.589922,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31BE",
+        "name_en":  "khlngtan 2",
+        "plant_name":  "คลองตัน 2",
+        "plant_name_cn":  "卡拉阿昂达安纳2厂",
+        "latitude":  13.74429,
+        "longitude":  100.593071,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31BG",
+        "name_en":  "phraram 9/2",
+        "plant_name":  "พระราม 9/2",
+        "plant_name_cn":  "帕拉ะ拉阿玛9/2厂",
+        "latitude":  13.754619,
+        "longitude":  100.592668,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31BJ",
+        "name_en":  "dnemueng",
+        "plant_name":  "ดอนเมือง",
+        "plant_name_cn":  "廊曼厂",
+        "latitude":  13.943948,
+        "longitude":  100.619642,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31BK",
+        "name_en":  "raminthra 2",
+        "plant_name":  "รามอินทรา 2",
+        "plant_name_cn":  "拉阿玛阿伊纳塔拉阿2厂",
+        "latitude":  13.83357,
+        "longitude":  100.67126,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31BL",
+        "name_en":  "ladplaekha",
+        "plant_name":  "ลาดปลาเค้า",
+        "plant_name_cn":  "拉阿达巴拉阿艾卡้阿厂",
+        "latitude":  13.844719,
+        "longitude":  100.602394,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31BM",
+        "name_en":  "chlngkrung",
+        "plant_name":  "ฉลองกรุง",
+        "plant_name_cn":  "察拉阿昂甲拉乌昂厂",
+        "latitude":  13.789395,
+        "longitude":  100.819463,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31BN",
+        "name_en":  "hnngchk",
+        "plant_name":  "หนองจอก",
+        "plant_name_cn":  "哈纳阿昂扎阿甲厂",
+        "latitude":  13.856976,
+        "longitude":  100.835349,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31BP",
+        "name_en":  "bangna km.4",
+        "plant_name":  "บางนา กม.4",
+        "plant_name_cn":  "邦纳甲玛.4厂",
+        "latitude":  13.653784,
+        "longitude":  100.647467,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31BQ",
+        "name_en":  "bangpu",
+        "plant_name":  "บางปู",
+        "plant_name_cn":  "邦普厂",
+        "latitude":  13.528993,
+        "longitude":  100.655714,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31BR",
+        "name_en":  "bangphli 2",
+        "plant_name":  "บางพลี 2",
+        "plant_name_cn":  "邦披2厂",
+        "latitude":  13.632362,
+        "longitude":  100.770676,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31BU",
+        "name_en":  "bangb",
+        "plant_name":  "บางบ่อ",
+        "plant_name_cn":  "巴阿昂巴่阿厂",
+        "latitude":  13.572039,
+        "longitude":  100.830367,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31BW",
+        "name_en":  "paknam",
+        "plant_name":  "ปากน้ำ",
+        "plant_name_cn":  "巴阿甲纳้安厂",
+        "latitude":  13.614861,
+        "longitude":  100.591672,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31C2",
+        "name_en":  "khlng 1",
+        "plant_name":  "คลอง 1",
+        "plant_name_cn":  "卡拉阿昂1厂",
+        "latitude":  13.981348,
+        "longitude":  100.63294,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31CC",
+        "name_en":  "saaekngam 2",
+        "plant_name":  "สะแกงาม 2",
+        "plant_name_cn":  "沙ะ艾甲昂阿玛2厂",
+        "latitude":  13.627745,
+        "longitude":  100.436039,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31CE",
+        "name_en":  "sukhswasdi",
+        "plant_name":  "สุขสวัสดิ์",
+        "plant_name_cn":  "沙乌卡沙瓦安沙达伊์厂",
+        "latitude":  13.62776,
+        "longitude":  100.536134,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31CG",
+        "name_en":  "bangbawthng",
+        "plant_name":  "บางบัวทอง",
+        "plant_name_cn":  "巴阿昂巴安瓦塔阿昂厂",
+        "latitude":  13.946881,
+        "longitude":  100.450464,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31CL",
+        "name_en":  "bangokhl",
+        "plant_name":  "บางโคล่",
+        "plant_name_cn":  "巴阿昂奥卡拉่厂",
+        "latitude":  13.689009,
+        "longitude":  100.507067,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31CQ",
+        "name_en":  "aephrksa",
+        "plant_name":  "แพรกษา",
+        "plant_name_cn":  "艾帕拉甲沙阿厂",
+        "latitude":  13.576042,
+        "longitude":  100.651364,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31CT",
+        "name_en":  "rangsit",
+        "plant_name":  "รังสิต",
+        "plant_name_cn":  "兰实厂",
+        "latitude":  14.04472,
+        "longitude":  100.621029,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31D4",
+        "name_en":  "pthumthani 2",
+        "plant_name":  "ปทุมธานี 2",
+        "plant_name_cn":  "巴吞他尼2厂",
+        "latitude":  13.966104,
+        "longitude":  100.54111,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31DM",
+        "name_en":  "sayaihm",
+        "plant_name":  "สายไหม",
+        "plant_name_cn":  "赛迈厂",
+        "latitude":  13.922822,
+        "longitude":  100.688203,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31DT",
+        "name_en":  "aekhray 2",
+        "plant_name":  "แคราย 2",
+        "plant_name_cn":  "艾卡拉阿亚2厂",
+        "latitude":  13.868125,
+        "longitude":  100.491562,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31DU",
+        "name_en":  "thaphra",
+        "plant_name":  "ท่าพระ",
+        "plant_name_cn":  "塔่阿帕拉ะ厂",
+        "latitude":  13.713818,
+        "longitude":  100.464964,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31EM",
+        "name_en":  "bangsn 3",
+        "plant_name":  "บางซ่อน 3",
+        "plant_name_cn":  "巴阿昂萨่阿纳3厂",
+        "latitude":  13.816958,
+        "longitude":  100.513648,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31EN",
+        "name_en":  "kingaekw",
+        "plant_name":  "กิ่งแก้ว",
+        "plant_name_cn":  "甲伊่昂艾甲้瓦厂",
+        "latitude":  13.681861,
+        "longitude":  100.716391,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31EO",
+        "name_en":  "ladhlumaekw",
+        "plant_name":  "ลาดหลุมแก้ว",
+        "plant_name_cn":  "拉阿达哈拉乌玛艾甲้瓦厂",
+        "latitude":  14.053812,
+        "longitude":  100.455114,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31EP",
+        "name_en":  "aithrny",
+        "plant_name":  "ไทรน้อย",
+        "plant_name_cn":  "艾塔拉纳้阿亚厂",
+        "latitude":  13.957027,
+        "longitude":  100.36488,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31ES",
+        "name_en":  "khlnghlwng",
+        "plant_name":  "คลองหลวง",
+        "plant_name_cn":  "卡拉阿昂哈拉瓦昂厂",
+        "latitude":  14.132596,
+        "longitude":  100.633136,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31ET",
+        "name_en":  "rmekla",
+        "plant_name":  "ร่มเกล้า",
+        "plant_name_cn":  "拉่玛艾甲拉้阿厂",
+        "latitude":  13.738089,
+        "longitude":  100.745378,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31EV",
+        "name_en":  "bangchak 2",
+        "plant_name":  "บางจาก 2",
+        "plant_name_cn":  "巴阿昂扎阿甲2厂",
+        "latitude":  13.69754,
+        "longitude":  100.591162,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31EZ",
+        "name_en":  "chayphฤks",
+        "plant_name":  "ชัยพฤกษ์",
+        "plant_name_cn":  "察安亚帕ฤ甲沙์厂",
+        "latitude":  13.922294,
+        "longitude":  100.4844,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31FA",
+        "name_en":  "sraaekw",
+        "plant_name":  "สระแก้ว",
+        "plant_name_cn":  "沙缴厂",
+        "latitude":  13.778823,
+        "longitude":  102.185686,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31FE",
+        "name_en":  "kbinthrburi",
+        "plant_name":  "กบินทร์บุรี",
+        "plant_name_cn":  "甲巴伊纳塔拉์巴乌拉伊厂",
+        "latitude":  13.98501,
+        "longitude":  101.774876,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31FI",
+        "name_en":  "aekngkhy",
+        "plant_name":  "แก่งคอย",
+        "plant_name_cn":  "艾甲่昂卡阿亚厂",
+        "latitude":  14.634637,
+        "longitude":  101.040853,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31FJ",
+        "name_en":  "hnngaekh 2",
+        "plant_name":  "หนองแค 2",
+        "plant_name_cn":  "哈纳阿昂艾卡2厂",
+        "latitude":  14.356702,
+        "longitude":  100.874717,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31FK",
+        "name_en":  "lphburi",
+        "plant_name":  "ลพบุรี",
+        "plant_name_cn":  "华富里厂",
+        "latitude":  14.791123,
+        "longitude":  100.711489,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31FM",
+        "name_en":  "ekhawng 4",
+        "plant_name":  "เขาวง 4",
+        "plant_name_cn":  "艾卡阿瓦昂4厂",
+        "latitude":  14.680745,
+        "longitude":  100.856241,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31FR",
+        "name_en":  "raypraeths",
+        "plant_name":  "อรัญประเทศ",
+        "plant_name_cn":  "阿拉安亚巴拉ะ艾塔沙厂",
+        "latitude":  13.728325,
+        "longitude":  102.482857,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31FS",
+        "name_en":  "srimhaophthi",
+        "plant_name":  "ศรีมหาโพธิ",
+        "plant_name_cn":  "沙拉伊玛哈阿奥帕塔伊厂",
+        "latitude":  13.869859,
+        "longitude":  101.55907,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31FT",
+        "name_en":  "prachinburi 2",
+        "plant_name":  "ปราจีนบุรี 2",
+        "plant_name_cn":  "巴真2厂",
+        "latitude":  14.10848,
+        "longitude":  101.371673,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31FW",
+        "name_en":  "hnngaekh-raphiphathn",
+        "plant_name":  "หนองแค-ระพีพัฒน์",
+        "plant_name_cn":  "哈纳阿昂艾卡-拉ะ帕伊帕安塔纳์厂",
+        "latitude":  14.360305,
+        "longitude":  100.829198,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31FX",
+        "name_en":  "ngkhraks 2",
+        "plant_name":  "องครักษ์ 2",
+        "plant_name_cn":  "阿昂卡拉安甲沙์2厂",
+        "latitude":  14.143155,
+        "longitude":  100.988078,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31G2",
+        "name_en":  "nikhmehmrach-bwin",
+        "plant_name":  "นิคมเหมราช-บ่อวิน",
+        "plant_name_cn":  "工业区艾哈玛拉阿察-巴่阿瓦伊纳厂",
+        "latitude":  13.075587,
+        "longitude":  101.117429,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31G3",
+        "name_en":  "sriracha M1",
+        "plant_name":  "ศรีราชา M1",
+        "plant_name_cn":  "沙拉伊拉阿察阿M1厂",
+        "latitude":  13.155132,
+        "longitude":  100.9838,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31G4",
+        "name_en":  "srimhaophthi 3",
+        "plant_name":  "ศรีมหาโพธิ 3",
+        "plant_name_cn":  "沙拉伊玛哈阿奥帕塔伊3厂",
+        "latitude":  13.869988,
+        "longitude":  101.559102,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31G7",
+        "name_en":  "aehlmchbang-thungkrad 1",
+        "plant_name":  "แหลมฉบัง-ทุ่งกราด 1",
+        "plant_name_cn":  "林查班-塔乌่昂甲拉阿达1厂",
+        "latitude":  13.064624,
+        "longitude":  100.931632,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31GA",
+        "name_en":  "chaechingethra 2",
+        "plant_name":  "ฉะเชิงเทรา 2",
+        "plant_name_cn":  "北柳2厂",
+        "latitude":  13.721732,
+        "longitude":  101.044312,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31GC",
+        "name_en":  "ektewy 1",
+        "plant_name":  "เกตเวย์ 1",
+        "plant_name_cn":  "艾甲达艾瓦亚์1厂",
+        "latitude":  13.618676,
+        "longitude":  101.309597,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31GD",
+        "name_en":  "bangwaw",
+        "plant_name":  "บางวัว",
+        "plant_name_cn":  "巴阿昂瓦安瓦厂",
+        "latitude":  13.543612,
+        "longitude":  100.965293,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31GE",
+        "name_en":  "phathya",
+        "plant_name":  "พัทยา",
+        "plant_name_cn":  "芭提雅厂",
+        "latitude":  12.959166,
+        "longitude":  100.90768,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31GF",
+        "name_en":  "phanthng 1",
+        "plant_name":  "พานทอง 1",
+        "plant_name_cn":  "帕阿纳塔阿昂1厂",
+        "latitude":  13.452852,
+        "longitude":  101.00641,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31GG",
+        "name_en":  "sriracha 2",
+        "plant_name":  "ศรีราชา 2",
+        "plant_name_cn":  "沙拉伊拉阿察阿2厂",
+        "latitude":  13.155147,
+        "longitude":  100.983816,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31GH",
+        "name_en":  "aehlmchbang 1",
+        "plant_name":  "แหลมฉบัง 1",
+        "plant_name_cn":  "林查班1厂",
+        "latitude":  13.081854,
+        "longitude":  100.921223,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31GI",
+        "name_en":  "chlburikhirinkhr",
+        "plant_name":  "ชลบุรีคีรีนคร",
+        "plant_name_cn":  "春武里卡伊拉伊纳卡拉厂",
+        "latitude":  13.314397,
+        "longitude":  100.978126,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31GJ",
+        "name_en":  "chmethiyn 1",
+        "plant_name":  "จอมเทียน 1",
+        "plant_name_cn":  "扎阿玛艾塔伊亚纳1厂",
+        "latitude":  12.895133,
+        "longitude":  100.907668,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31GM",
+        "name_en":  "mtankhr",
+        "plant_name":  "อมตะนคร",
+        "plant_name_cn":  "安美德纳卡拉厂",
+        "latitude":  13.416923,
+        "longitude":  101.069491,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31GN",
+        "name_en":  "banophthi",
+        "plant_name":  "บ้านโพธิ์",
+        "plant_name_cn":  "巴้阿纳奥帕塔伊์厂",
+        "latitude":  13.619487,
+        "longitude":  101.031134,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31GO",
+        "name_en":  "chmethiyn 2",
+        "plant_name":  "จอมเทียน 2",
+        "plant_name_cn":  "扎阿玛艾塔伊亚纳2厂",
+        "latitude":  12.895206,
+        "longitude":  100.907621,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31GQ",
+        "name_en":  "phanthng 4",
+        "plant_name":  "พานทอง 4",
+        "plant_name_cn":  "帕阿纳塔阿昂4厂",
+        "latitude":  13.452098,
+        "longitude":  101.059615,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31GY",
+        "name_en":  "aehlmchbang-thungkrad 2",
+        "plant_name":  "แหลมฉบัง-ทุ่งกราด 2",
+        "plant_name_cn":  "林查班-塔乌่昂甲拉阿达2厂",
+        "latitude":  13.0648,
+        "longitude":  100.931476,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31HA",
+        "name_en":  "mabtaphud 3",
+        "plant_name":  "มาบตาพุด 3",
+        "plant_name_cn":  "玛达普3厂",
+        "latitude":  12.73889,
+        "longitude":  101.150092,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31HC",
+        "name_en":  "chanthburi",
+        "plant_name":  "จันทบุรี",
+        "plant_name_cn":  "尖竹汶厂",
+        "latitude":  12.625008,
+        "longitude":  102.056441,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31HH",
+        "name_en":  "rayng",
+        "plant_name":  "ระยอง",
+        "plant_name_cn":  "罗勇厂",
+        "latitude":  12.644927,
+        "longitude":  101.356506,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31HM",
+        "name_en":  "mabtaphud 4",
+        "plant_name":  "มาบตาพุด 4",
+        "plant_name_cn":  "玛达普4厂",
+        "latitude":  12.73889,
+        "longitude":  101.150107,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31HR",
+        "name_en":  "mabtaphud 6",
+        "plant_name":  "มาบตาพุด 6",
+        "plant_name_cn":  "玛达普6厂",
+        "latitude":  12.715555,
+        "longitude":  101.124521,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31HS",
+        "name_en":  "nikhmehmrach",
+        "plant_name":  "นิคมเหมราช",
+        "plant_name_cn":  "工业区艾哈玛拉阿察厂",
+        "latitude":  13.073213,
+        "longitude":  101.172031,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31HU",
+        "name_en":  "nikhmmtasiti",
+        "plant_name":  "นิคมอมตะซิตี้",
+        "plant_name_cn":  "工业区安美德萨伊达伊้厂",
+        "latitude":  12.956544,
+        "longitude":  101.103573,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31HV",
+        "name_en":  "nikhmekhruesiemntaithy 2",
+        "plant_name":  "นิคมเครือซิเมนต์ไทย 2",
+        "plant_name_cn":  "工业区艾卡拉厄阿萨伊艾玛纳达์艾塔亚2厂",
+        "latitude":  12.832716,
+        "longitude":  101.237539,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31HW",
+        "name_en":  "nikhmpinthng",
+        "plant_name":  "นิคมปิ่นทอง",
+        "plant_name_cn":  "工业区巴伊่纳塔阿昂厂",
+        "latitude":  13.091869,
+        "longitude":  101.080577,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31IM",
+        "name_en":  "phrhmni",
+        "plant_name":  "พรหมณี",
+        "plant_name_cn":  "帕拉哈玛纳伊厂",
+        "latitude":  14.236343,
+        "longitude":  101.15955,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31IN",
+        "name_en":  "prachinburi-rbemueng",
+        "plant_name":  "ปราจีนบุรี-รอบเมือง",
+        "plant_name_cn":  "巴真-拉阿巴艾玛厄阿昂厂",
+        "latitude":  14.038777,
+        "longitude":  101.371658,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31K3",
+        "name_en":  "aichoy",
+        "plant_name":  "ไชโย",
+        "plant_name_cn":  "艾察奥亚厂",
+        "latitude":  14.717889,
+        "longitude":  100.45737,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31K4",
+        "name_en":  "phachi 3 (pidchawkhraw)",
+        "plant_name":  "ภาชี 3  (ปิดชั่วคราว)",
+        "plant_name_cn":  "帕阿察伊3(巴伊达察安่瓦卡拉阿瓦)厂",
+        "latitude":  14.40711,
+        "longitude":  100.69799,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31K9",
+        "name_en":  "pakth",
+        "plant_name":  "ปากท่อ",
+        "plant_name_cn":  "巴阿甲塔่阿厂",
+        "latitude":  13.366338,
+        "longitude":  99.792091,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31KA",
+        "name_en":  "singhburi",
+        "plant_name":  "สิงห์บุรี",
+        "plant_name_cn":  "信武里厂",
+        "latitude":  14.992288,
+        "longitude":  100.352923,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31KD",
+        "name_en":  "orchna",
+        "plant_name":  "โรจนะ",
+        "plant_name_cn":  "罗勇那厂",
+        "latitude":  14.325337,
+        "longitude":  100.645433,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31KG",
+        "name_en":  "esna",
+        "plant_name":  "เสนา",
+        "plant_name_cn":  "艾沙纳阿厂",
+        "latitude":  14.306547,
+        "longitude":  100.42244,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31KJ",
+        "name_en":  "chaynath",
+        "plant_name":  "ชัยนาท",
+        "plant_name_cn":  "猜纳厂",
+        "latitude":  15.238351,
+        "longitude":  100.218629,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31KK",
+        "name_en":  "angthng",
+        "plant_name":  "อ่างทอง",
+        "plant_name_cn":  "红统厂",
+        "latitude":  14.603291,
+        "longitude":  100.403727,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31KO",
+        "name_en":  "suphrrnburi 2",
+        "plant_name":  "สุพรรณบุรี 2",
+        "plant_name_cn":  "素攀武里2厂",
+        "latitude":  14.461158,
+        "longitude":  100.169075,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31KQ",
+        "name_en":  "wangny",
+        "plant_name":  "วังน้อย",
+        "plant_name_cn":  "瓦安昂纳้阿亚厂",
+        "latitude":  14.224871,
+        "longitude":  100.704197,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31KR",
+        "name_en":  "orchna-uthay",
+        "plant_name":  "โรจนะ-อุทัย",
+        "plant_name_cn":  "罗勇那-阿乌塔安亚厂",
+        "latitude":  14.368852,
+        "longitude":  100.675282,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31KS",
+        "name_en":  "shratnnkhr",
+        "plant_name":  "สหรัตนนคร",
+        "plant_name_cn":  "沙哈拉安达纳纳卡拉厂",
+        "latitude":  14.456992,
+        "longitude":  100.612111,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31KU",
+        "name_en":  "ladbawhlwng 2",
+        "plant_name":  "ลาดบัวหลวง 2",
+        "plant_name_cn":  "拉阿达巴安瓦哈拉瓦昂2厂",
+        "latitude":  14.183623,
+        "longitude":  100.29286,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31KY",
+        "name_en":  "monrmy 2",
+        "plant_name":  "มโนรมย์ 2",
+        "plant_name_cn":  "玛奥纳拉玛亚์2厂",
+        "latitude":  15.311457,
+        "longitude":  100.103547,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31KZ",
+        "name_en":  "paomk",
+        "plant_name":  "ป่าโมก",
+        "plant_name_cn":  "巴่阿奥玛甲厂",
+        "latitude":  14.473446,
+        "longitude":  100.532514,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31L9",
+        "name_en":  "nangrng 2",
+        "plant_name":  "นางรอง 2",
+        "plant_name_cn":  "纳阿昂拉阿昂2厂",
+        "latitude":  14.606743,
+        "longitude":  102.775773,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31LC",
+        "name_en":  "ophtharam",
+        "plant_name":  "โพธาราม",
+        "plant_name_cn":  "奥帕塔阿拉阿玛厂",
+        "latitude":  13.66917,
+        "longitude":  99.868842,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31LF",
+        "name_en":  "phuththmnthlsay 7",
+        "plant_name":  "พุทธมณฑลสาย 7",
+        "plant_name_cn":  "帕乌塔塔玛纳塔拉沙阿亚7厂",
+        "latitude":  13.767535,
+        "longitude":  100.230291,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31LG",
+        "name_en":  "banopng",
+        "plant_name":  "บ้านโป่ง",
+        "plant_name_cn":  "巴้阿纳奥巴่昂厂",
+        "latitude":  13.797656,
+        "longitude":  99.850506,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31LL",
+        "name_en":  "nkhrpthm 2",
+        "plant_name":  "นครปฐม 2",
+        "plant_name_cn":  "佛统2厂",
+        "latitude":  13.799965,
+        "longitude":  100.027988,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31LM",
+        "name_en":  "orngnganbangeln (bangphasi)",
+        "plant_name":  "โรงงานบางเลน (บางภาษี)",
+        "plant_name_cn":  "工厂巴阿昂艾拉纳(巴阿昂帕阿沙伊)",
+        "latitude":  14.008907,
+        "longitude":  100.247836,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31LN",
+        "name_en":  "salaya 2",
+        "plant_name":  "ศาลายา 2",
+        "plant_name_cn":  "沙阿拉阿亚阿2厂",
+        "latitude":  13.854569,
+        "longitude":  100.300444,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31LP",
+        "name_en":  "kamaephngaesn 2",
+        "plant_name":  "กำแพงแสน 2",
+        "plant_name_cn":  "甲安艾帕昂艾沙纳2厂",
+        "latitude":  14.025593,
+        "longitude":  100.035994,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31LU",
+        "name_en":  "dntum",
+        "plant_name":  "ดอนตูม",
+        "plant_name_cn":  "达阿纳达乌玛厂",
+        "latitude":  13.97241,
+        "longitude":  100.113616,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31LV",
+        "name_en":  "phrapraothn",
+        "plant_name":  "พระประโทน",
+        "plant_name_cn":  "帕拉ะ巴拉ะ奥塔纳厂",
+        "latitude":  13.804119,
+        "longitude":  100.093495,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31M1",
+        "name_en":  "pakthngchay 2",
+        "plant_name":  "ปักธงชัย 2",
+        "plant_name_cn":  "巴安甲塔昂察安亚2厂",
+        "latitude":  14.763821,
+        "longitude":  102.011199,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31MA",
+        "name_en":  "mny",
+        "plant_name":  "อ้อมน้อย",
+        "plant_name_cn":  "阿้阿玛纳้阿亚厂",
+        "latitude":  13.70201,
+        "longitude":  100.286094,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31MB",
+        "name_en":  "smuthrsakhr",
+        "plant_name":  "สมุทรสาคร",
+        "plant_name_cn":  "龙仔厝厂",
+        "latitude":  13.57322,
+        "longitude":  100.291753,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31MC",
+        "name_en":  "ekhayy",
+        "plant_name":  "เขาย้อย",
+        "plant_name_cn":  "艾卡阿亚้阿亚厂",
+        "latitude":  13.242172,
+        "longitude":  99.820124,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31ME",
+        "name_en":  "khlangsmuthrsakhr",
+        "plant_name":  "คลังสมุทรสาคร",
+        "plant_name_cn":  "卡拉安昂龙仔厝厂",
+        "latitude":  13.532039,
+        "longitude":  100.244918,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31MF",
+        "name_en":  "ephchrburi",
+        "plant_name":  "เพชรบุรี",
+        "plant_name_cn":  "碧武里厂",
+        "latitude":  13.057175,
+        "longitude":  99.945538,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31MG",
+        "name_en":  "smuthrsngkhram",
+        "plant_name":  "สมุทรสงคราม",
+        "plant_name_cn":  "夜功厂",
+        "latitude":  13.369723,
+        "longitude":  99.9576,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31MH",
+        "name_en":  "okhkkham",
+        "plant_name":  "โคกขาม",
+        "plant_name_cn":  "奥卡甲卡阿玛厂",
+        "latitude":  13.560087,
+        "longitude":  100.3144,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31MI",
+        "name_en":  "chaam 2 (pidchawkhraw)",
+        "plant_name":  "ชะอำ 2 (ปิดชั่วคราว)",
+        "plant_name_cn":  "察ะ阿安2(巴伊达察安่瓦卡拉阿瓦)厂",
+        "latitude":  12.778534,
+        "longitude":  99.968012,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31ML",
+        "name_en":  "chaam 3",
+        "plant_name":  "ชะอำ 3",
+        "plant_name_cn":  "察ะ阿安3厂",
+        "latitude":  12.660312,
+        "longitude":  99.951219,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31MO",
+        "name_en":  "okhkkham 2",
+        "plant_name":  "โคกขาม 2",
+        "plant_name_cn":  "奥卡甲卡阿玛2厂",
+        "latitude":  13.583993,
+        "longitude":  100.368526,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31MR",
+        "name_en":  "ekhawangrachburi",
+        "plant_name":  "เขาวังราชบุรี",
+        "plant_name_cn":  "艾卡阿瓦安昂叻丕厂",
+        "latitude":  13.524377,
+        "longitude":  99.773241,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31MV",
+        "name_en":  "pranburi",
+        "plant_name":  "ปราณบุรี",
+        "plant_name_cn":  "巴拉阿纳巴乌拉伊厂",
+        "latitude":  12.389912,
+        "longitude":  99.922136,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31MW",
+        "name_en":  "kahlng",
+        "plant_name":  "กาหลง",
+        "plant_name_cn":  "甲阿哈拉昂厂",
+        "latitude":  13.482941,
+        "longitude":  100.11788,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31MX",
+        "name_en":  "banaephw 2",
+        "plant_name":  "บ้านแพ้ว 2",
+        "plant_name_cn":  "巴้阿纳艾帕้瓦2厂",
+        "latitude":  13.554117,
+        "longitude":  100.133246,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31MY",
+        "name_en":  "hawhin 2",
+        "plant_name":  "หัวหิน 2",
+        "plant_name_cn":  "哈安瓦哈伊纳2厂",
+        "latitude":  12.50453,
+        "longitude":  99.910379,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31MZ",
+        "name_en":  "krathumaebn",
+        "plant_name":  "กระทุ่มแบน",
+        "plant_name_cn":  "甲拉ะ塔乌่玛艾巴纳厂",
+        "latitude":  13.631595,
+        "longitude":  100.301497,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31N3",
+        "name_en":  "bangsn 4",
+        "plant_name":  "บางซ่อน 4",
+        "plant_name_cn":  "巴阿昂萨่阿纳4厂",
+        "latitude":  13.816799,
+        "longitude":  100.513382,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31N6",
+        "name_en":  "rasdrburna 4",
+        "plant_name":  "ราษฎร์บูรณะ 4",
+        "plant_name_cn":  "拉阿沙达拉์巴乌拉纳ะ4厂",
+        "latitude":  13.67743,
+        "longitude":  100.511603,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31N8",
+        "name_en":  "phraram 4/3",
+        "plant_name":  "พระราม 4/3",
+        "plant_name_cn":  "帕拉ะ拉阿玛4/3厂",
+        "latitude":  13.725212,
+        "longitude":  100.549574,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31N9",
+        "name_en":  "phraram 4/2",
+        "plant_name":  "พระราม 4/2",
+        "plant_name_cn":  "帕拉ะ拉阿玛4/2厂",
+        "latitude":  13.725564,
+        "longitude":  100.549573,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31NG",
+        "name_en":  "nwnkhr 4",
+        "plant_name":  "นวนคร 4",
+        "plant_name_cn":  "纳瓦纳卡拉4厂",
+        "latitude":  14.128272,
+        "longitude":  100.591193,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31NN",
+        "name_en":  "kalpphฤks",
+        "plant_name":  "กัลปพฤกษ์",
+        "plant_name_cn":  "甲安拉巴帕ฤ甲沙์厂",
+        "latitude":  13.69454,
+        "longitude":  100.439292,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31NQ",
+        "name_en":  "tlingchan 3",
+        "plant_name":  "ตลิ่งชัน 3",
+        "plant_name_cn":  "达拉伊่昂察安纳3厂",
+        "latitude":  13.784692,
+        "longitude":  100.455162,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31NR",
+        "name_en":  "bangna km.23",
+        "plant_name":  "บางนา กม.23",
+        "plant_name_cn":  "邦纳甲玛.23厂",
+        "latitude":  13.597843,
+        "longitude":  100.805221,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31NS",
+        "name_en":  "mhaswasdi 2",
+        "plant_name":  "มหาสวัสดิ์ 2",
+        "plant_name_cn":  "玛哈阿沙瓦安沙达伊์2厂",
+        "latitude":  13.807732,
+        "longitude":  100.358298,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31NU",
+        "name_en":  "hlaksi",
+        "plant_name":  "หลักสี่",
+        "plant_name_cn":  "哈拉安甲沙伊่厂",
+        "latitude":  13.895844,
+        "longitude":  100.586479,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31NV",
+        "name_en":  "bangsriemueng",
+        "plant_name":  "บางศรีเมือง",
+        "plant_name_cn":  "巴阿昂沙拉伊艾玛厄阿昂厂",
+        "latitude":  13.846338,
+        "longitude":  100.464741,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31NZ",
+        "name_en":  "nwminthr 2",
+        "plant_name":  "นวมินทร์ 2",
+        "plant_name_cn":  "纳瓦玛伊纳塔拉์2厂",
+        "latitude":  13.827084,
+        "longitude":  100.630447,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31O5",
+        "name_en":  "sikhiw 2",
+        "plant_name":  "สีคิ้ว 2",
+        "plant_name_cn":  "沙伊卡伊้瓦2厂",
+        "latitude":  14.888713,
+        "longitude":  101.63929,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31P4",
+        "name_en":  "banaiph 2",
+        "plant_name":  "บ้านไผ่ 2",
+        "plant_name_cn":  "巴้阿纳艾帕่2厂",
+        "latitude":  16.09264,
+        "longitude":  102.730671,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31PA",
+        "name_en":  "okhrach",
+        "plant_name":  "โคราช",
+        "plant_name_cn":  "呵叻厂",
+        "latitude":  14.93311,
+        "longitude":  102.05381,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31PB",
+        "name_en":  "okhrach-banophthi",
+        "plant_name":  "โคราช-บ้านโพธิ์",
+        "plant_name_cn":  "呵叻-巴้阿纳奥帕塔伊์厂",
+        "latitude":  15.059589,
+        "longitude":  102.187206,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31PD",
+        "name_en":  "okhrach-hawthael 2",
+        "plant_name":  "โคราช-หัวทะเล 2",
+        "plant_name_cn":  "呵叻-哈安瓦塔ะ艾拉2厂",
+        "latitude":  14.950441,
+        "longitude":  102.142514,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31PI",
+        "name_en":  "buriramy",
+        "plant_name":  "บุรีรัมย์",
+        "plant_name_cn":  "武里南厂",
+        "latitude":  14.974895,
+        "longitude":  103.124629,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31PY",
+        "name_en":  "buriramy 2",
+        "plant_name":  "บุรีรัมย์ 2",
+        "plant_name_cn":  "武里南2厂",
+        "latitude":  14.961401,
+        "longitude":  103.030752,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31PZ",
+        "name_en":  "mukdahar 3",
+        "plant_name":  "มุกดาหาร 3",
+        "plant_name_cn":  "穆达汉3厂",
+        "latitude":  16.552972,
+        "longitude":  104.648265,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31QA",
+        "name_en":  "khnaekn",
+        "plant_name":  "ขอนแก่น",
+        "plant_name_cn":  "孔敬厂",
+        "latitude":  16.386431,
+        "longitude":  102.827211,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31QB",
+        "name_en":  "khnaekn-maliwaly",
+        "plant_name":  "ขอนแก่น-มะลิวัลย์",
+        "plant_name_cn":  "孔敬-玛ะ拉伊瓦安拉亚์厂",
+        "latitude":  16.449803,
+        "longitude":  102.74458,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31QC",
+        "name_en":  "khnaekn-bansamray",
+        "plant_name":  "ขอนแก่น-บ้านสำราญ",
+        "plant_name_cn":  "孔敬-巴้阿纳沙安拉阿亚厂",
+        "latitude":  16.51505,
+        "longitude":  102.834243,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31QE",
+        "name_en":  "mhasarkham",
+        "plant_name":  "มหาสารคาม",
+        "plant_name_cn":  "玛哈沙拉堪厂",
+        "latitude":  16.16246,
+        "longitude":  103.34478,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31QF",
+        "name_en":  "udr-ophsri",
+        "plant_name":  "อุดร-โพศรี",
+        "plant_name_cn":  "乌隆-奥帕沙拉伊厂",
+        "latitude":  17.427358,
+        "longitude":  102.765496,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31QP",
+        "name_en":  "kumphwapi",
+        "plant_name":  "กุมภวาปี",
+        "plant_name_cn":  "甲乌玛帕瓦阿巴伊厂",
+        "latitude":  17.142036,
+        "longitude":  102.948624,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31QQ",
+        "name_en":  "mhasarkham 2",
+        "plant_name":  "มหาสารคาม 2",
+        "plant_name_cn":  "玛哈沙拉堪2厂",
+        "latitude":  16.2551,
+        "longitude":  103.27704,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31QR",
+        "name_en":  "namphng-finikhs",
+        "plant_name":  "น้ำพอง-ฟินิคซ",
+        "plant_name_cn":  "纳้安帕阿昂-发伊纳伊卡萨厂",
+        "latitude":  16.685067,
+        "longitude":  102.757441,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31QV",
+        "name_en":  "mhasarkham 3",
+        "plant_name":  "มหาสารคาม 3",
+        "plant_name_cn":  "玛哈沙拉堪3厂",
+        "latitude":  16.190354,
+        "longitude":  103.228134,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31QW",
+        "name_en":  "kuchinarayn 2",
+        "plant_name":  "กุฉินารายณ์ 2",
+        "plant_name_cn":  "甲乌察伊纳阿拉阿亚纳์2厂",
+        "latitude":  16.487312,
+        "longitude":  104.052164,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31RA",
+        "name_en":  "ubl-warin",
+        "plant_name":  "อุบล-วาริน",
+        "plant_name_cn":  "乌汶-瓦阿拉伊纳厂",
+        "latitude":  15.178114,
+        "longitude":  104.842132,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31RB",
+        "name_en":  "ubl-airny",
+        "plant_name":  "อุบล-ไร่น้อย",
+        "plant_name_cn":  "乌汶-艾拉่纳้阿亚厂",
+        "latitude":  15.321295,
+        "longitude":  104.904613,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31RC",
+        "name_en":  "ubl-hnngkhn",
+        "plant_name":  "อุบล-หนองขอน",
+        "plant_name_cn":  "乌汶-哈纳阿昂卡阿纳厂",
+        "latitude":  15.315176,
+        "longitude":  104.743343,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31RH",
+        "name_en":  "sklnkhr",
+        "plant_name":  "สกลนคร",
+        "plant_name_cn":  "沙功那空厂",
+        "latitude":  17.163872,
+        "longitude":  104.103078,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31RJ",
+        "name_en":  "ryed",
+        "plant_name":  "ร้อยเอ็ด",
+        "plant_name_cn":  "黎逸厂",
+        "latitude":  16.080811,
+        "longitude":  103.582139,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31RL",
+        "name_en":  "mukdahar 2",
+        "plant_name":  "มุกดาหาร 2",
+        "plant_name_cn":  "穆达汉2厂",
+        "latitude":  16.638293,
+        "longitude":  104.703918,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31RU",
+        "name_en":  "hnngki",
+        "plant_name":  "หนองกี่",
+        "plant_name_cn":  "哈纳阿昂甲伊่厂",
+        "latitude":  14.702742,
+        "longitude":  102.48096,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31RV",
+        "name_en":  "stuek",
+        "plant_name":  "สตึก",
+        "plant_name_cn":  "沙达厄甲厂",
+        "latitude":  15.271813,
+        "longitude":  103.26914,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31RW",
+        "name_en":  "krasang",
+        "plant_name":  "กระสัง",
+        "plant_name_cn":  "甲拉ะ沙安昂厂",
+        "latitude":  14.921018,
+        "longitude":  103.295806,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31U1",
+        "name_en":  "echiyngaihm-aemoch 2",
+        "plant_name":  "เชียงใหม่-แม่โจ้ 2",
+        "plant_name_cn":  "清迈-艾玛่奥扎้2厂",
+        "latitude":  18.861127,
+        "longitude":  99.016867,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31U3",
+        "name_en":  "lampang-aechhm",
+        "plant_name":  "ลำปาง-แจ้ห่ม",
+        "plant_name_cn":  "南邦-艾扎้哈่玛厂",
+        "latitude":  18.365277,
+        "longitude":  99.552111,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31U4",
+        "name_en":  "phisnuolk-aesngdaw",
+        "plant_name":  "พิษณุโลก-แสงดาว",
+        "plant_name_cn":  "彭世洛-艾沙昂达阿瓦厂",
+        "latitude":  16.887034,
+        "longitude":  100.251004,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31U7",
+        "name_en":  "aephr-ednchay",
+        "plant_name":  "แพร่-เด่นชัย",
+        "plant_name_cn":  "帕-艾达่纳察安亚厂",
+        "latitude":  17.992209,
+        "longitude":  100.097183,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31U9",
+        "name_en":  "lamphun-pasang",
+        "plant_name":  "ลำพูน-ป่าซาง",
+        "plant_name_cn":  "南奔-巴่阿萨阿昂厂",
+        "latitude":  18.457768,
+        "longitude":  98.911601,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31UA",
+        "name_en":  "echiyngaihm 2",
+        "plant_name":  "เชียงใหม่ 2",
+        "plant_name_cn":  "清迈2厂",
+        "latitude":  18.763269,
+        "longitude":  99.027248,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31UB",
+        "name_en":  "echiyngaihm-hangdng",
+        "plant_name":  "เชียงใหม่-หางดง",
+        "plant_name_cn":  "清迈-哈阿昂达昂厂",
+        "latitude":  18.735074,
+        "longitude":  98.93844,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31UC",
+        "name_en":  "lamphun",
+        "plant_name":  "ลำพูน",
+        "plant_name_cn":  "南奔厂",
+        "latitude":  18.533103,
+        "longitude":  99.078046,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31UD",
+        "name_en":  "echiyngaihm-aemoch",
+        "plant_name":  "เชียงใหม่-แม่โจ้",
+        "plant_name_cn":  "清迈-艾玛่奥扎้厂",
+        "latitude":  18.861118,
+        "longitude":  99.016409,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31UG",
+        "name_en":  "phaeya",
+        "plant_name":  "พะเยา",
+        "plant_name_cn":  "帕尧厂",
+        "latitude":  19.154999,
+        "longitude":  99.952343,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31UI",
+        "name_en":  "echiyngray",
+        "plant_name":  "เชียงราย",
+        "plant_name_cn":  "清莱厂",
+        "latitude":  19.856494,
+        "longitude":  99.819013,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31UN",
+        "name_en":  "aemrim-aemaetng",
+        "plant_name":  "แม่ริม-แม่แตง",
+        "plant_name_cn":  "艾玛่拉伊玛-艾玛่艾达昂厂",
+        "latitude":  19.072496,
+        "longitude":  98.934887,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31UO",
+        "name_en":  "echiyngaihm-sankamaephng",
+        "plant_name":  "เชียงใหม่-สันกำแพง",
+        "plant_name_cn":  "清迈-沙安纳甲安艾帕昂厂",
+        "latitude":  18.725798,
+        "longitude":  99.148821,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31UR",
+        "name_en":  "echiyngaihm-sanpuely",
+        "plant_name":  "เชียงใหม่-สันปูเลย",
+        "plant_name_cn":  "清迈-沙安纳巴乌黎厂",
+        "latitude":  18.795413,
+        "longitude":  99.065903,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31UY",
+        "name_en":  "lamphun-nikhmshphathn",
+        "plant_name":  "ลำพูน-นิคมสหพัฒน์",
+        "plant_name_cn":  "南奔-工业区沙哈帕安塔纳์厂",
+        "latitude":  18.529998,
+        "longitude":  99.017854,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31V1",
+        "name_en":  "okhrach-eliyngemueng",
+        "plant_name":  "โคราช-เลี่ยงเมือง",
+        "plant_name_cn":  "呵叻-艾拉伊่亚昂艾玛厄阿昂厂",
+        "latitude":  15.039309,
+        "longitude":  102.093416,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31V2",
+        "name_en":  "ochkhchay 3",
+        "plant_name":  "โชคชัย 3",
+        "plant_name_cn":  "奥察卡察安亚3厂",
+        "latitude":  14.758373,
+        "longitude":  102.267219,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31V3",
+        "name_en":  "khrburi",
+        "plant_name":  "ครบุรี",
+        "plant_name_cn":  "卡拉巴乌拉伊厂",
+        "latitude":  14.561443,
+        "longitude":  102.199491,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31V5",
+        "name_en":  "danekwiyn",
+        "plant_name":  "ด่านเกวียน",
+        "plant_name_cn":  "达่阿纳艾甲瓦伊亚纳厂",
+        "latitude":  14.8098,
+        "longitude":  102.17458,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31V6",
+        "name_en":  "ekhaaihy-hnngnamaedng",
+        "plant_name":  "เขาใหญ่-หนองน้ำแดง",
+        "plant_name_cn":  "艾卡阿艾哈亚่-哈纳阿昂纳้安艾达昂厂",
+        "latitude":  14.585408,
+        "longitude":  101.353945,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31V7",
+        "name_en":  "emuengely",
+        "plant_name":  "เมืองเลย",
+        "plant_name_cn":  "艾玛厄阿昂黎厂",
+        "latitude":  17.395337,
+        "longitude":  101.735788,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31VA",
+        "name_en":  "phisnuolk",
+        "plant_name":  "พิษณุโลก",
+        "plant_name_cn":  "彭世洛厂",
+        "latitude":  16.803427,
+        "longitude":  100.215345,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31VB",
+        "name_en":  "lampang",
+        "plant_name":  "ลำปาง",
+        "plant_name_cn":  "南邦厂",
+        "latitude":  18.259564,
+        "longitude":  99.465567,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31VE",
+        "name_en":  "utrditth",
+        "plant_name":  "อุตรดิตถ์",
+        "plant_name_cn":  "程逸厂",
+        "latitude":  17.570987,
+        "longitude":  100.151515,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31VM",
+        "name_en":  "wadobsth",
+        "plant_name":  "วัดโบสถ์",
+        "plant_name_cn":  "瓦安达奥巴沙塔์厂",
+        "latitude":  16.96572,
+        "longitude":  100.33758,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31VP",
+        "name_en":  "srisachnalay-dngkhu",
+        "plant_name":  "ศรีสัชนาลัย-ดงคู่",
+        "plant_name_cn":  "沙拉伊沙安察纳阿拉安亚-达昂卡乌่厂",
+        "latitude":  17.546743,
+        "longitude":  99.848013,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31VQ",
+        "name_en":  "swrrkholk-baepdry",
+        "plant_name":  "สวรรคโลก-บ่อแปดร้อย",
+        "plant_name_cn":  "沙瓦拉拉卡奥拉甲-巴่阿艾巴达拉้阿亚厂",
+        "latitude":  17.352384,
+        "longitude":  99.830065,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31VR",
+        "name_en":  "suokhthay 3",
+        "plant_name":  "สุโขทัย 3",
+        "plant_name_cn":  "素可泰3厂",
+        "latitude":  16.992542,
+        "longitude":  99.79197,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31VV",
+        "name_en":  "phisnuolk-m.nerswr",
+        "plant_name":  "พิษณุโลก-ม.นเรศวร",
+        "plant_name_cn":  "彭世洛-玛.纳艾拉沙瓦拉厂",
+        "latitude":  16.746865,
+        "longitude":  100.238643,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31VW",
+        "name_en":  "echiyngray-ewiyngchay",
+        "plant_name":  "เชียงราย-เวียงชัย",
+        "plant_name_cn":  "清莱-艾瓦伊亚昂察安亚厂",
+        "latitude":  19.906014,
+        "longitude":  99.899808,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31VY",
+        "name_en":  "phisnuolk-wangthng",
+        "plant_name":  "พิษณุโลก-วังทอง",
+        "plant_name_cn":  "彭世洛-瓦安昂塔阿昂厂",
+        "latitude":  16.761709,
+        "longitude":  100.432845,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31WA",
+        "name_en":  "nkhrswrrkh",
+        "plant_name":  "นครสวรรค์",
+        "plant_name_cn":  "那空沙旺厂",
+        "latitude":  15.745809,
+        "longitude":  100.121367,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31WC",
+        "name_en":  "uthaythani",
+        "plant_name":  "อุทัยธานี",
+        "plant_name_cn":  "乌泰他尼厂",
+        "latitude":  15.434769,
+        "longitude":  100.024999,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31WD",
+        "name_en":  "nkhrswrrkh-hnngkrd",
+        "plant_name":  "นครสวรรค์-หนองกรด",
+        "plant_name_cn":  "那空沙旺-哈纳阿昂甲拉达厂",
+        "latitude":  15.732402,
+        "longitude":  100.029117,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31WE",
+        "name_en":  "kamaephngephchr",
+        "plant_name":  "กำแพงเพชร",
+        "plant_name_cn":  "甘烹碧厂",
+        "latitude":  16.475969,
+        "longitude":  99.575936,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31WF",
+        "name_en":  "tak",
+        "plant_name":  "ตาก",
+        "plant_name_cn":  "达厂",
+        "latitude":  16.835885,
+        "longitude":  99.117698,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31WG",
+        "name_en":  "phichitr",
+        "plant_name":  "พิจิตร",
+        "plant_name_cn":  "披集厂",
+        "latitude":  16.382212,
+        "longitude":  100.374405,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31WI",
+        "name_en":  "phyuhakhiri",
+        "plant_name":  "พยุหะคีรี",
+        "plant_name_cn":  "帕亚乌哈ะ卡伊拉伊厂",
+        "latitude":  15.399064,
+        "longitude":  100.147927,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31WJ",
+        "name_en":  "nkhrswrrkh-buengbraephd",
+        "plant_name":  "นครสวรรค์-บึงบอระเพ็ด",
+        "plant_name_cn":  "那空沙旺-巴厄昂巴阿拉ะ艾帕็达厂",
+        "latitude":  15.659968,
+        "longitude":  100.189422,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31WV",
+        "name_en":  "echiyngaihm-sanphiesue",
+        "plant_name":  "เชียงใหม่-สันผีเสื้อ",
+        "plant_name_cn":  "清迈-沙安纳帕伊艾沙厄้阿厂",
+        "latitude":  18.859045,
+        "longitude":  98.997779,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "31WZ",
+        "name_en":  "nkhrswrrkh-samaeykeliyngemueng",
+        "plant_name":  "นครสวรรค์-สามแยกเลี่ยงเมือง",
+        "plant_name_cn":  "那空沙旺-沙阿玛艾亚甲艾拉伊่亚昂艾玛厄阿昂厂",
+        "latitude":  15.620233,
+        "longitude":  100.11746,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "ZZ1A",
+        "name_en":  "srisurasdr",
+        "plant_name":  "ศรีสุราษฎร์",
+        "plant_name_cn":  "沙拉伊素叻厂",
+        "latitude":  9.164045,
+        "longitude":  99.373314,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "ZZ3D",
+        "name_en":  "aemkhri-phathlung",
+        "plant_name":  "แม่ขรี-พัทลุง",
+        "plant_name_cn":  "艾玛่卡拉伊-博他仑厂",
+        "latitude":  7.367672,
+        "longitude":  100.118955,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "ZZ4B",
+        "name_en":  "sngkhla-nathwi",
+        "plant_name":  "สงขลา-นาทวี",
+        "plant_name_cn":  "宋卡-纳阿塔瓦伊厂",
+        "latitude":  6.774045,
+        "longitude":  100.703992,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "ZZ92",
+        "name_en":  "RMC, Post Tension and Precast sarphi",
+        "plant_name":  "RMC, Post Tension and Precast สารภี",
+        "plant_name_cn":  "RMC,PostTensionandPrecast沙阿拉帕伊厂",
+        "latitude":  18.669289,
+        "longitude":  99.049119,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "ZZA5",
+        "name_en":  "bangsn 5",
+        "plant_name":  "บางซ่อน 5",
+        "plant_name_cn":  "巴阿昂萨่阿纳5厂",
+        "latitude":  13.816835,
+        "longitude":  100.513416,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "ZZA7",
+        "name_en":  "khlngtan 3",
+        "plant_name":  "คลองตัน 3",
+        "plant_name_cn":  "卡拉阿昂达安纳3厂",
+        "latitude":  13.744247,
+        "longitude":  100.593105,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "ZZA9",
+        "name_en":  "phraram 4/4",
+        "plant_name":  "พระราม 4/4",
+        "plant_name_cn":  "帕拉ะ拉阿玛4/4厂",
+        "latitude":  13.725969,
+        "longitude":  100.548958,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "ZZAG",
+        "name_en":  "banghlwng",
+        "plant_name":  "บางหลวง",
+        "plant_name_cn":  "巴阿昂哈拉瓦昂厂",
+        "latitude":  14.024483,
+        "longitude":  100.461606,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "ZZAK",
+        "name_en":  "bangna km.8-ram2",
+        "plant_name":  "บางนา กม.8-ราม2",
+        "plant_name_cn":  "邦纳甲玛.8-拉阿玛2厂",
+        "latitude":  13.661146,
+        "longitude":  100.682204,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "ZZAQ",
+        "name_en":  "bangna km.4/2",
+        "plant_name":  "บางนา กม.4/2",
+        "plant_name_cn":  "邦纳甲玛.4/2厂",
+        "latitude":  13.653715,
+        "longitude":  100.647741,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "ZZEZ",
+        "name_en":  "HUB PFA phrapraaedng",
+        "plant_name":  "HUB PFA พระประแดง",
+        "plant_name_cn":  "HUBPFA帕拉ะ巴拉ะ艾达昂厂",
+        "latitude":  13.653205,
+        "longitude":  100.554744,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "ZZFB",
+        "name_en":  "echlimphraekiyrti",
+        "plant_name":  "เฉลิมพระเกียรติ",
+        "plant_name_cn":  "艾察拉伊玛帕拉ะ艾甲伊亚拉达伊厂",
+        "latitude":  14.736048,
+        "longitude":  100.911928,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "ZZFD",
+        "name_en":  "mitrphaph 35",
+        "plant_name":  "มิตรภาพ 35",
+        "plant_name_cn":  "玛伊达拉帕阿帕35厂",
+        "latitude":  14.619229,
+        "longitude":  101.189492,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "ZZFK",
+        "name_en":  "nadi 1",
+        "plant_name":  "นาดี 1",
+        "plant_name_cn":  "纳阿达伊1厂",
+        "latitude":  14.088532,
+        "longitude":  101.847792,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "ZZFM",
+        "name_en":  "bwin Mobile",
+        "plant_name":  "บ่อวิน Mobile",
+        "plant_name_cn":  "巴่阿瓦伊纳Mobile厂",
+        "latitude":  13.075402,
+        "longitude":  101.116879,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "ZZK2",
+        "name_en":  "wangtaku",
+        "plant_name":  "วังตะกู",
+        "plant_name_cn":  "瓦安昂达ะ甲乌厂",
+        "latitude":  13.871064,
+        "longitude":  100.004269,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "ZZK3",
+        "name_en":  "phachi - ORU",
+        "plant_name":  "ภาชี - ORU",
+        "plant_name_cn":  "帕阿察伊-ORU厂",
+        "latitude":  14.403661,
+        "longitude":  100.69925,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "ZZK4",
+        "name_en":  "shratnkhr 2",
+        "plant_name":  "สหรัตนคร 2",
+        "plant_name_cn":  "沙哈拉安达纳卡拉2厂",
+        "latitude":  14.458206,
+        "longitude":  100.62828,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "ZZK5",
+        "name_en":  "bangpain",
+        "plant_name":  "บางปะอิน",
+        "plant_name_cn":  "巴阿昂巴ะ阿伊纳厂",
+        "latitude":  14.165737,
+        "longitude":  100.561258,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "ZZPB",
+        "name_en":  "onnsmburn 2",
+        "plant_name":  "โนนสมบูรณ์ 2",
+        "plant_name_cn":  "奥纳纳沙玛巴乌拉纳์2厂",
+        "latitude":  16.274911,
+        "longitude":  102.781898,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "ZZPM",
+        "name_en":  "ephchrmatukhla",
+        "plant_name":  "เพชรมาตุคลา",
+        "plant_name_cn":  "艾帕察拉玛阿达乌卡拉阿厂",
+        "latitude":  14.9925,
+        "longitude":  102.203389,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "ZZPP",
+        "name_en":  "wangnamekhiyw-udmthraphy",
+        "plant_name":  "วังน้ำเขียว-อุดมทรัพย์",
+        "plant_name_cn":  "瓦安昂纳้安艾卡伊亚瓦-阿乌达玛塔拉安帕亚์厂",
+        "latitude":  14.515725,
+        "longitude":  101.959144,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "ZZQJ",
+        "name_en":  "praokhnchay 2",
+        "plant_name":  "ประโคนชัย 2",
+        "plant_name_cn":  "巴拉ะ奥卡纳察安亚2厂",
+        "latitude":  14.60515,
+        "longitude":  103.129415,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "ZZUB",
+        "name_en":  "lamphun-banthi",
+        "plant_name":  "ลำพูน-บ้านธิ",
+        "plant_name_cn":  "南奔-巴้阿纳塔伊厂",
+        "latitude":  18.62341,
+        "longitude":  99.074272,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "ZZUC",
+        "name_en":  "phaeya 2",
+        "plant_name":  "พะเยา 2",
+        "plant_name_cn":  "帕尧2厂",
+        "latitude":  19.080232,
+        "longitude":  99.87246,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "ZZUG",
+        "name_en":  "echiyngaihm-dysaekd",
+        "plant_name":  "เชียงใหม่-ดอยสะเก็ด",
+        "plant_name_cn":  "清迈-达阿亚沙ะ艾甲็达厂",
+        "latitude":  18.886481,
+        "longitude":  99.158271,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "ZZUH",
+        "name_en":  "suokhthay-srisamorng",
+        "plant_name":  "สุโขทัย-ศรีสำโรง",
+        "plant_name_cn":  "素可泰-沙拉伊沙安奥拉昂厂",
+        "latitude":  17.187567,
+        "longitude":  99.875353,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "ZZUJ",
+        "name_en":  "echiyngaihm-dyhl",
+        "plant_name":  "เชียงใหม่-ดอยหล่อ",
+        "plant_name_cn":  "清迈-达阿亚哈拉่阿厂",
+        "latitude":  18.524032,
+        "longitude":  98.853204,
+        "plant_type":  "CPAC"
+    },
+    {
+        "plant_no":  "ZZUQ",
+        "name_en":  "echiyngaihm-santhray",
+        "plant_name":  "เชียงใหม่-สันทราย",
+        "plant_name_cn":  "清迈-沙安纳塔拉阿亚厂",
+        "latitude":  18.939774,
+        "longitude":  98.984127,
+        "plant_type":  "CPAC"
+    }
+]

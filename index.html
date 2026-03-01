@@ -1,0 +1,1129 @@
+﻿<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CPAC Raw Material Procurement & Benchmarking</title>
+  <link rel="stylesheet" href="./iSupplyTheme.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .hidden-view { display: none; }
+    /* Compact top area */
+    .page-toolbar { margin-bottom: 8px; }
+    .pills { gap: 8px; }
+    .pill { padding: 8px 14px; font-size: 15px; }
+
+    .topbar .brand-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: 8px;
+      min-width: 0;
+      font-size: 12px;
+      color: var(--text-3);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .topbar .brand-meta strong {
+      color: var(--text-2);
+      font-weight: 700;
+    }
+
+    .filter-sticky { position: sticky; top: calc(var(--topbar-h) + 8px); z-index: 20; }
+    .filter-panel { display: flex; flex-direction: column; overflow: visible; }
+    .filter-panel .card-header { flex: 0 0 auto; }
+    .filter-panel .card-body { flex: 1 1 auto; display: flex; flex-direction: column; padding: 10px 12px; }
+    .filter-panel.collapsed .card-body { display: none; }
+    .filter-panel.collapsed .card-header { border-bottom: 0; }
+    .filter-panel .filter-title-wrap { display: flex; flex-direction: column; gap: 2px; }
+    .filter-panel .filter-toggle-btn {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: 10px;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-2);
+      cursor: pointer;
+    }
+    .filter-panel .filter-toggle-btn:hover { background: #f8fafc; }
+    .filter-panel .filter-grid-scroll { flex: 1 1 auto; overflow: visible; padding-right: 0; }
+    .filter-panel .filter-grid { gap: 10px; }
+    .filter-panel .filter-actions { flex: 0 0 auto; margin-top: 8px; padding-top: 8px; }
+    .filter-panel .select[multiple] { min-height: 64px; }
+    .filter-panel .plant-multi { position: relative; }
+    .filter-panel .plant-multi-trigger {
+      width: 100%;
+      min-height: 38px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface);
+      padding: 8px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+    .filter-panel .plant-multi-trigger:focus-visible {
+      outline: 2px solid #60a5fa;
+      outline-offset: 1px;
+    }
+    .filter-panel .plant-multi-text {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .filter-panel .plant-multi-panel {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      right: 0;
+      max-height: 220px;
+      overflow: auto;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface);
+      box-shadow: 0 12px 24px rgba(2, 6, 23, 0.12);
+      z-index: 35;
+      display: none;
+    }
+    .filter-panel .plant-multi-panel.open { display: block; }
+    .filter-panel .plant-multi-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      cursor: pointer;
+      font-size: 13px;
+      line-height: 1.3;
+    }
+    .filter-panel .plant-multi-option:hover { background: #f8fafc; }
+    .filter-panel .plant-multi-option.all { border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--surface); }
+    .filter-panel .plant-select-hidden { display: none; }
+    .table-scroll { max-height: 420px; overflow: auto; }
+    #benchmarkMap { min-height: 320px; border-radius: 12px; background: #f8fafc; border: 1px solid #e5e7eb; }
+    @media (max-width: 1200px) {
+      .topbar .brand-meta .desc { display: none; }
+    }
+    @media (max-width: 900px) {
+      .topbar .brand-meta { display: none; }
+    }
+    @media (max-width: 1024px) {
+      .table-scroll { max-height: 300px; }
+    }
+  </style>
+</head>
+<body>
+<div class="app-shell">
+<header class="topbar">
+  <div class="left">
+    <button id="menuOpen" class="burger" type="button">|||</button>
+    <div class="brand">
+      <img src="./cpac-logo.jpg" alt="CPAC" style="height:34px;width:auto;display:block;object-fit:contain;" />
+      <div class="name">CPAC <span>iSupply</span></div>
+      <div class="brand-meta">
+        <strong>Raw Material Benchmarking</strong>
+        <span class="desc">Compare Stone/Sand costs nationwide, benchmark by radius and peer plants</span>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+    <button class="icon-btn" type="button">N</button>
+    <button class="icon-btn" type="button">S</button>
+    <div class="user">
+      <div class="username">Admin</div>
+      <div class="fullname">CPAC Procurement</div>
+    </div>
+  </div>
+</header>
+
+<aside id="sidebar" class="sidebar">
+  <div class="menu-header">
+    <div class="menu-title">Menu</div>
+    <button id="menuClose" class="menu-close" type="button">x</button>
+  </div>
+  <div class="menu-search">
+    <input class="input" type="text" placeholder="Search menu..." />
+  </div>
+  <div class="menu">
+    <div class="menu-group">
+      <div class="group-title">Procurement Suite</div>
+      <div class="menu-item active" data-view="benchmarking">Raw Material Benchmarking</div>
+      <div class="menu-item" data-view="contract">Contract Summary</div>
+      <div class="menu-item" data-view="capacity">Capacity &amp; Feasibility</div>
+      <div class="menu-item" data-view="data">Data Management</div>
+    </div>
+  </div>
+</aside>
+
+<main class="main">
+  <div class="page-toolbar">
+    <div class="pills">
+      <button class="pill active" type="button">Dashboard</button>
+      <button class="pill" type="button">Sitemap</button>
+    </div>
+    <div class="flex items-center gap-2">
+      <button id="exportCsvBtn" class="btn btn-primary" type="button">Export CSV</button>
+      <button id="refreshAllBtn" class="btn btn-ghost" type="button">Refresh</button>
+    </div>
+  </div>
+
+  <div class="tabs mb-4">
+    <button class="tab active" data-view="benchmarking" type="button">Benchmarking</button>
+    <button class="tab" data-view="contract" type="button">Contract Summary</button>
+    <button class="tab" data-view="capacity" type="button">Capacity &amp; Feasibility</button>
+    <button class="tab" data-view="data" type="button">Data Management</button>
+  </div>
+
+  <section id="view-benchmarking" class="space-y-4">
+    <div id="benchmarkFilterPanel" class="card filter-sticky filter-panel">
+      <div class="card-header">
+        <div class="filter-title-wrap">
+          <div class="card-title">Filter Bar</div>
+          <div class="text-sm text-muted">Radius benchmark + contract feasibility filters</div>
+        </div>
+        <button id="toggleFilterBarBtn" class="filter-toggle-btn" type="button" aria-expanded="true">ยุบ</button>
+      </div>
+      <div class="card-body">
+        <div class="filter-grid-scroll">
+        <div class="filter-grid grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3">
+          <label class="field">
+            <span class="label">Company</span>
+            <select id="filterCompany" class="select">
+              <option value="all">All</option>
+              <option value="CPAC">CPAC</option>
+              <option value="QMIX">QMIX</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span class="label">Business Unit</span>
+            <select id="filterBu" class="select"></select>
+          </label>
+
+          <label class="field">
+            <span class="label">ส่วนผลิต</span>
+            <select id="filterRegion" class="select"></select>
+          </label>
+
+          <label class="field">
+            <span class="label">Plant</span>
+            <div id="filterPlantMulti" class="plant-multi">
+              <button id="filterPlantTrigger" class="plant-multi-trigger" type="button" aria-expanded="false" aria-controls="filterPlantOptions">
+                <span id="filterPlantLabel" class="plant-multi-text">All</span>
+                <span aria-hidden="true">v</span>
+              </button>
+              <div id="filterPlantOptions" class="plant-multi-panel" role="listbox" aria-multiselectable="true"></div>
+              <select id="filterPlant" class="select plant-select-hidden" multiple size="2"></select>
+            </div>
+          </label>
+
+          <div class="field">
+            <span class="label">Material Type</span>
+            <div class="flex items-center gap-4 h-full">
+              <label class="inline-flex items-center gap-2 text-sm"><input id="matStone" type="checkbox" checked /> หิน (Rock)</label>
+              <label class="inline-flex items-center gap-2 text-sm"><input id="matSand" type="checkbox" checked /> ทราย (Sand)</label>
+            </div>
+          </div>
+
+          <label class="field">
+            <span class="label">Material Spec</span>
+            <select id="filterMaterial" class="select"></select>
+          </label>
+
+          <label class="field">
+            <span class="label">Contract Model</span>
+            <select id="filterContractModel" class="select">
+              <option value="all">All</option>
+              <option value="type1">Type 1</option>
+              <option value="type2">Type 2</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span class="label">Price Basis</span>
+            <select id="filterPriceBasis" class="select">
+              <option value="total">Total</option>
+              <option value="transport">Transport</option>
+              <option value="source">Source</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span class="label">Date From</span>
+            <input id="filterDateFrom" class="input" type="date" />
+          </label>
+
+          <label class="field">
+            <span class="label">Date To</span>
+            <input id="filterDateTo" class="input" type="date" />
+          </label>
+
+          <label class="field">
+            <span class="label">Radius (km): <strong id="radiusValue">50</strong></span>
+            <input id="filterRadius" class="input" type="range" min="10" max="120" step="10" value="50" list="radiusMarks" />
+            <datalist id="radiusMarks">
+              <option value="10"></option>
+              <option value="30"></option>
+              <option value="50"></option>
+              <option value="80"></option>
+              <option value="120"></option>
+            </datalist>
+          </label>
+
+          <div class="field">
+            <span class="label">Gap Threshold</span>
+            <div class="flex items-center gap-2">
+              <label class="inline-flex items-center gap-2 text-sm"><input id="filterGapOnly" type="checkbox" /> only show Gap &gt; X</label>
+              <input id="filterGapX" class="input" type="number" value="3" min="0" step="0.5" />
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <div class="filter-actions flex items-center gap-2">
+          <button id="searchBtn" class="btn btn-primary" type="button">Search</button>
+          <button id="resetBtn" class="btn btn-ghost" type="button">Reset</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 xl:grid-cols-[1.35fr_1fr] gap-4">
+      <article class="card">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title">Current Heatmap</h2>
+            <p class="card-subtitle">Benchmark total = minimum total within selected radius</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="chip red">Gap &gt; 5%</span>
+            <span class="chip yellow">Gap 3-5%</span>
+            <span class="chip green">Gap &lt;= 2%</span>
+          </div>
+        </div>
+        <div class="card-body p-0">
+          <div class="table-wrap rounded-none border-0 shadow-none">
+            <div class="table-scroll">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th><button type="button" class="sort-btn" data-sort="plant_name">Plant</button></th>
+                    <th><button type="button" class="sort-btn" data-sort="material_spec">Material</button></th>
+                    <th><button type="button" class="sort-btn" data-sort="source_cost">Source</button></th>
+                    <th><button type="button" class="sort-btn" data-sort="transport_cost">Transport</button></th>
+                    <th><button type="button" class="sort-btn" data-sort="total_cost">Total</button></th>
+                    <th><button type="button" class="sort-btn" data-sort="gap_pct">Gap%</button></th>
+                    <th><button type="button" class="sort-btn" data-sort="contract_model">Contract</button></th>
+                    <th>Notes</th>
+                  </tr>
+                </thead>
+                <tbody id="heatmapTbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <div class="space-y-4">
+        <article class="card">
+          <div class="card-header">
+            <h2 class="card-title">Cost Composition by Plant</h2>
+          </div>
+          <div class="card-body">
+            <canvas id="costChart" height="260"></canvas>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <h2 class="card-title">Nationwide Plant Gap Map</h2>
+            <span class="chip">Thailand View</span>
+          </div>
+          <div class="card-body">
+            <div id="benchmarkMap"></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-contract" class="hidden-view space-y-4">
+    <div class="grid grid-cols-1 xl:grid-cols-2 gap-4" id="contractSummaryCards"></div>
+
+    <article class="card">
+      <div class="card-header">
+        <h2 class="card-title">Type 1 Contracts (Source + Transport Bundled)</h2>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-wrap rounded-none border-0 shadow-none">
+          <div class="table-scroll">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Contract ID</th>
+                  <th>Vendor</th>
+                  <th>Plants</th>
+                  <th>Material</th>
+                  <th>Unit Cost</th>
+                  <th>Volume</th>
+                  <th>Period</th>
+                </tr>
+              </thead>
+              <tbody id="type1Tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <div class="grid grid-cols-1 2xl:grid-cols-3 gap-4">
+      <article class="card">
+        <div class="card-header"><h2 class="card-title">Type 2 - Source Contracts</h2></div>
+        <div class="card-body p-0">
+          <div class="table-wrap rounded-none border-0 shadow-none">
+            <div class="table-scroll">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Source</th>
+                    <th>Material</th>
+                    <th>Price</th>
+                    <th>Capacity</th>
+                  </tr>
+                </thead>
+                <tbody id="type2SourceTbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-header"><h2 class="card-title">Type 2 - Transport Contracts</h2></div>
+        <div class="card-body p-0">
+          <div class="table-wrap rounded-none border-0 shadow-none">
+            <div class="table-scroll">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Transporter</th>
+                    <th>Material</th>
+                    <th>Price</th>
+                    <th>Capacity</th>
+                  </tr>
+                </thead>
+                <tbody id="type2TransportTbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-header"><h2 class="card-title">Assignment Mapping</h2></div>
+        <div class="card-body p-0">
+          <div class="table-wrap rounded-none border-0 shadow-none">
+            <div class="table-scroll">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Plant</th>
+                    <th>Source</th>
+                    <th>Transporter</th>
+                    <th>Route</th>
+                  </tr>
+                </thead>
+                <tbody id="mappingTbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="view-capacity" class="hidden-view space-y-4">
+    <article class="card">
+      <div class="card-header">
+        <h2 class="card-title">Feasibility Matrix (Plant x Material Spec)</h2>
+        <span class="chip">Green feasible / Yellow borderline / Red not feasible</span>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-wrap rounded-none border-0 shadow-none">
+          <div class="table-scroll">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Plant</th>
+                  <th>Material Spec</th>
+                  <th>Demand (tpd)</th>
+                  <th>Source Cap (tpd)</th>
+                  <th>Transport Cap (tpd)</th>
+                  <th>Supply Ratio</th>
+                  <th>Transport Ratio</th>
+                  <th>Feasible</th>
+                </tr>
+              </thead>
+              <tbody id="feasibilityTbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-header">
+        <h2 class="card-title">What-if Simulation</h2>
+        <span class="card-subtitle">Alternative source + truck adjustment</span>
+      </div>
+      <div class="card-body">
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3">
+          <label class="field">
+            <span class="label">Plant</span>
+            <select id="whatIfPlant" class="select"></select>
+          </label>
+          <label class="field">
+            <span class="label">Material Spec</span>
+            <select id="whatIfMaterial" class="select"></select>
+          </label>
+          <label class="field">
+            <span class="label">Alternative Source</span>
+            <select id="whatIfSource" class="select"></select>
+          </label>
+          <label class="field">
+            <span class="label">Adjust Trucks (+/-)</span>
+            <input id="whatIfTruckDelta" class="input" type="number" value="0" min="-10" max="20" />
+          </label>
+        </div>
+        <div class="divider"></div>
+        <div id="whatIfResult" class="grid grid-cols-1 md:grid-cols-4 gap-3"></div>
+      </div>
+    </article>
+  </section>
+
+  <section id="view-data" class="hidden-view space-y-4">
+    <article class="card">
+      <div class="card-header">
+        <h2 class="card-title">Upload CSV</h2>
+      </div>
+      <div class="card-body">
+        <div class="upload-drop">
+          <input id="csvUpload" class="input" type="file" accept=".csv" />
+          <p class="text-sm text-muted mt-2">Front-end mock upload. Preview first rows below.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-header">
+        <h2 class="card-title">Preview Table</h2>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-wrap rounded-none border-0 shadow-none">
+          <div class="table-scroll">
+            <table class="table" id="previewTable"></table>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-header">
+        <h2 class="card-title">Mapping Configuration</h2>
+      </div>
+      <div class="card-body grid grid-cols-1 md:grid-cols-3 gap-3">
+        <label class="field">
+          <span class="label">Material Spec Standardization</span>
+          <select class="select">
+            <option>Stone 3/4" -> Stone 20mm</option>
+            <option>Sand Fine -> Sand Washed</option>
+            <option>Sand Fill -> Sand Fill</option>
+          </select>
+        </label>
+        <label class="field">
+          <span class="label">Plant Code Mapping</span>
+          <input class="input" value="BKK01 => CPAC_BKK_CENTRAL" />
+        </label>
+        <label class="field">
+          <span class="label">Source / Transporter Mapping</span>
+          <input class="input" value="SRC-BKK-Q1 => Bangkok Quarry A" />
+        </label>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-header">
+        <h2 class="card-title">Validation List</h2>
+      </div>
+      <div class="card-body" id="validationList"></div>
+    </article>
+  </section>
+</main>
+
+<script>
+(() => {
+  const byId = (id) => document.getElementById(id);
+  const sidebar = byId("sidebar");
+  const openBtn = byId("menuOpen");
+  const closeBtn = byId("menuClose");
+
+  function openSidebar() { if (sidebar) sidebar.classList.add("open"); }
+  function closeSidebar() { if (sidebar) sidebar.classList.remove("open"); }
+
+  function setView(view) {
+    document.querySelectorAll(".tab[data-view]").forEach((el) => {
+      el.classList.toggle("active", el.dataset.view === view);
+    });
+    document.querySelectorAll(".menu-item[data-view]").forEach((el) => {
+      el.classList.toggle("active", el.dataset.view === view);
+    });
+    ["benchmarking", "contract", "capacity", "data"].forEach((k) => {
+      const sec = byId("view-" + k);
+      if (sec) sec.classList.toggle("hidden-view", k !== view);
+    });
+    if (window.innerWidth <= 1024) closeSidebar();
+  }
+
+  if (openBtn) openBtn.addEventListener("click", openSidebar);
+  if (closeBtn) closeBtn.addEventListener("click", closeSidebar);
+
+  document.querySelectorAll(".tab[data-view], .menu-item[data-view]").forEach((el) => {
+    el.addEventListener("click", () => setView(el.dataset.view));
+  });
+
+  setView("benchmarking");
+})();
+</script>
+
+<script>
+(() => {
+  const ORG_CSV_PATH = "./plant_dataocean_202602271417.csv";
+
+  const el = (id) => document.getElementById(id);
+  const clean = (v) => String(v ?? "").replace(/^\uFEFF/, "").replace(/^"+|"+$/g, "").trim();
+
+  function parseCsv(text) {
+    const rows = [];
+    let row = [];
+    let field = "";
+    let quoted = false;
+    for (let i = 0; i < text.length; i++) {
+      const ch = text[i];
+      if (ch === "\"") {
+        if (quoted && text[i + 1] === "\"") {
+          field += "\"";
+          i++;
+        } else {
+          quoted = !quoted;
+        }
+      } else if (ch === "," && !quoted) {
+        row.push(field);
+        field = "";
+      } else if ((ch === "\n" || ch === "\r") && !quoted) {
+        if (ch === "\r" && text[i + 1] === "\n") i++;
+        row.push(field);
+        if (row.some((x) => clean(x) !== "")) rows.push(row);
+        row = [];
+        field = "";
+      } else {
+        field += ch;
+      }
+    }
+    if (field !== "" || row.length) {
+      row.push(field);
+      if (row.some((x) => clean(x) !== "")) rows.push(row);
+    }
+    if (!rows.length) return [];
+    const header = rows[0].map(clean);
+    return rows.slice(1).map((cols) => {
+      const obj = {};
+      header.forEach((h, idx) => {
+        obj[h] = clean(cols[idx] ?? "");
+      });
+      return obj;
+    });
+  }
+
+  function decodeBest(buffer) {
+    const bytes = new Uint8Array(buffer);
+
+    // Prefer strict UTF-8 first. This prevents unreadable Thai when
+    // UTF-8 bytes are mistakenly decoded with a legacy Thai code page.
+    try {
+      return new TextDecoder("utf-8", { fatal: true }).decode(bytes);
+    } catch (_) {}
+
+    // Fallback for legacy Thai encoded CSV files.
+    try {
+      return new TextDecoder("windows-874", { fatal: false }).decode(bytes);
+    } catch (_) {}
+
+    // Last resort permissive UTF-8.
+    return new TextDecoder("utf-8", { fatal: false }).decode(bytes);
+  }
+
+  function xhrText(path) {
+    return new Promise((resolve, reject) => {
+      const x = new XMLHttpRequest();
+      x.open("GET", path, true);
+      x.responseType = "arraybuffer";
+      x.onload = () => {
+        if ((x.status >= 200 && x.status < 300) || x.status === 0) {
+          resolve(decodeBest(x.response));
+        } else {
+          reject(new Error("XHR " + x.status));
+        }
+      };
+      x.onerror = () => reject(new Error("XHR error"));
+      x.send();
+    });
+  }
+
+  async function loadOrganizationRows() {
+    try {
+      const res = await fetch(ORG_CSV_PATH, { cache: "no-store" });
+      if (!res.ok) throw new Error("Fetch failed: " + res.status);
+      const buf = await res.arrayBuffer();
+      return parseCsv(decodeBest(buf));
+    } catch (_) {
+      const txt = await xhrText(ORG_CSV_PATH);
+      return parseCsv(txt);
+    }
+  }
+
+  function renderOrgMenu(rows) {
+    const list = el("orgMenuList");
+    if (!list) return;
+    if (!rows.length) {
+      list.innerHTML = '<div class="menu-item">No organization data</div>';
+      return;
+    }
+
+    const byDivision = new Map();
+    rows.forEach((r) => {
+      const division = clean(r.DIVISION_NAME) || clean(r.DIVISION_NO) || "Unknown Division";
+      const dept = clean(r.DEPARTMENT_NAME) || clean(r.DEPARTMENT_NO) || "-";
+      if (!byDivision.has(division)) byDivision.set(division, { plants: new Set(), depts: new Set() });
+      const item = byDivision.get(division);
+      const pcode = clean(r.PLANT_NO);
+      if (pcode) item.plants.add(pcode);
+      if (dept && dept !== "-") item.depts.add(dept);
+    });
+
+    const sorted = [...byDivision.entries()].sort((a, b) => a[0].localeCompare(b[0]));
+    list.innerHTML = sorted
+      .map(([name, v]) => `<div class="menu-item">${name} (${v.plants.size} plants / ${v.depts.size} depts)</div>`)
+      .join("");
+  }
+
+  let plantMultiInitialized = false;
+
+  function getPlantSelect() {
+    return el("filterPlant");
+  }
+
+  function getPlantSpecificOptions() {
+    const select = getPlantSelect();
+    if (!select) return [];
+    return [...select.options].filter((opt) => opt.value !== "all");
+  }
+
+  function getPlantSelectedValues() {
+    return new Set(getPlantSpecificOptions().filter((opt) => opt.selected).map((opt) => opt.value));
+  }
+
+  function setPlantSelectedValues(values) {
+    const select = getPlantSelect();
+    if (!select) return;
+    const hasSpecific = values.size > 0;
+    [...select.options].forEach((opt) => {
+      if (opt.value === "all") {
+        opt.selected = !hasSpecific;
+      } else {
+        opt.selected = values.has(opt.value);
+      }
+    });
+  }
+
+  function updatePlantTriggerText() {
+    const label = el("filterPlantLabel");
+    if (!label) return;
+    const specificOptions = getPlantSpecificOptions();
+    const selectedValues = getPlantSelectedValues();
+
+    if (!specificOptions.length || !selectedValues.size || selectedValues.size === specificOptions.length) {
+      label.textContent = "All";
+      return;
+    }
+
+    if (selectedValues.size === 1) {
+      const match = specificOptions.find((opt) => selectedValues.has(opt.value));
+      label.textContent = match ? match.textContent : "1 selected";
+      return;
+    }
+
+    label.textContent = `${selectedValues.size} selected`;
+  }
+
+  function renderPlantOptionsPanel() {
+    const panel = el("filterPlantOptions");
+    if (!panel) return;
+
+    const specificOptions = getPlantSpecificOptions();
+    const selectedValues = getPlantSelectedValues();
+    const allChecked = !specificOptions.length || !selectedValues.size || selectedValues.size === specificOptions.length;
+
+    panel.innerHTML = "";
+
+    const allRow = document.createElement("label");
+    allRow.className = "plant-multi-option all";
+    const allInput = document.createElement("input");
+    allInput.type = "checkbox";
+    allInput.dataset.role = "all";
+    allInput.checked = allChecked;
+    const allText = document.createElement("span");
+    allText.textContent = "All";
+    allRow.appendChild(allInput);
+    allRow.appendChild(allText);
+    panel.appendChild(allRow);
+
+    if (!specificOptions.length) {
+      const empty = document.createElement("div");
+      empty.className = "plant-multi-option";
+      empty.textContent = "No plant data";
+      panel.appendChild(empty);
+      return;
+    }
+
+    specificOptions.forEach((opt) => {
+      const row = document.createElement("label");
+      row.className = "plant-multi-option";
+      const input = document.createElement("input");
+      input.type = "checkbox";
+      input.value = opt.value;
+      input.checked = selectedValues.has(opt.value);
+      const text = document.createElement("span");
+      text.textContent = opt.textContent;
+      row.appendChild(input);
+      row.appendChild(text);
+      panel.appendChild(row);
+    });
+  }
+
+  function closePlantDropdown() {
+    const panel = el("filterPlantOptions");
+    const trigger = el("filterPlantTrigger");
+    if (panel) panel.classList.remove("open");
+    if (trigger) trigger.setAttribute("aria-expanded", "false");
+  }
+
+  function togglePlantDropdown() {
+    const panel = el("filterPlantOptions");
+    const trigger = el("filterPlantTrigger");
+    if (!panel || !trigger) return;
+    const willOpen = !panel.classList.contains("open");
+    if (willOpen) {
+      panel.classList.add("open");
+      trigger.setAttribute("aria-expanded", "true");
+    } else {
+      closePlantDropdown();
+    }
+  }
+
+  function initPlantMultiSelect() {
+    if (plantMultiInitialized) return;
+    plantMultiInitialized = true;
+
+    const wrapper = el("filterPlantMulti");
+    const trigger = el("filterPlantTrigger");
+    const panel = el("filterPlantOptions");
+
+    if (trigger) {
+      trigger.addEventListener("click", (event) => {
+        event.preventDefault();
+        togglePlantDropdown();
+      });
+    }
+
+    if (panel) {
+      panel.addEventListener("change", (event) => {
+        const target = event.target;
+        if (!(target instanceof HTMLInputElement) || target.type !== "checkbox") return;
+
+        if (target.dataset.role === "all") {
+          setPlantSelectedValues(new Set());
+        } else {
+          const selectedValues = getPlantSelectedValues();
+          if (target.checked) selectedValues.add(target.value);
+          else selectedValues.delete(target.value);
+          setPlantSelectedValues(selectedValues);
+        }
+
+        renderPlantOptionsPanel();
+        updatePlantTriggerText();
+      });
+    }
+
+    document.addEventListener("click", (event) => {
+      if (!wrapper) return;
+      const target = event.target;
+      if (!(target instanceof Node)) return;
+      if (!wrapper.contains(target)) closePlantDropdown();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closePlantDropdown();
+    });
+  }
+
+  function fillSelect(selectId, values, opts = {}) {
+    const dom = el(selectId);
+    if (!dom) return;
+
+    const includeAll = opts.includeAll !== false;
+    const allLabel = opts.allLabel || "All";
+    const html = [];
+    if (includeAll) html.push(`<option value="all">${allLabel}</option>`);
+    values.forEach((v) => html.push(`<option value="${v.value}">${v.label}</option>`));
+    dom.innerHTML = html.join("");
+
+    if (typeof opts.selectedValue === "string") {
+      const hasSelected = [...dom.options].some((opt) => opt.value === opts.selectedValue);
+      dom.value = hasSelected ? opts.selectedValue : (includeAll ? "all" : (dom.options[0]?.value || ""));
+    }
+
+    if (selectId === "filterPlant") {
+      initPlantMultiSelect();
+      const selectedValues = opts.selectedValues instanceof Set ? opts.selectedValues : new Set();
+      setPlantSelectedValues(selectedValues);
+      renderPlantOptionsPanel();
+      updatePlantTriggerText();
+    }
+  }
+
+  const MATERIAL_SPEC_BY_TYPE = {
+    rock: [
+      "หิน 3/8 นิ้ว",
+      "หิน 1/2 นิ้ว",
+      "หิน 3/4 นิ้ว",
+      "หินคลุก",
+    ],
+    sand: [
+      "ทรายหยาบ-ปกติ",
+      "หินฝุ่น",
+      "ทรายละเอียด",
+    ],
+  };
+
+  function refreshMaterialSpecOptions() {
+    const matStone = el("matStone");
+    const matSand = el("matSand");
+    const materialSelect = el("filterMaterial");
+    if (!materialSelect) return;
+
+    const selectedTypes = [];
+    if (matStone && matStone.checked) selectedTypes.push("rock");
+    if (matSand && matSand.checked) selectedTypes.push("sand");
+
+    const prevValue = clean(materialSelect.value);
+    const specs = [];
+    selectedTypes.forEach((type) => {
+      const list = MATERIAL_SPEC_BY_TYPE[type] || [];
+      list.forEach((item) => specs.push({ value: item, label: item }));
+    });
+
+    fillSelect("filterMaterial", specs, { includeAll: true, allLabel: "All" });
+
+    const hasPrev = specs.some((x) => x.value === prevValue);
+    materialSelect.value = hasPrev ? prevValue : "all";
+  }
+
+  function initMaterialSpecFilter() {
+    const matStone = el("matStone");
+    const matSand = el("matSand");
+    if (matStone) matStone.addEventListener("change", refreshMaterialSpecOptions);
+    if (matSand) matSand.addEventListener("change", refreshMaterialSpecOptions);
+    refreshMaterialSpecOptions();
+  }
+
+  function initFilterBarToggle() {
+    const panel = el("benchmarkFilterPanel");
+    const toggleBtn = el("toggleFilterBarBtn");
+    if (!panel || !toggleBtn) return;
+
+    const renderState = () => {
+      const isCollapsed = panel.classList.contains("collapsed");
+      toggleBtn.textContent = isCollapsed ? "ขยาย" : "ยุบ";
+      toggleBtn.setAttribute("aria-expanded", String(!isCollapsed));
+    };
+
+    toggleBtn.addEventListener("click", () => {
+      panel.classList.toggle("collapsed");
+      renderState();
+    });
+
+    renderState();
+  }
+
+  let organizationRows = [];
+  let organizationFilterEventsBound = false;
+
+  function sortedUnique(values) {
+    return [...new Set(values.filter(Boolean))].sort((a, b) => a.localeCompare(b));
+  }
+
+  function getSingleFilterValue(id) {
+    const dom = el(id);
+    if (!dom) return "all";
+    const value = clean(dom.value);
+    return value && value !== "all" ? value : "all";
+  }
+
+  function matchesSingle(value, selected) {
+    return selected === "all" || value === selected;
+  }
+
+  function refreshOrganizationFilterOptions() {
+    if (!organizationRows.length) return;
+
+    const currentCompany = getSingleFilterValue("filterCompany");
+    const currentBu = getSingleFilterValue("filterBu");
+    const currentRegion = getSingleFilterValue("filterRegion");
+
+    const plantSpecificOptions = getPlantSpecificOptions();
+    const plantSelection = getPlantSelectedValues();
+    const plantAllSelected =
+      !plantSpecificOptions.length || !plantSelection.size || plantSelection.size === plantSpecificOptions.length;
+
+    const companyValuesRaw = sortedUnique(organizationRows.map((r) => r.company));
+    const companyValues = companyValuesRaw.includes("CPAC")
+      ? ["CPAC", ...companyValuesRaw.filter((x) => x !== "CPAC")]
+      : companyValuesRaw;
+    const nextCompany = companyValues.includes(currentCompany) ? currentCompany : "all";
+
+    fillSelect(
+      "filterCompany",
+      companyValues.map((x) => ({ value: x, label: x })),
+      { includeAll: true, allLabel: "All", selectedValue: nextCompany }
+    );
+
+    const rowsByCompany = organizationRows.filter((r) => matchesSingle(r.company, nextCompany));
+    const buValues = sortedUnique(rowsByCompany.map((r) => r.businessUnit));
+    const nextBu = buValues.includes(currentBu) ? currentBu : "all";
+
+    fillSelect(
+      "filterBu",
+      buValues.map((x) => ({ value: x, label: x })),
+      { includeAll: true, allLabel: "All", selectedValue: nextBu }
+    );
+
+    const rowsByBu = rowsByCompany.filter((r) => matchesSingle(r.businessUnit, nextBu));
+    const regionValues = sortedUnique(rowsByBu.map((r) => r.productionPart));
+    const nextRegion = regionValues.includes(currentRegion) ? currentRegion : "all";
+
+    fillSelect(
+      "filterRegion",
+      regionValues.map((x) => ({ value: x, label: x })),
+      { includeAll: true, allLabel: "All", selectedValue: nextRegion }
+    );
+
+    const rowsByRegion = rowsByBu.filter((r) => matchesSingle(r.productionPart, nextRegion));
+    const rowsForPlant = rowsByRegion.length
+      ? rowsByRegion
+      : (rowsByBu.length ? rowsByBu : (rowsByCompany.length ? rowsByCompany : organizationRows));
+    const plantMap = new Map();
+    rowsForPlant.forEach((r) => {
+      if (r.plantCode && !plantMap.has(r.plantCode)) {
+        plantMap.set(r.plantCode, r.plantLabel);
+      }
+    });
+
+    const plantOptions = [...plantMap.entries()]
+      .sort((a, b) => a[0].localeCompare(b[0]))
+      .map(([value, label]) => ({ value, label }));
+
+    const validPlantValues = new Set(plantOptions.map((p) => p.value));
+    let nextPlantSelection = new Set();
+    if (!plantAllSelected) {
+      nextPlantSelection = new Set([...plantSelection].filter((v) => validPlantValues.has(v)));
+    }
+
+    fillSelect("filterPlant", plantOptions, {
+      includeAll: true,
+      allLabel: "All",
+      selectedValues: nextPlantSelection,
+    });
+  }
+
+  function bindOrganizationFilterEvents() {
+    if (organizationFilterEventsBound) return;
+    organizationFilterEventsBound = true;
+
+    ["filterCompany", "filterBu", "filterRegion"].forEach((id) => {
+      const dom = el(id);
+      if (!dom) return;
+      dom.addEventListener("change", () => {
+        refreshOrganizationFilterOptions();
+      });
+    });
+  }
+
+  function applyOrganizationToFilters(rows) {
+    if (!rows.length) return;
+
+    organizationRows = rows
+      .map((r) => {
+        const division = clean(r.DIVISION_NAME) || clean(r.DIVISION_NO);
+        const csc = clean(r.DEPARTMENT_NAME) || clean(r.DEPARTMENT_NO);
+        const plantCode = clean(r.PLANT_NO);
+        const plantName = clean(r.PLANT_NAME);
+        const plantType = clean(r.PLANT_TYPE);
+
+        if (!plantCode) return null;
+
+        return {
+          company: plantType.toUpperCase() === "CPAC" ? "CPAC" : "QMIX",
+          businessUnit: division,
+          productionPart: csc,
+          plantCode,
+          plantLabel: `${plantCode} - ${plantName || "-"}`,
+        };
+      })
+      .filter(Boolean);
+
+    bindOrganizationFilterEvents();
+    refreshOrganizationFilterOptions();
+  }
+
+  async function initOrganizationMenuFromDb() {
+    const rows = await loadOrganizationRows();
+    renderOrgMenu(rows);
+    applyOrganizationToFilters(rows);
+  }
+
+  initMaterialSpecFilter();
+  initFilterBarToggle();
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => {
+      initOrganizationMenuFromDb().catch((err) => {
+        console.error("Organization DB load failed:", err);
+      });
+    });
+  } else {
+    initOrganizationMenuFromDb().catch((err) => {
+      console.error("Organization DB load failed:", err);
+    });
+  }
+})();
+</script>
+</div>
+</body>
+</html>
+
