@@ -164,6 +164,40 @@
       color: var(--text-3);
       margin-top: 3px;
     }
+    .contract-summary-kpis {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 12px;
+      overflow-x: auto;
+      align-items: stretch;
+    }
+    .contract-summary-kpis > .card {
+      flex: 1 1 0;
+      min-width: 0;
+    }
+    .contract-kpi-card .card-body {
+      padding: 10px 12px;
+      min-height: 88px;
+    }
+    .contract-kpi-card .metric-label {
+      font-size: 11px;
+      color: var(--text-3);
+      line-height: 1.2;
+    }
+    .contract-kpi-card .metric-value {
+      margin-top: 3px;
+      font-size: 18px;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.05;
+    }
+    .contract-kpi-card .metric-sub {
+      margin-top: 4px;
+      font-size: 9px;
+      color: var(--text-3);
+      line-height: 1.2;
+      word-break: break-word;
+    }
     .heatmap-board {
       border: 1px solid var(--border);
       border-radius: 16px;
@@ -444,6 +478,11 @@
       .insight-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
+      .contract-summary-kpis {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        overflow: visible;
+      }
       .heatmap-head,
       .heatmap-row {
         grid-template-columns: minmax(220px, 2fr) minmax(160px, 1.1fr) 80px 80px 90px 76px 66px;
@@ -452,6 +491,9 @@
     @media (max-width: 720px) {
       .benchmark-kpis,
       .insight-grid {
+        grid-template-columns: 1fr;
+      }
+      .contract-summary-kpis {
         grid-template-columns: 1fr;
       }
       .heatmap-head {
@@ -467,6 +509,9 @@
       .heatmap-row .plant-cell,
       .heatmap-row .material-cell {
         grid-column: 1 / -1;
+      }
+      .contract-kpi-card .card-body {
+        min-height: auto;
       }
     }
   </style>
@@ -732,7 +777,7 @@
   </section>
 
   <section id="view-contract" class="hidden-view space-y-4">
-    <div class="grid grid-cols-1 xl:grid-cols-2 gap-4" id="contractSummaryCards"></div>
+    <div class="contract-summary-kpis" id="contractSummaryCards"></div>
 
     <div class="grid grid-cols-1 xl:grid-cols-[1.45fr_0.95fr] gap-4">
       <article class="card">
@@ -1952,7 +1997,7 @@ window.ISUPPLY_SAMPLE_DATA = Object.freeze(window.ISUPPLY_SAMPLE_DATA);
 
     if (!rows.length) {
       cardsHost.innerHTML = `
-        <article class="card"><div class="card-body"><div class="text-muted">No contract data available</div></div></article>
+        <article class="card contract-kpi-card"><div class="card-body"><div class="text-muted">No contract data available</div></div></article>
       `;
       [sourceBody, materialBody, transporterBody, typeBody].forEach((node) => {
         node.innerHTML = `<tr><td colspan="7" class="text-center text-muted">No contract data</td></tr>`;
@@ -1968,11 +2013,11 @@ window.ISUPPLY_SAMPLE_DATA = Object.freeze(window.ISUPPLY_SAMPLE_DATA);
     const backupCount = rows.filter((row) => row.source_category === "สำรอง").length;
 
     cardsHost.innerHTML = `
-      <article class="card"><div class="card-body"><div class="text-sm text-muted">Contract Records</div><div class="text-3xl font-black mt-1">${formatCompact(rows.length, 0)}</div><div class="text-sm text-muted mt-2">deduped records from contract_period_2026227.csv</div></div></article>
-      <article class="card"><div class="card-body"><div class="text-sm text-muted">CPAC Plants Served</div><div class="text-3xl font-black mt-1">${formatCompact(plants.size, 0)}</div><div class="text-sm text-muted mt-2">plants receiving at least one active contract line</div></div></article>
-      <article class="card"><div class="card-body"><div class="text-sm text-muted">Active Sources</div><div class="text-3xl font-black mt-1">${formatCompact(sources.size, 0)}</div><div class="text-sm text-muted mt-2">distinct source_name / source_plant_name</div></div></article>
-      <article class="card"><div class="card-body"><div class="text-sm text-muted">Transporters</div><div class="text-3xl font-black mt-1">${formatCompact(transporters.size, 0)}</div><div class="text-sm text-muted mt-2">distinct transporter_name</div></div></article>
-      <article class="card"><div class="card-body"><div class="text-sm text-muted">Primary / Backup</div><div class="text-3xl font-black mt-1">${formatCompact(primaryCount, 0)} / ${formatCompact(backupCount, 0)}</div><div class="text-sm text-muted mt-2">${materialGroups.size} material groups in scope</div></div></article>
+      <article class="card contract-kpi-card"><div class="card-body"><div class="metric-label">Contract Records</div><div class="metric-value">${formatCompact(rows.length, 0)}</div><div class="metric-sub">deduped records from contract_period_2026227.csv</div></div></article>
+      <article class="card contract-kpi-card"><div class="card-body"><div class="metric-label">CPAC Plants Served</div><div class="metric-value">${formatCompact(plants.size, 0)}</div><div class="metric-sub">plants receiving at least one active contract line</div></div></article>
+      <article class="card contract-kpi-card"><div class="card-body"><div class="metric-label">Active Sources</div><div class="metric-value">${formatCompact(sources.size, 0)}</div><div class="metric-sub">distinct source_name / source_plant_name</div></div></article>
+      <article class="card contract-kpi-card"><div class="card-body"><div class="metric-label">Transporters</div><div class="metric-value">${formatCompact(transporters.size, 0)}</div><div class="metric-sub">distinct transporter_name</div></div></article>
+      <article class="card contract-kpi-card"><div class="card-body"><div class="metric-label">Primary / Backup</div><div class="metric-value">${formatCompact(primaryCount, 0)} / ${formatCompact(backupCount, 0)}</div><div class="metric-sub">${materialGroups.size} material groups in scope</div></div></article>
     `;
 
     const sourceSummary = createSummaryMap(
