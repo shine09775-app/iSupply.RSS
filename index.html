@@ -106,6 +106,317 @@
     .filter-panel .plant-select-hidden { display: none; }
     .table-scroll { max-height: 420px; overflow: auto; }
     #benchmarkMap { min-height: 320px; border-radius: 12px; background: #f8fafc; border: 1px solid #e5e7eb; }
+    .benchmark-layout { align-items: start; }
+    .benchmark-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      align-items: center;
+    }
+    .legend-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      display: inline-block;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    .legend-dot.red { background: #f87171; }
+    .legend-dot.yellow { background: #facc15; }
+    .legend-dot.green { background: #7bc892; }
+    .legend-dot.blue { background: #4a86e8; }
+    .legend-dot.purple { background: #9557b5; }
+    .legend-dot.mint { background: #7bc892; }
+    .benchmark-kpis {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .benchmark-kpi {
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+    .benchmark-kpi .label {
+      font-size: 12px;
+      color: var(--text-3);
+      margin-bottom: 4px;
+    }
+    .benchmark-kpi .value {
+      font-size: 26px;
+      font-weight: 800;
+      color: #111827;
+      line-height: 1.1;
+    }
+    .benchmark-kpi .sub {
+      font-size: 12px;
+      color: var(--text-3);
+      margin-top: 3px;
+    }
+    .heatmap-board {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      overflow: hidden;
+    }
+    .heatmap-head,
+    .heatmap-row {
+      display: grid;
+      grid-template-columns: minmax(240px, 2.2fr) minmax(180px, 1.2fr) 86px 86px 96px 82px 72px;
+      gap: 8px;
+      align-items: center;
+    }
+    .heatmap-head {
+      padding: 10px 12px;
+      background: #eef2f6;
+      font-size: 12px;
+      font-weight: 700;
+      color: #4b5563;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+    .heatmap-sort {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+    }
+    .heatmap-sort.text-left {
+      justify-content: flex-start;
+    }
+    .heatmap-sort-indicator {
+      font-size: 11px;
+      color: #94a3b8;
+      min-width: 10px;
+    }
+    .heatmap-sort.active .heatmap-sort-indicator {
+      color: var(--brand);
+    }
+    .heatmap-list {
+      max-height: 560px;
+      overflow: auto;
+      padding: 8px;
+    }
+    .heatmap-row {
+      width: 100%;
+      border: 0;
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 10px 12px;
+      cursor: pointer;
+      text-align: left;
+      margin-bottom: 8px;
+      box-shadow: inset 0 0 0 1px #edf2f7;
+      transition: box-shadow 120ms ease, transform 120ms ease;
+    }
+    .heatmap-row:hover {
+      box-shadow: inset 0 0 0 1px rgba(225, 29, 46, 0.18), 0 10px 24px rgba(15, 23, 42, 0.06);
+      transform: translateY(-1px);
+    }
+    .heatmap-row.active {
+      box-shadow: inset 0 0 0 2px rgba(225, 29, 46, 0.5), 0 12px 24px rgba(225, 29, 46, 0.10);
+      background: linear-gradient(180deg, #ffffff 0%, #fff7f7 100%);
+    }
+    .heatmap-row.empty {
+      grid-template-columns: 1fr;
+      cursor: default;
+      text-align: center;
+      color: var(--text-3);
+      padding: 28px 20px;
+    }
+    .plant-cell .name {
+      font-size: 15px;
+      font-weight: 800;
+      color: #111827;
+      margin-bottom: 4px;
+    }
+    .plant-cell .meta,
+    .material-cell .meta {
+      font-size: 12px;
+      color: var(--text-2);
+      line-height: 1.4;
+    }
+    .plant-cell .subtle,
+    .material-cell .subtle {
+      color: var(--text-3);
+    }
+    .material-cell .main {
+      font-size: 14px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 4px;
+    }
+    .cost-pill,
+    .gap-pill,
+    .peer-pill {
+      border-radius: 10px;
+      padding: 11px 8px;
+      text-align: center;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+    .cost-pill {
+      background: #f6d9c6;
+      color: #ea580c;
+    }
+    .cost-pill.soft {
+      background: #cfe7d6;
+      color: #2f855a;
+    }
+    .cost-pill.total.red,
+    .gap-pill.red {
+      background: #f87171;
+      color: #ffffff;
+    }
+    .cost-pill.total.yellow,
+    .gap-pill.yellow {
+      background: #f2c94c;
+      color: #ffffff;
+    }
+    .cost-pill.total.green,
+    .gap-pill.green {
+      background: #27ae60;
+      color: #ffffff;
+    }
+    .peer-pill {
+      background: #eef2f7;
+      color: #475569;
+    }
+    .chart-shell {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      padding: 16px 16px 10px;
+    }
+    .chart-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .chart-meta .meta-chip {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      padding: 6px 10px;
+      font-size: 12px;
+      color: #475569;
+    }
+    .peer-chart-scroll {
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding-bottom: 8px;
+    }
+    .peer-chart-bars {
+      min-height: 420px;
+      display: flex;
+      align-items: flex-end;
+      gap: 18px;
+      padding: 8px 6px 0;
+      min-width: min-content;
+    }
+    .peer-bar-col {
+      width: 70px;
+      flex: 0 0 70px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .peer-bar-col .total-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #6b7280;
+      min-height: 16px;
+    }
+    .peer-bar {
+      width: 48px;
+      height: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      border-radius: 12px 12px 4px 4px;
+      overflow: hidden;
+      background: #eef2f7;
+      box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.18);
+      position: relative;
+    }
+    .peer-bar.self {
+      box-shadow: inset 0 0 0 2px rgba(225, 29, 46, 0.55);
+    }
+    .peer-bar-segment {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 800;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+      min-height: 18px;
+    }
+    .peer-bar-segment.raw { background: #4a86e8; }
+    .peer-bar-segment.transport { background: #7bc892; }
+    .peer-bar-segment.other { background: #9557b5; }
+    .peer-label {
+      width: 96px;
+      font-size: 12px;
+      text-align: center;
+      line-height: 1.2;
+      transform: rotate(-16deg);
+      transform-origin: top center;
+      min-height: 56px;
+      margin-top: 6px;
+    }
+    .peer-label.red { color: #ef4444; }
+    .peer-label.yellow { color: #d97706; }
+    .peer-label.green { color: #16a34a; }
+    .peer-label.self {
+      color: var(--brand);
+      font-weight: 800;
+    }
+    .insight-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .insight-card {
+      border: 1px solid var(--border);
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 14px;
+    }
+    .insight-card .label {
+      font-size: 12px;
+      color: var(--text-3);
+      margin-bottom: 4px;
+    }
+    .insight-card .value {
+      font-size: 22px;
+      font-weight: 800;
+      color: #111827;
+      line-height: 1.15;
+    }
+    .insight-card .sub {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+    .benchmark-note {
+      font-size: 12px;
+      color: #64748b;
+    }
     @media (max-width: 1200px) {
       .topbar .brand-meta .desc { display: none; }
     }
@@ -114,6 +425,34 @@
     }
     @media (max-width: 1024px) {
       .table-scroll { max-height: 300px; }
+      .benchmark-kpis,
+      .insight-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .heatmap-head,
+      .heatmap-row {
+        grid-template-columns: minmax(220px, 2fr) minmax(160px, 1.1fr) 80px 80px 90px 76px 66px;
+      }
+    }
+    @media (max-width: 720px) {
+      .benchmark-kpis,
+      .insight-grid {
+        grid-template-columns: 1fr;
+      }
+      .heatmap-head {
+        display: none;
+      }
+      .heatmap-list {
+        padding: 10px;
+      }
+      .heatmap-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .heatmap-row .plant-cell,
+      .heatmap-row .material-cell {
+        grid-column: 1 / -1;
+      }
     }
   </style>
 </head>
@@ -292,38 +631,53 @@
       </div>
     </div>
 
-    <div class="grid grid-cols-1 xl:grid-cols-[1.35fr_1fr] gap-4">
+    <div id="benchmarkKpis" class="benchmark-kpis"></div>
+
+    <div class="grid grid-cols-1 xl:grid-cols-[0.92fr_1.48fr] gap-4 benchmark-layout">
       <article class="card">
         <div class="card-header">
           <div>
             <h2 class="card-title">Current Heatmap</h2>
-            <p class="card-subtitle">Benchmark total = minimum total within selected radius</p>
+            <p id="heatmapSubtitle" class="card-subtitle">Benchmark by selected price basis within selected radius</p>
           </div>
-          <div class="flex items-center gap-2">
-            <span class="chip red">Gap &gt; 5%</span>
-            <span class="chip yellow">Gap 3-5%</span>
-            <span class="chip green">Gap &lt;= 2%</span>
+          <div class="benchmark-legend">
+            <span><span class="legend-dot red"></span>Gap &gt; 5%</span>
+            <span><span class="legend-dot yellow"></span>Gap 3 - 5%</span>
+            <span><span class="legend-dot green"></span>Gap ไม่เกิน 2%</span>
           </div>
         </div>
-        <div class="card-body p-0">
-          <div class="table-wrap rounded-none border-0 shadow-none">
-            <div class="table-scroll">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th><button type="button" class="sort-btn" data-sort="plant_name">Plant</button></th>
-                    <th><button type="button" class="sort-btn" data-sort="material_spec">Material</button></th>
-                    <th><button type="button" class="sort-btn" data-sort="source_cost">Source</button></th>
-                    <th><button type="button" class="sort-btn" data-sort="transport_cost">Transport</button></th>
-                    <th><button type="button" class="sort-btn" data-sort="total_cost">Total</button></th>
-                    <th><button type="button" class="sort-btn" data-sort="gap_pct">Gap%</button></th>
-                    <th><button type="button" class="sort-btn" data-sort="contract_model">Contract</button></th>
-                    <th>Notes</th>
-                  </tr>
-                </thead>
-                <tbody id="heatmapTbody"></tbody>
-              </table>
+        <div class="card-body">
+          <div class="heatmap-board">
+            <div class="heatmap-head">
+              <div>โรงงาน</div>
+              <div>Material / Benchmark</div>
+              <div class="text-center">
+                <button type="button" class="heatmap-sort" data-sort-field="source_cost">
+                  <span>ค่าวัตถุดิบ</span>
+                  <span class="heatmap-sort-indicator">↕</span>
+                </button>
+              </div>
+              <div class="text-center">
+                <button type="button" class="heatmap-sort" data-sort-field="transport_cost">
+                  <span>ค่าขนส่ง</span>
+                  <span class="heatmap-sort-indicator">↕</span>
+                </button>
+              </div>
+              <div class="text-center">
+                <button type="button" class="heatmap-sort" data-sort-field="total_cost">
+                  <span>ราคารวม</span>
+                  <span class="heatmap-sort-indicator">↕</span>
+                </button>
+              </div>
+              <div class="text-center">
+                <button type="button" class="heatmap-sort" data-sort-field="gap_pct">
+                  <span>Gap%</span>
+                  <span class="heatmap-sort-indicator">↕</span>
+                </button>
+              </div>
+              <div class="text-center">Peers</div>
             </div>
+            <div id="heatmapList" class="heatmap-list"></div>
           </div>
         </div>
       </article>
@@ -331,20 +685,35 @@
       <div class="space-y-4">
         <article class="card">
           <div class="card-header">
-            <h2 class="card-title">Cost Composition by Plant</h2>
+            <div>
+              <h2 class="card-title">ราคาต้นทุนรวมรายกลุ่มโรงงาน</h2>
+              <p id="peerChartSubtitle" class="card-subtitle">ต้นทุนบาท / ตัน ในรัศมีที่เลือก</p>
+            </div>
+            <div class="benchmark-legend">
+              <span><span class="legend-dot blue"></span>ค่าวัตถุดิบ</span>
+              <span><span class="legend-dot purple"></span>ค่าอื่น ๆ</span>
+              <span><span class="legend-dot mint"></span>ค่าขนส่ง</span>
+            </div>
           </div>
           <div class="card-body">
-            <canvas id="costChart" height="260"></canvas>
+            <div class="chart-shell">
+              <div id="peerChartMeta" class="chart-meta"></div>
+              <div class="peer-chart-scroll">
+                <div id="peerChartBars" class="peer-chart-bars"></div>
+              </div>
+            </div>
           </div>
         </article>
 
         <article class="card">
           <div class="card-header">
-            <h2 class="card-title">Nationwide Plant Gap Map</h2>
-            <span class="chip">Thailand View</span>
+            <h2 class="card-title">Peer Benchmark Snapshot</h2>
+            <span id="snapshotRadiusChip" class="chip">Radius 50 km</span>
           </div>
           <div class="card-body">
-            <div id="benchmarkMap"></div>
+            <div id="benchmarkInsights" class="insight-grid"></div>
+            <div class="divider"></div>
+            <div id="benchmarkFootnote" class="benchmark-note"></div>
           </div>
         </article>
       </div>
@@ -569,12 +938,53 @@
 <script>
 (() => {
   const byId = (id) => document.getElementById(id);
+  const appShell = document.querySelector(".app-shell");
   const sidebar = byId("sidebar");
   const openBtn = byId("menuOpen");
   const closeBtn = byId("menuClose");
+  const SIDEBAR_IDLE_MS = 2000;
+  const SIDEBAR_EXIT_MS = 2000;
+  let sidebarIdleTimer = null;
 
-  function openSidebar() { if (sidebar) sidebar.classList.add("open"); }
-  function closeSidebar() { if (sidebar) sidebar.classList.remove("open"); }
+  function isOverlaySidebar() {
+    return window.innerWidth <= 1024;
+  }
+
+  function clearSidebarIdleTimer() {
+    if (sidebarIdleTimer) {
+      window.clearTimeout(sidebarIdleTimer);
+      sidebarIdleTimer = null;
+    }
+  }
+
+  function scheduleSidebarAutoClose(delay = SIDEBAR_IDLE_MS) {
+    clearSidebarIdleTimer();
+    if (!sidebar) return;
+    const isOpen = isOverlaySidebar()
+      ? sidebar.classList.contains("open")
+      : !(appShell && appShell.classList.contains("sidebar-collapsed"));
+    if (!isOpen) return;
+    sidebarIdleTimer = window.setTimeout(() => {
+      closeSidebar();
+    }, delay);
+  }
+
+  function openSidebar() {
+    if (!sidebar) return;
+    if (isOverlaySidebar()) {
+      sidebar.classList.add("open");
+    } else if (appShell) {
+      appShell.classList.remove("sidebar-collapsed");
+    }
+    scheduleSidebarAutoClose();
+  }
+
+  function closeSidebar() {
+    if (!sidebar) return;
+    sidebar.classList.remove("open");
+    if (appShell) appShell.classList.add("sidebar-collapsed");
+    clearSidebarIdleTimer();
+  }
 
   function setView(view) {
     document.querySelectorAll(".tab[data-view]").forEach((el) => {
@@ -593,11 +1003,56 @@
   if (openBtn) openBtn.addEventListener("click", openSidebar);
   if (closeBtn) closeBtn.addEventListener("click", closeSidebar);
 
+  if (sidebar) {
+    ["pointerdown", "pointermove", "touchstart", "keydown", "input", "focusin"].forEach((eventName) => {
+      sidebar.addEventListener(eventName, () => {
+        const isOpen = isOverlaySidebar()
+          ? sidebar.classList.contains("open")
+          : !(appShell && appShell.classList.contains("sidebar-collapsed"));
+        if (!isOpen) return;
+        scheduleSidebarAutoClose();
+      });
+    });
+
+    sidebar.addEventListener("mouseenter", clearSidebarIdleTimer);
+    sidebar.addEventListener("mouseleave", () => {
+      scheduleSidebarAutoClose(SIDEBAR_EXIT_MS);
+    });
+
+    sidebar.addEventListener("focusout", (event) => {
+      const nextTarget = event.relatedTarget;
+      if (nextTarget instanceof Node && sidebar.contains(nextTarget)) return;
+      scheduleSidebarAutoClose(SIDEBAR_EXIT_MS);
+    });
+  }
+
+  document.addEventListener("click", (event) => {
+    if (!sidebar) return;
+    const isOpen = isOverlaySidebar()
+      ? sidebar.classList.contains("open")
+      : !(appShell && appShell.classList.contains("sidebar-collapsed"));
+    if (!isOpen) return;
+    const target = event.target;
+    if (!(target instanceof Node)) return;
+    if (sidebar.contains(target) || (openBtn && openBtn.contains(target))) return;
+    scheduleSidebarAutoClose(SIDEBAR_EXIT_MS);
+  });
+
+  window.addEventListener("resize", () => {
+    if (isOverlaySidebar()) {
+      if (appShell) appShell.classList.add("sidebar-collapsed");
+    } else {
+      sidebar?.classList.remove("open");
+    }
+    clearSidebarIdleTimer();
+  });
+
   document.querySelectorAll(".tab[data-view], .menu-item[data-view]").forEach((el) => {
     el.addEventListener("click", () => setView(el.dataset.view));
   });
 
   setView("benchmarking");
+  closeSidebar();
 })();
 </script>
 
@@ -867,6 +1322,8 @@
 
         renderPlantOptionsPanel();
         updatePlantTriggerText();
+        const select = getPlantSelect();
+        if (select) select.dispatchEvent(new Event("change", { bubbles: true }));
       });
     }
 
@@ -909,15 +1366,13 @@
 
   const MATERIAL_SPEC_BY_TYPE = {
     rock: [
-      "หิน 3/8 นิ้ว",
-      "หิน 1/2 นิ้ว",
-      "หิน 3/4 นิ้ว",
-      "หินคลุก",
+      "หิน 3/8\"-#4",
+      "หิน 1/2\" - #4 (ผ่าน Barmac)",
+      "หิน 3/4\"-#4",
     ],
     sand: [
       "ทรายหยาบ-ปกติ",
-      "หินฝุ่น",
-      "ทรายละเอียด",
+      "หินฝุ่นล้าง",
     ],
   };
 
@@ -1107,6 +1562,11 @@
     applyOrganizationToFilters(rows);
   }
 
+  window.refreshPlantMultiUi = () => {
+    renderPlantOptionsPanel();
+    updatePlantTriggerText();
+  };
+
   initMaterialSpecFilter();
   initFilterBarToggle();
 
@@ -1120,6 +1580,766 @@
     initOrganizationMenuFromDb().catch((err) => {
       console.error("Organization DB load failed:", err);
     });
+  }
+})();
+</script>
+
+<script>
+(() => {
+  const CONTRACT_CSV_PATH = "./referrence/contract_period_2026227.csv";
+  const LOCATION_CSV_PATH = "./cpac_plant_locations.csv";
+  const byId = (id) => document.getElementById(id);
+  const state = {
+    contractRows: [],
+    locationMap: new Map(),
+    benchmarkRows: [],
+    focusKey: "",
+    loading: false,
+    heatmapSort: {
+      field: "gap_pct",
+      direction: "desc",
+    },
+  };
+
+  const clean = (value) => String(value ?? "").replace(/^\uFEFF/, "").replace(/^"+|"+$/g, "").trim();
+  const escapeHtml = (value) =>
+    String(value ?? "").replace(/[&<>"']/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" }[ch]));
+
+  function parseCsv(text) {
+    const rows = [];
+    let row = [];
+    let field = "";
+    let quoted = false;
+    for (let i = 0; i < text.length; i++) {
+      const ch = text[i];
+      if (ch === "\"") {
+        if (quoted && text[i + 1] === "\"") {
+          field += "\"";
+          i++;
+        } else {
+          quoted = !quoted;
+        }
+      } else if (ch === "," && !quoted) {
+        row.push(field);
+        field = "";
+      } else if ((ch === "\n" || ch === "\r") && !quoted) {
+        if (ch === "\r" && text[i + 1] === "\n") i++;
+        row.push(field);
+        if (row.some((x) => clean(x) !== "")) rows.push(row);
+        row = [];
+        field = "";
+      } else {
+        field += ch;
+      }
+    }
+    if (field !== "" || row.length) {
+      row.push(field);
+      if (row.some((x) => clean(x) !== "")) rows.push(row);
+    }
+    if (!rows.length) return [];
+    const header = rows[0].map(clean);
+    return rows.slice(1).map((cols) => {
+      const obj = {};
+      header.forEach((h, idx) => {
+        obj[h] = clean(cols[idx] ?? "");
+      });
+      return obj;
+    });
+  }
+
+  function decodeBest(buffer) {
+    const bytes = new Uint8Array(buffer);
+    try {
+      return new TextDecoder("utf-8", { fatal: true }).decode(bytes);
+    } catch (_) {}
+    try {
+      return new TextDecoder("windows-874", { fatal: false }).decode(bytes);
+    } catch (_) {}
+    return new TextDecoder("utf-8", { fatal: false }).decode(bytes);
+  }
+
+  function xhrText(path) {
+    return new Promise((resolve, reject) => {
+      const x = new XMLHttpRequest();
+      x.open("GET", path, true);
+      x.responseType = "arraybuffer";
+      x.onload = () => {
+        if ((x.status >= 200 && x.status < 300) || x.status === 0) resolve(decodeBest(x.response));
+        else reject(new Error("XHR " + x.status));
+      };
+      x.onerror = () => reject(new Error("XHR error"));
+      x.send();
+    });
+  }
+
+  async function fetchCsvRows(path) {
+    try {
+      const res = await fetch(path, { cache: "no-store" });
+      if (!res.ok) throw new Error("Fetch failed: " + res.status);
+      return parseCsv(decodeBest(await res.arrayBuffer()));
+    } catch (_) {
+      return parseCsv(await xhrText(path));
+    }
+  }
+
+  function parseNumber(value, fallback = 0) {
+    const num = Number(String(value ?? "").replace(/,/g, ""));
+    return Number.isFinite(num) ? num : fallback;
+  }
+
+  function parseDateValue(value) {
+    const raw = clean(value);
+    if (!raw) return null;
+    const date = new Date(raw + "T00:00:00");
+    return Number.isNaN(date.getTime()) ? null : date;
+  }
+
+  function formatNumber(value) {
+    return Number(value || 0).toLocaleString("en-US", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+  }
+
+  function formatCompact(value, digits = 1) {
+    if (!Number.isFinite(value)) return "-";
+    return Number(value).toLocaleString("en-US", {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: digits,
+    });
+  }
+
+  function formatPct(value) {
+    return `${Number(value || 0).toLocaleString("en-US", {
+      minimumFractionDigits: 1,
+      maximumFractionDigits: 1,
+    })}%`;
+  }
+
+  function getGapClass(gapPct) {
+    if (gapPct > 5) return "red";
+    if (gapPct >= 3) return "yellow";
+    return "green";
+  }
+
+  function updateHeatmapSortUi() {
+    document.querySelectorAll("[data-sort-field]").forEach((button) => {
+      const field = button.getAttribute("data-sort-field");
+      const indicator = button.querySelector(".heatmap-sort-indicator");
+      const isActive = field === state.heatmapSort.field;
+      button.classList.toggle("active", isActive);
+      if (indicator) indicator.textContent = isActive ? (state.heatmapSort.direction === "asc" ? "↑" : "↓") : "↕";
+    });
+  }
+
+  function sortHeatmapRows(rows) {
+    const { field, direction } = state.heatmapSort;
+    const factor = direction === "asc" ? 1 : -1;
+    return rows.slice().sort((a, b) => {
+      const diff = (Number(a[field] || 0) - Number(b[field] || 0)) * factor;
+      if (diff !== 0) return diff;
+      return a.plant_name.localeCompare(b.plant_name, "th");
+    });
+  }
+
+  function materialTypeOf(materialName) {
+    const name = clean(materialName);
+    if (!name) return "";
+    if (name.includes("ทราย") || name.includes("ฝุ่น")) return "sand";
+    if (name.includes("หิน")) return "rock";
+    return "";
+  }
+
+  function contractModelOf(row) {
+    const contractType = clean(row.contract_type);
+    return contractType.includes("พร้อมขนส่ง") ? "type1" : "type2";
+  }
+
+  function priceBasisField(value) {
+    if (value === "source") return "source_cost";
+    if (value === "transport") return "transport_cost";
+    return "total_cost";
+  }
+
+  function priceBasisLabel(value) {
+    if (value === "source") return "ค่าวัตถุดิบ";
+    if (value === "transport") return "ค่าขนส่ง";
+    return "ราคารวม";
+  }
+
+  function dateOverlaps(row, fromDate, toDate) {
+    if (!fromDate && !toDate) return true;
+    const effective = parseDateValue(row.effective_date);
+    const end = parseDateValue(row.end_date);
+    if (!effective || !end) return true;
+    const from = fromDate || new Date("1900-01-01T00:00:00");
+    const to = toDate || new Date("2999-12-31T00:00:00");
+    return effective <= to && end >= from;
+  }
+
+  function dedupeRows(rows) {
+    const seen = new Set();
+    return rows.filter((row) => {
+      const key = [
+        clean(row.plant_code),
+        clean(row.material_name),
+        clean(row.source_name),
+        clean(row.source_plant_name),
+        clean(row.source_category),
+        clean(row.rawmat_price),
+        clean(row.transport_price_after_adjust || row.total_transportation_price || row.transport_price),
+        clean(row.total_price),
+        clean(row.distance_km),
+      ].join("|");
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+  }
+
+  function haversineKm(lat1, lon1, lat2, lon2) {
+    const toRad = (deg) => (deg * Math.PI) / 180;
+    const earthRadiusKm = 6371;
+    const dLat = toRad(lat2 - lat1);
+    const dLon = toRad(lon2 - lon1);
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    return earthRadiusKm * (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)));
+  }
+
+  function getPlantSelectOptions() {
+    const select = byId("filterPlant");
+    if (!select) return [];
+    return [...select.options].filter((opt) => opt.value !== "all");
+  }
+
+  function getAllowedPlantCodes() {
+    return new Set(getPlantSelectOptions().map((opt) => clean(opt.value)).filter(Boolean));
+  }
+
+  function getSelectedPlantCodes() {
+    return new Set(getPlantSelectOptions().filter((opt) => opt.selected).map((opt) => clean(opt.value)).filter(Boolean));
+  }
+
+  function getFilters() {
+    const priceBasis = clean(byId("filterPriceBasis")?.value || "total");
+    const allowedPlantCodes = getAllowedPlantCodes();
+    return {
+      radiusKm: parseNumber(byId("filterRadius")?.value, 50),
+      priceBasis,
+      compareField: priceBasisField(priceBasis),
+      compareLabel: priceBasisLabel(priceBasis),
+      materialSpec: clean(byId("filterMaterial")?.value),
+      materialTypes: {
+        rock: Boolean(byId("matStone")?.checked),
+        sand: Boolean(byId("matSand")?.checked),
+      },
+      contractModel: clean(byId("filterContractModel")?.value || "all"),
+      fromDate: parseDateValue(byId("filterDateFrom")?.value),
+      toDate: parseDateValue(byId("filterDateTo")?.value),
+      displayPlants: getSelectedPlantCodes(),
+      allowedPlants: allowedPlantCodes,
+      gapOnly: Boolean(byId("filterGapOnly")?.checked),
+      gapThreshold: parseNumber(byId("filterGapX")?.value, 3),
+    };
+  }
+
+  function normalizeRepresentativeRow(row) {
+    const transportCost = parseNumber(row.total_transportation_price, parseNumber(row.transport_price_after_adjust, parseNumber(row.transport_price)));
+    const sourceCost = parseNumber(row.rawmat_price);
+    const totalCost = parseNumber(row.total_price);
+    const loadingCost = parseNumber(row.loading_price);
+    const crushingCost = parseNumber(row.crushing_price_after_adjust || row.crushing_price);
+    const otherCost = Math.max(0, totalCost - sourceCost - transportCost);
+    const location = state.locationMap.get(clean(row.plant_code));
+    if (!location) return null;
+
+    return {
+      key: `${clean(row.plant_code)}|${clean(row.material_name)}`,
+      plant_code: clean(row.plant_code),
+      plant_name: clean(row.plant_name) || location.plant_name || clean(row.plant_code),
+      material_name: clean(row.material_name),
+      source_cost: sourceCost,
+      transport_cost: transportCost,
+      total_cost: totalCost,
+      loading_cost: loadingCost,
+      crushing_cost: crushingCost,
+      other_cost: otherCost,
+      source_category: clean(row.source_category) || "-",
+      source_name: clean(row.source_name) || "-",
+      source_plant_name: clean(row.source_plant_name) || "-",
+      distance_km: parseNumber(row.distance_km),
+      contract_model: contractModelOf(row),
+      contract_label: clean(row.contract_type) || "-",
+      effective_date: clean(row.effective_date),
+      end_date: clean(row.end_date),
+      latitude: location.latitude,
+      longitude: location.longitude,
+      compare_value: 0,
+      gap_pct: 0,
+      peer_count: 0,
+      benchmark_value: 0,
+      benchmark_plant: "",
+      benchmark_distance: 0,
+      peers: [],
+    };
+  }
+
+  function sourcePriority(row) {
+    return clean(row.source_category) === "หลัก" ? 0 : 1;
+  }
+
+  function buildRepresentativeRows(filters) {
+    const rows = state.contractRows.filter((row) => {
+      const materialName = clean(row.material_name);
+      const materialType = materialTypeOf(materialName);
+      if (!materialType) return false;
+      if (!filters.materialTypes.rock && materialType === "rock") return false;
+      if (!filters.materialTypes.sand && materialType === "sand") return false;
+      if (filters.materialSpec && filters.materialSpec !== "all" && materialName !== filters.materialSpec) return false;
+      if (filters.contractModel !== "all" && contractModelOf(row) !== filters.contractModel) return false;
+      if (!dateOverlaps(row, filters.fromDate, filters.toDate)) return false;
+      if (filters.allowedPlants.size && !filters.allowedPlants.has(clean(row.plant_code))) return false;
+      return true;
+    });
+
+    const dedupedRows = dedupeRows(rows);
+    const grouped = new Map();
+
+    dedupedRows.forEach((row) => {
+      const key = `${clean(row.plant_code)}|${clean(row.material_name)}`;
+      if (!grouped.has(key)) grouped.set(key, []);
+      grouped.get(key).push(row);
+    });
+
+    const representatives = [];
+    grouped.forEach((groupRows) => {
+      const chosen = [...groupRows].sort((a, b) => {
+        const sourceDiff = sourcePriority(a) - sourcePriority(b);
+        if (sourceDiff !== 0) return sourceDiff;
+        const totalDiff = parseNumber(a.total_price) - parseNumber(b.total_price);
+        if (totalDiff !== 0) return totalDiff;
+        return clean(a.source_name).localeCompare(clean(b.source_name), "th");
+      })[0];
+      const normalized = normalizeRepresentativeRow(chosen);
+      if (normalized) representatives.push(normalized);
+    });
+
+    return representatives;
+  }
+
+  function computeBenchmarkRows(filters) {
+    const candidates = buildRepresentativeRows(filters).map((row) => {
+      const compareValue = row[filters.compareField] ?? row.total_cost;
+      return { ...row, compare_value: compareValue };
+    });
+
+    const displayRows = filters.displayPlants.size
+      ? candidates.filter((row) => filters.displayPlants.has(row.plant_code))
+      : candidates;
+
+    const rowsWithBenchmarks = displayRows.map((row) => {
+      const peers = candidates
+        .filter((candidate) => candidate.material_name === row.material_name)
+        .map((candidate) => ({
+          ...candidate,
+          distance_from_focus:
+            candidate.plant_code === row.plant_code
+              ? 0
+              : haversineKm(row.latitude, row.longitude, candidate.latitude, candidate.longitude),
+        }))
+        .filter((candidate) => candidate.distance_from_focus <= filters.radiusKm)
+        .sort((a, b) => b.total_cost - a.total_cost || b.compare_value - a.compare_value || a.plant_name.localeCompare(b.plant_name, "th"));
+
+      const benchmarkPeer = [...peers].sort((a, b) => a.compare_value - b.compare_value || a.total_cost - b.total_cost)[0];
+      const benchmarkValue = benchmarkPeer ? benchmarkPeer.compare_value : row.compare_value;
+      const gapPct = benchmarkValue > 0 ? ((row.compare_value - benchmarkValue) / benchmarkValue) * 100 : 0;
+
+      return {
+        ...row,
+        gap_pct: gapPct,
+        peer_count: peers.length,
+        benchmark_value: benchmarkValue,
+        benchmark_plant: benchmarkPeer ? benchmarkPeer.plant_name : row.plant_name,
+        benchmark_distance: benchmarkPeer ? benchmarkPeer.distance_from_focus : 0,
+        peers,
+      };
+    });
+
+    const filteredRows = filters.gapOnly
+      ? rowsWithBenchmarks.filter((row) => row.gap_pct > filters.gapThreshold)
+      : rowsWithBenchmarks;
+
+    return filteredRows.sort((a, b) => b.gap_pct - a.gap_pct || b.compare_value - a.compare_value || a.plant_name.localeCompare(b.plant_name, "th"));
+  }
+
+  function renderKpis(rows, filters) {
+    const host = byId("benchmarkKpis");
+    if (!host) return;
+
+    if (!rows.length) {
+      host.innerHTML = `
+        <div class="benchmark-kpi">
+          <div class="label">Visible Rows</div>
+          <div class="value">0</div>
+          <div class="sub">No benchmark rows match the current filter set</div>
+        </div>
+      `;
+      return;
+    }
+
+    const avgGap = rows.reduce((sum, row) => sum + row.gap_pct, 0) / rows.length;
+    const withPeers = rows.filter((row) => row.peer_count > 1).length;
+    const uniqueMaterials = new Set(rows.map((row) => row.material_name)).size;
+    const worst = rows.reduce((maxRow, row) => (row.gap_pct > maxRow.gap_pct ? row : maxRow), rows[0]);
+
+    host.innerHTML = `
+      <div class="benchmark-kpi">
+        <div class="label">Visible Plant / Material</div>
+        <div class="value">${rows.length}</div>
+        <div class="sub">${uniqueMaterials} material groups in current scope</div>
+      </div>
+      <div class="benchmark-kpi">
+        <div class="label">Average Gap</div>
+        <div class="value">${formatPct(avgGap)}</div>
+        <div class="sub">Compared by ${escapeHtml(filters.compareLabel)}</div>
+      </div>
+      <div class="benchmark-kpi">
+        <div class="label">Rows With Peers</div>
+        <div class="value">${withPeers}</div>
+        <div class="sub">Radius ${formatCompact(filters.radiusKm, 0)} km</div>
+      </div>
+      <div class="benchmark-kpi">
+        <div class="label">Highest Gap</div>
+        <div class="value">${formatPct(worst.gap_pct)}</div>
+        <div class="sub">${escapeHtml(worst.plant_name)} / ${escapeHtml(worst.material_name)}</div>
+      </div>
+    `;
+  }
+
+  function renderHeatmap(rows, filters) {
+    const host = byId("heatmapList");
+    const subtitle = byId("heatmapSubtitle");
+    if (subtitle) subtitle.textContent = `${filters.compareLabel} benchmark = minimum ${filters.compareLabel} within ${formatCompact(filters.radiusKm, 0)} km`;
+    if (!host) return;
+    updateHeatmapSortUi();
+
+    if (!rows.length) {
+      host.innerHTML = `<div class="heatmap-row empty">ไม่พบข้อมูลที่ตรงกับเงื่อนไขที่เลือก</div>`;
+      return;
+    }
+
+    if (!state.focusKey || !rows.some((row) => row.key === state.focusKey)) {
+      state.focusKey = rows[0].key;
+    }
+
+    host.innerHTML = rows.map((row) => {
+      const gapClass = getGapClass(row.gap_pct);
+      const isBenchmark = Math.abs(row.compare_value - row.benchmark_value) < 0.005;
+      const benchmarkText = `${row.benchmark_plant} (${formatCompact(row.benchmark_distance, 1)} km)`;
+      return `
+        <button type="button" class="heatmap-row ${row.key === state.focusKey ? "active" : ""}" data-row-key="${escapeHtml(row.key)}">
+          <div class="plant-cell">
+            <div class="name">${escapeHtml(row.plant_name)}</div>
+            <div class="meta">${escapeHtml(row.plant_code)} · ${escapeHtml(row.contract_label)}</div>
+            <div class="meta subtle">source: ${escapeHtml(row.source_name)}</div>
+          </div>
+          <div class="material-cell">
+            <div class="main">${escapeHtml(row.material_name)}</div>
+            <div class="meta">benchmark ${escapeHtml(filters.compareLabel)}: ${formatNumber(row.benchmark_value)}</div>
+            <div class="meta subtle">best nearby: ${escapeHtml(benchmarkText)}</div>
+          </div>
+          <div class="cost-pill ${isBenchmark && filters.compareField === "source_cost" ? "soft" : ""}">${formatNumber(row.source_cost)}</div>
+          <div class="cost-pill ${isBenchmark && filters.compareField === "transport_cost" ? "soft" : ""}">${formatNumber(row.transport_cost)}</div>
+          <div class="cost-pill total ${gapClass}">${formatNumber(row.total_cost)}</div>
+          <div class="gap-pill ${gapClass}">${formatPct(row.gap_pct)}</div>
+          <div class="peer-pill">${row.peer_count}</div>
+        </button>
+      `;
+    }).join("");
+  }
+
+  function renderChart(focusRow, filters) {
+    const host = byId("peerChartBars");
+    const metaHost = byId("peerChartMeta");
+    const subtitle = byId("peerChartSubtitle");
+    if (!host || !metaHost || !subtitle) return;
+
+    subtitle.textContent = `ต้นทุนบาท / ตัน ในรัศมี ${formatCompact(filters.radiusKm, 0)} km ของ ${focusRow ? focusRow.material_name : "-"}`;
+
+    if (!focusRow) {
+      metaHost.innerHTML = "";
+      host.innerHTML = `<div class="heatmap-row empty">เลือกโรงงานจาก heatmap เพื่อดู peer chart</div>`;
+      return;
+    }
+
+    const benchmarkValue = focusRow.benchmark_value || focusRow.compare_value || 1;
+    const peers = focusRow.peers;
+    const maxTotal = Math.max(...peers.map((peer) => peer.total_cost), 1);
+    const compareLabel = filters.compareLabel;
+
+    metaHost.innerHTML = `
+      <div class="meta-chip">Focus: ${escapeHtml(focusRow.plant_name)}</div>
+      <div class="meta-chip">Material: ${escapeHtml(focusRow.material_name)}</div>
+      <div class="meta-chip">Benchmark ${escapeHtml(compareLabel)}: ${formatNumber(focusRow.benchmark_value)}</div>
+      <div class="meta-chip">Peer plants: ${peers.length}</div>
+      <div class="meta-chip">Rule: หลัก ก่อน, ถ้าไม่มีใช้ total ต่ำสุด</div>
+    `;
+
+    host.innerHTML = peers.map((peer) => {
+      const totalHeight = Math.max(18, (peer.total_cost / maxTotal) * 320);
+      const rawHeight = totalHeight * ((peer.source_cost || 0) / Math.max(peer.total_cost, 1));
+      const transportHeight = totalHeight * ((peer.transport_cost || 0) / Math.max(peer.total_cost, 1));
+      const otherHeight = Math.max(0, totalHeight - rawHeight - transportHeight);
+      const peerGap = benchmarkValue > 0 ? ((peer.compare_value - benchmarkValue) / benchmarkValue) * 100 : 0;
+      const labelClass = getGapClass(peerGap);
+      const segmentLabel = (value, height) => (value > 0 && height >= 24 ? formatCompact(value, 0) : "");
+      const isSelf = peer.key === focusRow.key;
+      return `
+        <div class="peer-bar-col">
+          <div class="total-label">${formatNumber(peer.total_cost)}</div>
+          <div class="peer-bar ${isSelf ? "self" : ""}" title="${escapeHtml(peer.plant_name)} | ${escapeHtml(compareLabel)} ${formatNumber(peer.compare_value)}">
+            ${peer.transport_cost > 0 ? `<div class="peer-bar-segment transport" style="height:${transportHeight}px">${segmentLabel(peer.transport_cost, transportHeight)}</div>` : ""}
+            ${peer.other_cost > 0.01 ? `<div class="peer-bar-segment other" style="height:${otherHeight}px">${segmentLabel(peer.other_cost, otherHeight)}</div>` : ""}
+            ${peer.source_cost > 0 ? `<div class="peer-bar-segment raw" style="height:${rawHeight}px">${segmentLabel(peer.source_cost, rawHeight)}</div>` : ""}
+          </div>
+          <div class="peer-label ${labelClass} ${isSelf ? "self" : ""}">${escapeHtml(peer.plant_name)}</div>
+        </div>
+      `;
+    }).join("");
+  }
+
+  function renderInsights(focusRow, filters, rows) {
+    const host = byId("benchmarkInsights");
+    const chip = byId("snapshotRadiusChip");
+    const footnote = byId("benchmarkFootnote");
+    if (chip) chip.textContent = `Radius ${formatCompact(filters.radiusKm, 0)} km`;
+    if (!host || !footnote) return;
+
+    if (!focusRow) {
+      host.innerHTML = `<div class="insight-card"><div class="label">Snapshot</div><div class="value">-</div><div class="sub">No benchmark row selected</div></div>`;
+      footnote.textContent = "";
+      return;
+    }
+
+    const benchmarkPeer = focusRow.peers.find((peer) => peer.plant_name === focusRow.benchmark_plant) || focusRow.peers[focusRow.peers.length - 1] || focusRow;
+    const avgPeerTotal = focusRow.peers.reduce((sum, peer) => sum + peer.total_cost, 0) / Math.max(focusRow.peers.length, 1);
+    const rank = focusRow.peers
+      .slice()
+      .sort((a, b) => a.compare_value - b.compare_value || a.total_cost - b.total_cost)
+      .findIndex((peer) => peer.key === focusRow.key) + 1;
+    const avgGap = rows.length ? rows.reduce((sum, row) => sum + row.gap_pct, 0) / rows.length : 0;
+
+    host.innerHTML = `
+      <div class="insight-card">
+        <div class="label">${escapeHtml(filters.compareLabel)} ของโรงงานที่เลือก</div>
+        <div class="value">${formatNumber(focusRow.compare_value)}</div>
+        <div class="sub">${escapeHtml(focusRow.plant_name)} · อันดับ ${rank} จาก ${focusRow.peers.length} โรงงาน</div>
+      </div>
+      <div class="insight-card">
+        <div class="label">Benchmark ต่ำสุดในรัศมี</div>
+        <div class="value">${formatNumber(focusRow.benchmark_value)}</div>
+        <div class="sub">${escapeHtml(focusRow.benchmark_plant)} ห่าง ${formatCompact(focusRow.benchmark_distance, 1)} km</div>
+      </div>
+      <div class="insight-card">
+        <div class="label">Gap ปัจจุบัน</div>
+        <div class="value">${formatPct(focusRow.gap_pct)}</div>
+        <div class="sub">peer average total ${formatNumber(avgPeerTotal)}</div>
+      </div>
+      <div class="insight-card">
+        <div class="label">ค่าขนส่ง / ค่าอื่น</div>
+        <div class="value">${formatNumber(focusRow.transport_cost)} / ${formatNumber(focusRow.other_cost)}</div>
+        <div class="sub">scope average gap ${formatPct(avgGap)}</div>
+      </div>
+    `;
+
+    footnote.textContent =
+      `Representative row rule: เลือก source_category = "หลัก" ก่อน ถ้าไม่มีใช้รายการที่ total ต่ำสุด. Peer comparison ใช้ระยะโรงงาน-โรงงาน และเทียบเฉพาะ material เดียวกัน.`;
+  }
+
+  function renderBenchmarking() {
+    if (state.loading) return;
+    const filters = getFilters();
+    const rows = sortHeatmapRows(computeBenchmarkRows(filters));
+    state.benchmarkRows = rows;
+    renderKpis(rows, filters);
+    renderHeatmap(rows, filters);
+    const focusRow = rows.find((row) => row.key === state.focusKey) || rows[0] || null;
+    if (focusRow) state.focusKey = focusRow.key;
+    renderChart(focusRow, filters);
+    renderInsights(focusRow, filters, rows);
+  }
+
+  function exportCurrentRows() {
+    const rows = state.benchmarkRows;
+    if (!rows.length) return;
+    const header = ["plant_code", "plant_name", "material_name", "source_cost", "transport_cost", "total_cost", "compare_basis", "compare_value", "benchmark_value", "gap_pct", "peer_count", "benchmark_plant"];
+    const body = rows.map((row) => [
+      row.plant_code,
+      row.plant_name,
+      row.material_name,
+      row.source_cost,
+      row.transport_cost,
+      row.total_cost,
+      byId("filterPriceBasis")?.value || "total",
+      row.compare_value,
+      row.benchmark_value,
+      row.gap_pct,
+      row.peer_count,
+      row.benchmark_plant,
+    ]);
+    const csv = [header, ...body]
+      .map((cols) => cols.map((value) => `"${String(value ?? "").replace(/"/g, "\"\"")}"`).join(","))
+      .join("\r\n");
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "benchmark-radius-view.csv";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(url);
+  }
+
+  function resetFilters() {
+    const setValue = (id, value) => {
+      const node = byId(id);
+      if (node) node.value = value;
+    };
+
+    setValue("filterCompany", "all");
+    setValue("filterBu", "all");
+    setValue("filterRegion", "all");
+    setValue("filterContractModel", "all");
+    setValue("filterPriceBasis", "total");
+    setValue("filterDateFrom", "");
+    setValue("filterDateTo", "");
+    setValue("filterRadius", "50");
+    setValue("filterGapX", "3");
+    if (byId("radiusValue")) byId("radiusValue").textContent = "50";
+    if (byId("filterGapOnly")) byId("filterGapOnly").checked = false;
+    if (byId("matStone")) byId("matStone").checked = true;
+    if (byId("matSand")) byId("matSand").checked = true;
+    byId("matStone")?.dispatchEvent(new Event("change", { bubbles: true }));
+    byId("matSand")?.dispatchEvent(new Event("change", { bubbles: true }));
+    setValue("filterMaterial", "all");
+    byId("filterCompany")?.dispatchEvent(new Event("change", { bubbles: true }));
+
+    const plantSelect = byId("filterPlant");
+    if (plantSelect) {
+      [...plantSelect.options].forEach((opt) => {
+        opt.selected = opt.value === "all";
+      });
+      plantSelect.dispatchEvent(new Event("change", { bubbles: true }));
+      if (typeof window.refreshPlantMultiUi === "function") window.refreshPlantMultiUi();
+    }
+
+    requestAnimationFrame(renderBenchmarking);
+  }
+
+  function bindEvents() {
+    const renderOnChangeIds = [
+      "filterCompany",
+      "filterBu",
+      "filterRegion",
+      "filterPlant",
+      "filterMaterial",
+      "filterContractModel",
+      "filterPriceBasis",
+      "filterDateFrom",
+      "filterDateTo",
+      "filterGapOnly",
+      "filterGapX",
+      "matStone",
+      "matSand",
+    ];
+
+    renderOnChangeIds.forEach((id) => {
+      const node = byId(id);
+      if (!node) return;
+      node.addEventListener("change", () => requestAnimationFrame(renderBenchmarking));
+    });
+
+    const radius = byId("filterRadius");
+    if (radius) {
+      radius.addEventListener("input", () => {
+        if (byId("radiusValue")) byId("radiusValue").textContent = clean(radius.value) || "50";
+        requestAnimationFrame(renderBenchmarking);
+      });
+    }
+
+    byId("searchBtn")?.addEventListener("click", renderBenchmarking);
+    byId("resetBtn")?.addEventListener("click", resetFilters);
+    byId("refreshAllBtn")?.addEventListener("click", loadBenchmarkData);
+    byId("exportCsvBtn")?.addEventListener("click", exportCurrentRows);
+
+    byId("heatmapList")?.addEventListener("click", (event) => {
+      const button = event.target instanceof Element ? event.target.closest("[data-row-key]") : null;
+      if (!button) return;
+      state.focusKey = button.getAttribute("data-row-key") || "";
+      renderBenchmarking();
+    });
+
+    document.querySelector(".heatmap-head")?.addEventListener("click", (event) => {
+      const button = event.target instanceof Element ? event.target.closest("[data-sort-field]") : null;
+      if (!button) return;
+      const field = button.getAttribute("data-sort-field");
+      if (!field) return;
+      if (state.heatmapSort.field === field) {
+        state.heatmapSort.direction = state.heatmapSort.direction === "asc" ? "desc" : "asc";
+      } else {
+        state.heatmapSort.field = field;
+        state.heatmapSort.direction = "desc";
+      }
+      renderBenchmarking();
+    });
+
+    const plantSelect = byId("filterPlant");
+    if (plantSelect) {
+      const observer = new MutationObserver(() => requestAnimationFrame(renderBenchmarking));
+      observer.observe(plantSelect, { childList: true, subtree: true });
+    }
+  }
+
+  async function loadBenchmarkData() {
+    state.loading = true;
+    try {
+      const [contractRows, locationRows] = await Promise.all([
+        fetchCsvRows(CONTRACT_CSV_PATH),
+        fetchCsvRows(LOCATION_CSV_PATH),
+      ]);
+
+      state.contractRows = contractRows;
+      state.locationMap = new Map(
+        locationRows.map((row) => [
+          clean(row.plant_no),
+          {
+            plant_name: clean(row.plant_name),
+            latitude: parseNumber(row.latitude),
+            longitude: parseNumber(row.longitude),
+          },
+        ])
+      );
+    } catch (error) {
+      console.error("Benchmark data load failed:", error);
+      const heatmap = byId("heatmapList");
+      if (heatmap) heatmap.innerHTML = `<div class="heatmap-row empty">โหลดข้อมูล benchmark ไม่สำเร็จ</div>`;
+    } finally {
+      state.loading = false;
+    }
+
+    renderBenchmarking();
+  }
+
+  bindEvents();
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", loadBenchmarkData);
+  } else {
+    loadBenchmarkData();
   }
 })();
 </script>
