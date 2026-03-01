@@ -106,7 +106,17 @@
     .filter-panel .plant-select-hidden { display: none; }
     .table-scroll { max-height: 420px; overflow: auto; }
     #benchmarkMap { min-height: 320px; border-radius: 12px; background: #f8fafc; border: 1px solid #e5e7eb; }
-    .benchmark-layout { align-items: start; }
+    .benchmark-layout { align-items: stretch; }
+    .benchmark-layout > .card {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .benchmark-layout > .card > .card-body {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+    }
     .benchmark-legend {
       display: flex;
       flex-wrap: wrap;
@@ -297,6 +307,9 @@
       border-radius: 16px;
       background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
       padding: 16px 16px 10px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
     }
     .chart-meta {
       display: flex;
@@ -316,6 +329,7 @@
       overflow-x: auto;
       overflow-y: hidden;
       padding-bottom: 8px;
+      flex: 1 1 auto;
     }
     .peer-chart-bars {
       min-height: 420px;
@@ -350,6 +364,7 @@
       background: #eef2f7;
       box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.18);
       position: relative;
+      cursor: pointer;
     }
     .peer-bar.self {
       box-shadow: inset 0 0 0 2px rgba(225, 29, 46, 0.55);
@@ -471,11 +486,9 @@
     </div>
   </div>
   <div class="right">
-    <button class="icon-btn" type="button">N</button>
-    <button class="icon-btn" type="button">S</button>
     <div class="user">
-      <div class="username">Admin</div>
-      <div class="fullname">CPAC Procurement</div>
+      <div class="username">Chaiwat Thepjun</div>
+      <div class="fullname">Digital &amp; Supply Chain Manager</div>
     </div>
   </div>
 </header>
@@ -553,11 +566,11 @@
             <span class="label">Plant</span>
             <div id="filterPlantMulti" class="plant-multi">
               <button id="filterPlantTrigger" class="plant-multi-trigger" type="button" aria-expanded="false" aria-controls="filterPlantOptions">
-                <span id="filterPlantLabel" class="plant-multi-text">All</span>
+                <span id="filterPlantLabel" class="plant-multi-text">Select plant</span>
                 <span aria-hidden="true">v</span>
               </button>
-              <div id="filterPlantOptions" class="plant-multi-panel" role="listbox" aria-multiselectable="true"></div>
-              <select id="filterPlant" class="select plant-select-hidden" multiple size="2"></select>
+              <div id="filterPlantOptions" class="plant-multi-panel" role="listbox" aria-multiselectable="false"></div>
+              <select id="filterPlant" class="select plant-select-hidden"></select>
             </div>
           </label>
 
@@ -633,7 +646,7 @@
 
     <div id="benchmarkKpis" class="benchmark-kpis"></div>
 
-    <div class="grid grid-cols-1 xl:grid-cols-[0.92fr_1.48fr] gap-4 benchmark-layout">
+    <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 benchmark-layout">
       <article class="card">
         <div class="card-header">
           <div>
@@ -682,90 +695,69 @@
         </div>
       </article>
 
-      <div class="space-y-4">
-        <article class="card">
-          <div class="card-header">
-            <div>
-              <h2 class="card-title">ราคาต้นทุนรวมรายกลุ่มโรงงาน</h2>
-              <p id="peerChartSubtitle" class="card-subtitle">ต้นทุนบาท / ตัน ในรัศมีที่เลือก</p>
-            </div>
-            <div class="benchmark-legend">
-              <span><span class="legend-dot blue"></span>ค่าวัตถุดิบ</span>
-              <span><span class="legend-dot purple"></span>ค่าอื่น ๆ</span>
-              <span><span class="legend-dot mint"></span>ค่าขนส่ง</span>
-            </div>
+      <article class="card">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title">ราคาต้นทุนรวมรายกลุ่มโรงงาน</h2>
+            <p id="peerChartSubtitle" class="card-subtitle">ต้นทุนบาท / ตัน ในรัศมีที่เลือก</p>
           </div>
-          <div class="card-body">
-            <div class="chart-shell">
-              <div id="peerChartMeta" class="chart-meta"></div>
-              <div class="peer-chart-scroll">
-                <div id="peerChartBars" class="peer-chart-bars"></div>
-              </div>
+          <div class="benchmark-legend">
+            <span><span class="legend-dot blue"></span>ค่าวัตถุดิบ</span>
+            <span><span class="legend-dot purple"></span>ค่าอื่น ๆ</span>
+            <span><span class="legend-dot mint"></span>ค่าขนส่ง</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="chart-shell">
+            <div id="peerChartMeta" class="chart-meta"></div>
+            <div class="peer-chart-scroll">
+              <div id="peerChartBars" class="peer-chart-bars"></div>
             </div>
           </div>
-        </article>
-
-        <article class="card">
-          <div class="card-header">
-            <h2 class="card-title">Peer Benchmark Snapshot</h2>
-            <span id="snapshotRadiusChip" class="chip">Radius 50 km</span>
-          </div>
-          <div class="card-body">
-            <div id="benchmarkInsights" class="insight-grid"></div>
-            <div class="divider"></div>
-            <div id="benchmarkFootnote" class="benchmark-note"></div>
-          </div>
-        </article>
-      </div>
+        </div>
+      </article>
     </div>
+
+    <article class="card">
+      <div class="card-header">
+        <h2 class="card-title">Peer Benchmark Snapshot</h2>
+        <span id="snapshotRadiusChip" class="chip">Radius 50 km</span>
+      </div>
+      <div class="card-body">
+        <div id="benchmarkInsights" class="insight-grid"></div>
+        <div class="divider"></div>
+        <div id="benchmarkFootnote" class="benchmark-note"></div>
+      </div>
+    </article>
   </section>
 
   <section id="view-contract" class="hidden-view space-y-4">
     <div class="grid grid-cols-1 xl:grid-cols-2 gap-4" id="contractSummaryCards"></div>
 
-    <article class="card">
-      <div class="card-header">
-        <h2 class="card-title">Type 1 Contracts (Source + Transport Bundled)</h2>
-      </div>
-      <div class="card-body p-0">
-        <div class="table-wrap rounded-none border-0 shadow-none">
-          <div class="table-scroll">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Contract ID</th>
-                  <th>Vendor</th>
-                  <th>Plants</th>
-                  <th>Material</th>
-                  <th>Unit Cost</th>
-                  <th>Volume</th>
-                  <th>Period</th>
-                </tr>
-              </thead>
-              <tbody id="type1Tbody"></tbody>
-            </table>
+    <div class="grid grid-cols-1 xl:grid-cols-[1.45fr_0.95fr] gap-4">
+      <article class="card">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title">Source Coverage by Material Group</h2>
+            <p class="card-subtitle">แยกตามต้นแหล่ง + กลุ่มวัตถุดิบ + หลัก/สำรอง และนับจำนวนโรงงาน CPAC ที่รับของ</p>
           </div>
         </div>
-      </div>
-    </article>
-
-    <div class="grid grid-cols-1 2xl:grid-cols-3 gap-4">
-      <article class="card">
-        <div class="card-header"><h2 class="card-title">Type 2 - Source Contracts</h2></div>
         <div class="card-body p-0">
           <div class="table-wrap rounded-none border-0 shadow-none">
             <div class="table-scroll">
               <table class="table">
                 <thead>
                   <tr>
-                    <th>ID</th>
-                    <th>Source</th>
-                    <th>Material</th>
-                    <th>Price</th>
-                    <th>Capacity</th>
+                    <th>ต้นแหล่ง</th>
+                    <th>กลุ่มวัตถุดิบ</th>
+                    <th>หลัก/สำรอง</th>
+                    <th>โรงงาน CPAC</th>
+                    <th>ผู้ขนส่ง</th>
+                    <th>ประเภทสัญญา</th>
+                    <th>วัตถุดิบ</th>
                   </tr>
                 </thead>
-                <tbody id="type2SourceTbody"></tbody>
+                <tbody id="contractSourceSummaryTbody"></tbody>
               </table>
             </div>
           </div>
@@ -773,21 +765,55 @@
       </article>
 
       <article class="card">
-        <div class="card-header"><h2 class="card-title">Type 2 - Transport Contracts</h2></div>
+        <div class="card-header">
+          <div>
+            <h2 class="card-title">Material Group Snapshot</h2>
+            <p class="card-subtitle">ดูภาพรวมว่ากลุ่มวัตถุดิบไหนมี coverage มากที่สุด</p>
+          </div>
+        </div>
         <div class="card-body p-0">
           <div class="table-wrap rounded-none border-0 shadow-none">
             <div class="table-scroll">
               <table class="table">
                 <thead>
                   <tr>
-                    <th>ID</th>
-                    <th>Transporter</th>
-                    <th>Material</th>
-                    <th>Price</th>
-                    <th>Capacity</th>
+                    <th>กลุ่มวัตถุดิบ</th>
+                    <th>Records</th>
+                    <th>ต้นแหล่ง</th>
+                    <th>Transporters</th>
+                    <th>Plants</th>
                   </tr>
                 </thead>
-                <tbody id="type2TransportTbody"></tbody>
+                <tbody id="contractMaterialGroupTbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
+      <article class="card">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title">Transporter Coverage</h2>
+            <p class="card-subtitle">ผู้ขนส่งรายใดวิ่งให้กี่โรงงาน และรับกี่ต้นแหล่ง</p>
+          </div>
+        </div>
+        <div class="card-body p-0">
+          <div class="table-wrap rounded-none border-0 shadow-none">
+            <div class="table-scroll">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>ผู้ขนส่ง</th>
+                    <th>กลุ่มวัตถุดิบ</th>
+                    <th>โรงงาน CPAC</th>
+                    <th>ต้นแหล่ง</th>
+                    <th>ต้นแหล่งหลัก/สำรอง</th>
+                  </tr>
+                </thead>
+                <tbody id="contractTransporterSummaryTbody"></tbody>
               </table>
             </div>
           </div>
@@ -795,20 +821,27 @@
       </article>
 
       <article class="card">
-        <div class="card-header"><h2 class="card-title">Assignment Mapping</h2></div>
+        <div class="card-header">
+          <div>
+            <h2 class="card-title">Contract Type Mix</h2>
+            <p class="card-subtitle">ใช้ `contract_type` เป็นตัวสรุปว่ามีสัญญาประเภทใดบ้าง และครอบคลุมกี่แหล่ง</p>
+          </div>
+        </div>
         <div class="card-body p-0">
           <div class="table-wrap rounded-none border-0 shadow-none">
             <div class="table-scroll">
               <table class="table">
                 <thead>
                   <tr>
-                    <th>Plant</th>
-                    <th>Source</th>
-                    <th>Transporter</th>
-                    <th>Route</th>
+                    <th>ประเภทสัญญา</th>
+                    <th>Records</th>
+                    <th>ต้นแหล่ง</th>
+                    <th>Transporters</th>
+                    <th>Plants</th>
+                    <th>กลุ่มวัตถุดิบ</th>
                   </tr>
                 </thead>
-                <tbody id="mappingTbody"></tbody>
+                <tbody id="contractTypeSummaryTbody"></tbody>
               </table>
             </div>
           </div>
@@ -818,10 +851,19 @@
   </section>
 
   <section id="view-capacity" class="hidden-view space-y-4">
+    <div id="capacitySummaryCards" class="benchmark-kpis"></div>
+
     <article class="card">
       <div class="card-header">
-        <h2 class="card-title">Feasibility Matrix (Plant x Material Spec)</h2>
-        <span class="chip">Green feasible / Yellow borderline / Red not feasible</span>
+        <div>
+          <h2 class="card-title">Plant Material Benchmark Matrix</h2>
+          <p id="capacityMatrixSubtitle" class="card-subtitle">โรงงานเป็นหลัก วัตถุดิบอยู่คอลัมน์ที่ 2 และเทียบราคากับโรงงานรอบตัวในรัศมีที่เลือก</p>
+        </div>
+        <div class="benchmark-legend">
+          <span><span class="legend-dot red"></span>Gap &gt; 5%</span>
+          <span><span class="legend-dot yellow"></span>Gap 3 - 5%</span>
+          <span><span class="legend-dot green"></span>Gap ไม่เกิน 2%</span>
+        </div>
       </div>
       <div class="card-body p-0">
         <div class="table-wrap rounded-none border-0 shadow-none">
@@ -831,15 +873,17 @@
                 <tr>
                   <th>Plant</th>
                   <th>Material Spec</th>
-                  <th>Demand (tpd)</th>
-                  <th>Source Cap (tpd)</th>
-                  <th>Transport Cap (tpd)</th>
-                  <th>Supply Ratio</th>
-                  <th>Transport Ratio</th>
-                  <th>Feasible</th>
+                  <th>Contract</th>
+                  <th>Source Category</th>
+                  <th>Source</th>
+                  <th>Transporter</th>
+                  <th>Total</th>
+                  <th>Benchmark</th>
+                  <th>Gap%</th>
+                  <th>Status</th>
                 </tr>
               </thead>
-              <tbody id="feasibilityTbody"></tbody>
+              <tbody id="capacityMatrixTbody"></tbody>
             </table>
           </div>
         </div>
@@ -848,30 +892,31 @@
 
     <article class="card">
       <div class="card-header">
-        <h2 class="card-title">What-if Simulation</h2>
-        <span class="card-subtitle">Alternative source + truck adjustment</span>
+        <div>
+          <h2 id="capacityDetailTitle" class="card-title">Peer Detail</h2>
+          <span id="capacityDetailSubtitle" class="card-subtitle">คลิกแถวใน matrix เพื่อดูรายละเอียดโรงงานรอบตัว</span>
+        </div>
       </div>
       <div class="card-body">
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3">
-          <label class="field">
-            <span class="label">Plant</span>
-            <select id="whatIfPlant" class="select"></select>
-          </label>
-          <label class="field">
-            <span class="label">Material Spec</span>
-            <select id="whatIfMaterial" class="select"></select>
-          </label>
-          <label class="field">
-            <span class="label">Alternative Source</span>
-            <select id="whatIfSource" class="select"></select>
-          </label>
-          <label class="field">
-            <span class="label">Adjust Trucks (+/-)</span>
-            <input id="whatIfTruckDelta" class="input" type="number" value="0" min="-10" max="20" />
-          </label>
-        </div>
+        <div id="capacityDetailCards" class="insight-grid"></div>
         <div class="divider"></div>
-        <div id="whatIfResult" class="grid grid-cols-1 md:grid-cols-4 gap-3"></div>
+        <div class="table-wrap rounded-none border-0 shadow-none">
+          <div class="table-scroll">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Nearby Plant</th>
+                  <th>Distance (km)</th>
+                  <th>Source</th>
+                  <th>Transporter</th>
+                  <th>Total</th>
+                  <th>Benchmark Gap%</th>
+                </tr>
+              </thead>
+              <tbody id="capacityPeerTbody"></tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </article>
   </section>
@@ -884,8 +929,21 @@
       <div class="card-body">
         <div class="upload-drop">
           <input id="csvUpload" class="input" type="file" accept=".csv" />
-          <p class="text-sm text-muted mt-2">Front-end mock upload. Preview first rows below.</p>
+          <p class="text-sm text-muted mt-2">ใช้ไฟล์ตัวอย่างเพื่อดูรูปแบบคอลัมน์ก่อนอัปโหลด หรือเลือกไฟล์จริงเพื่อ preview ด้านล่าง</p>
+          <div class="flex flex-wrap items-center gap-3 mt-3">
+            <a class="btn btn-primary" href="./sample_contract_upload.csv" download>Download Sample CSV</a>
+            <span class="text-sm text-muted">ตัวอย่างนี้มีคอลัมน์ที่จำเป็นสำหรับ plant, material, contract, source, transporter, period และ total price</span>
+          </div>
         </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-header">
+        <h2 class="card-title">Expected Columns</h2>
+      </div>
+      <div class="card-body">
+        <div id="sampleColumnList" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3"></div>
       </div>
     </article>
 
@@ -1057,8 +1115,63 @@
 </script>
 
 <script>
+window.ISUPPLY_SAMPLE_DATA = {
+  organizationRows: [
+    { DIVISION_NAME: "CPAC กรุงเทพ", DEPARTMENT_NAME: "กรุงเทพตอนกลาง", PLANT_NO: "13AL", PLANT_NAME: "คาราบาว", PLANT_TYPE: "CPAC" },
+    { DIVISION_NAME: "CPAC กรุงเทพ", DEPARTMENT_NAME: "กรุงเทพตอนกลาง", PLANT_NO: "31N6", PLANT_NAME: "ราษฎร์บูรณะ 4", PLANT_TYPE: "CPAC" },
+    { DIVISION_NAME: "CPAC กรุงเทพ", DEPARTMENT_NAME: "กรุงเทพตอนกลาง", PLANT_NO: "31DU", PLANT_NAME: "ท่าพระ", PLANT_TYPE: "CPAC" },
+    { DIVISION_NAME: "CPAC กรุงเทพ", DEPARTMENT_NAME: "กรุงเทพตอนกลาง", PLANT_NO: "31BA", PLANT_NAME: "บ่อนก่ำ", PLANT_TYPE: "CPAC" },
+    { DIVISION_NAME: "CPAC กรุงเทพ", DEPARTMENT_NAME: "กรุงเทพตะวันออก", PLANT_NO: "31BG", PLANT_NAME: "พระราม 9/2", PLANT_TYPE: "CPAC" },
+    { DIVISION_NAME: "CPAC กรุงเทพ", DEPARTMENT_NAME: "กรุงเทพตะวันออก", PLANT_NO: "13AX", PLANT_NAME: "บางปะกง 3", PLANT_TYPE: "CPAC" }
+  ],
+  locationRows: [
+    { plant_no: "13AL", plant_name: "คาราบาว", latitude: "13.7440", longitude: "100.5160" },
+    { plant_no: "31N6", plant_name: "ราษฎร์บูรณะ 4", latitude: "13.6780", longitude: "100.4950" },
+    { plant_no: "31DU", plant_name: "ท่าพระ", latitude: "13.7160", longitude: "100.4740" },
+    { plant_no: "31BA", plant_name: "บ่อนก่ำ", latitude: "13.6900", longitude: "100.4560" },
+    { plant_no: "31BG", plant_name: "พระราม 9/2", latitude: "13.7530", longitude: "100.6020" },
+    { plant_no: "13AX", plant_name: "บางปะกง 3", latitude: "13.5830", longitude: "100.8160" }
+  ],
+  contractRows: [
+    { plant_code: "13AL", plant_name: "คาราบาว", material_code: "S11", material_name: "ทรายหยาบ-ปกติ", contract_type: "สัญญาซื้อขายทรายพร้อมขนส่ง", source_category: "หลัก", source_name: "บจก.บ่อทรายตัวอย่าง B", source_plant_name: "ลานทรายคาราบาว", transporter_name: "บจก.ผู้ขนส่งตัวอย่าง 2", effective_date: "2026-02-01", end_date: "2026-02-28", distance_km: "24.0", rawmat_price: "105.00", transport_price_after_adjust: "96.40", total_transportation_price: "96.40", total_price: "201.40" },
+    { plant_code: "31N6", plant_name: "ราษฎร์บูรณะ 4", material_code: "S11", material_name: "ทรายหยาบ-ปกติ", contract_type: "สัญญาซื้อขายทรายพร้อมขนส่ง", source_category: "หลัก", source_name: "บจก.บ่อทรายคลองเรือ", source_plant_name: "ลานทรายราษฎร์บูรณะ", transporter_name: "บจก.ผู้ขนส่งตัวอย่าง 2", effective_date: "2026-02-01", end_date: "2026-02-28", distance_km: "42.9", rawmat_price: "120.00", transport_price_after_adjust: "186.70", total_transportation_price: "186.70", total_price: "306.70" },
+    { plant_code: "31DU", plant_name: "ท่าพระ", material_code: "S11", material_name: "ทรายหยาบ-ปกติ", contract_type: "สัญญาซื้อขายทรายพร้อมขนส่ง", source_category: "หลัก", source_name: "บจก.บ่อทรายตัวอย่าง B", source_plant_name: "ลานทรายท่าพระ", transporter_name: "บจก.ผู้ขนส่งตัวอย่าง 2", effective_date: "2026-02-01", end_date: "2026-02-28", distance_km: "18.0", rawmat_price: "105.00", transport_price_after_adjust: "129.50", total_transportation_price: "129.50", total_price: "234.50" },
+    { plant_code: "31BA", plant_name: "บ่อนก่ำ", material_code: "S11", material_name: "ทรายหยาบ-ปกติ", contract_type: "สัญญาซื้อขายทรายพร้อมขนส่ง", source_category: "สำรอง", source_name: "บจก.บ่อทรายพระประแดง", source_plant_name: "ลานทรายบ่อนก่ำ", transporter_name: "บจก.ผู้ขนส่งตัวอย่าง 3", effective_date: "2026-02-01", end_date: "2026-02-28", distance_km: "21.5", rawmat_price: "105.00", transport_price_after_adjust: "139.00", total_transportation_price: "139.00", total_price: "244.00" },
+    { plant_code: "31BG", plant_name: "พระราม 9/2", material_code: "S11", material_name: "ทรายหยาบ-ปกติ", contract_type: "สัญญาซื้อขายทรายพร้อมขนส่ง", source_category: "หลัก", source_name: "บจก.บ่อทรายบางปะกง", source_plant_name: "ลานทรายพระราม 9", transporter_name: "บจก.ผู้ขนส่งตัวอย่าง 4", effective_date: "2026-02-01", end_date: "2026-02-28", distance_km: "30.1", rawmat_price: "120.00", transport_price_after_adjust: "130.21", total_transportation_price: "130.21", total_price: "250.21" },
+    { plant_code: "13AL", plant_name: "คาราบาว", material_code: "R34", material_name: "หิน 3/4\"-#4", contract_type: "สัญญาซื้อขายหินพร้อมขนส่ง", source_category: "หลัก", source_name: "บจก.โรงโม่หินตัวอย่าง A", source_plant_name: "เหมืองหินคาราบาว", transporter_name: "บจก.ผู้ขนส่งตัวอย่าง 1", effective_date: "2026-02-01", end_date: "2026-02-28", distance_km: "32.5", rawmat_price: "160.00", transport_price_after_adjust: "142.50", total_transportation_price: "142.50", total_price: "302.50" },
+    { plant_code: "31N6", plant_name: "ราษฎร์บูรณะ 4", material_code: "R34", material_name: "หิน 3/4\"-#4", contract_type: "สัญญาซื้อขายหินพร้อมขนส่ง", source_category: "หลัก", source_name: "บจก.โรงโม่หินสมุทร", source_plant_name: "เหมืองหินราษฎร์บูรณะ", transporter_name: "บจก.ผู้ขนส่งตัวอย่าง 1", effective_date: "2026-02-01", end_date: "2026-02-28", distance_km: "29.0", rawmat_price: "175.00", transport_price_after_adjust: "143.40", total_transportation_price: "143.40", total_price: "318.40" },
+    { plant_code: "31DU", plant_name: "ท่าพระ", material_code: "R34", material_name: "หิน 3/4\"-#4", contract_type: "สัญญาซื้อขายหินพร้อมขนส่ง", source_category: "หลัก", source_name: "บจก.โรงโม่หินตัวอย่าง A", source_plant_name: "เหมืองหินท่าพระ", transporter_name: "บจก.ผู้ขนส่งตัวอย่าง 1", effective_date: "2026-02-01", end_date: "2026-02-28", distance_km: "27.1", rawmat_price: "158.00", transport_price_after_adjust: "137.10", total_transportation_price: "137.10", total_price: "295.10" },
+    { plant_code: "31BA", plant_name: "บ่อนก่ำ", material_code: "R34", material_name: "หิน 3/4\"-#4", contract_type: "สัญญาซื้อขายหินพร้อมขนส่ง", source_category: "สำรอง", source_name: "บจก.โรงโม่หินปากน้ำ", source_plant_name: "เหมืองหินบ่อนก่ำ", transporter_name: "บจก.ผู้ขนส่งตัวอย่าง 5", effective_date: "2026-02-01", end_date: "2026-02-28", distance_km: "25.4", rawmat_price: "155.00", transport_price_after_adjust: "132.60", total_transportation_price: "132.60", total_price: "287.60" },
+    { plant_code: "13AX", plant_name: "บางปะกง 3", material_code: "R34", material_name: "หิน 3/4\"-#4", contract_type: "สัญญาซื้อขายหินพร้อมขนส่ง", source_category: "หลัก", source_name: "บจก.โรงโม่หินชลบุรี", source_plant_name: "เหมืองหินบางปะกง", transporter_name: "บจก.ผู้ขนส่งตัวอย่าง 6", effective_date: "2026-02-01", end_date: "2026-02-28", distance_km: "18.8", rawmat_price: "168.00", transport_price_after_adjust: "142.30", total_transportation_price: "142.30", total_price: "310.30" },
+    { plant_code: "31N6", plant_name: "ราษฎร์บูรณะ 4", material_code: "C12", material_name: "SCG Hybrid Cement", contract_type: "สัญญาซีเมนต์พร้อมขนส่ง", source_category: "หลัก", source_name: "บจก.ปูนซิเมนต์ไทย (ท่าหลวง)", source_plant_name: "ท่าหลวง", transporter_name: "บจก.เอสซีจี โลจิสติกส์ แมเนจเม้นท์", effective_date: "2026-02-01", end_date: "2026-02-28", distance_km: "17.4", rawmat_price: "1562.58", transport_price_after_adjust: "135.00", total_transportation_price: "135.00", total_price: "1697.58" },
+    { plant_code: "31N6", plant_name: "ราษฎร์บูรณะ 4", material_code: "D29", material_name: "SIKA-D2323", contract_type: "สัญญาน้ำยาพร้อมขนส่ง", source_category: "หลัก", source_name: "บจก.ซิก้า (ประเทศไทย)", source_plant_name: "ประเทศไทย", transporter_name: "บจก.ซิก้า (ประเทศไทย)", effective_date: "2026-02-01", end_date: "2026-02-28", distance_km: "0.0", rawmat_price: "7.60", transport_price_after_adjust: "0.00", total_transportation_price: "0.00", total_price: "7.60" },
+    { plant_code: "31BA", plant_name: "บ่อนก่ำ", material_code: "F11", material_name: "MasterEase F", contract_type: "สัญญาน้ำยาพร้อมขนส่ง", source_category: "หลัก", source_name: "บจก.คาโอ อินดัสเตรียล (ประเทศไทย)", source_plant_name: "ประเทศไทย", transporter_name: "บจก.คาโอ อินดัสเตรียล (ประเทศไทย)", effective_date: "2026-02-01", end_date: "2026-02-28", distance_km: "0.0", rawmat_price: "8.25", transport_price_after_adjust: "0.00", total_transportation_price: "0.00", total_price: "8.25" },
+    { plant_code: "31DU", plant_name: "ท่าพระ", material_code: "MF1", material_name: "Fly Ash (MAEMOH)", contract_type: "สัญญาสารผสมเพิ่มพร้อมขนส่ง", source_category: "หลัก", source_name: "Hub PFA พระประแดง", source_plant_name: "พระประแดง", transporter_name: "บจก.เอสซีจี โลจิสติกส์ แมเนจเม้นท์", effective_date: "2026-02-01", end_date: "2026-02-28", distance_km: "22.3", rawmat_price: "1404.00", transport_price_after_adjust: "135.00", total_transportation_price: "135.00", total_price: "1539.00" }
+  ]
+};
+window.ISUPPLY_SAMPLE_DATA.sampleUploadRows = window.ISUPPLY_SAMPLE_DATA.contractRows.map((row) => ({
+  plant_code: row.plant_code,
+  plant_name: row.plant_name,
+  material_code: row.material_code,
+  material_name: row.material_name,
+  contract_type: row.contract_type,
+  source_category: row.source_category,
+  source_name: row.source_name,
+  transporter_name: row.transporter_name,
+  effective_date: row.effective_date,
+  end_date: row.end_date,
+  distance_km: row.distance_km,
+  rawmat_price: row.rawmat_price,
+  transport_price: row.transport_price_after_adjust || row.total_transportation_price || "",
+  total_price: row.total_price
+}));
+window.ISUPPLY_SAMPLE_DATA = Object.freeze(window.ISUPPLY_SAMPLE_DATA);
+</script>
+
+<script>
 (() => {
   const ORG_CSV_PATH = "./plant_dataocean_202602271417.csv";
+  const SAMPLE_DATA = window.ISUPPLY_SAMPLE_DATA || {};
 
   const el = (id) => document.getElementById(id);
   const clean = (v) => String(v ?? "").replace(/^\uFEFF/, "").replace(/^"+|"+$/g, "").trim();
@@ -1145,10 +1258,16 @@
       const res = await fetch(ORG_CSV_PATH, { cache: "no-store" });
       if (!res.ok) throw new Error("Fetch failed: " + res.status);
       const buf = await res.arrayBuffer();
-      return parseCsv(decodeBest(buf));
+      const rows = parseCsv(decodeBest(buf));
+      return rows.length ? rows : (SAMPLE_DATA.organizationRows || []).map((row) => ({ ...row }));
     } catch (_) {
-      const txt = await xhrText(ORG_CSV_PATH);
-      return parseCsv(txt);
+      try {
+        const txt = await xhrText(ORG_CSV_PATH);
+        const rows = parseCsv(txt);
+        return rows.length ? rows : (SAMPLE_DATA.organizationRows || []).map((row) => ({ ...row }));
+      } catch (_) {
+        return (SAMPLE_DATA.organizationRows || []).map((row) => ({ ...row }));
+      }
     }
   }
 
@@ -1183,72 +1302,44 @@
     return el("filterPlant");
   }
 
-  function getPlantSpecificOptions() {
+  function getPlantOptions() {
     const select = getPlantSelect();
     if (!select) return [];
-    return [...select.options].filter((opt) => opt.value !== "all");
+    return [...select.options];
   }
 
-  function getPlantSelectedValues() {
-    return new Set(getPlantSpecificOptions().filter((opt) => opt.selected).map((opt) => opt.value));
+  function getSelectedPlantValue() {
+    const select = getPlantSelect();
+    if (!select) return "";
+    return clean(select.value);
   }
 
-  function setPlantSelectedValues(values) {
+  function setPlantSelectedValue(value) {
     const select = getPlantSelect();
     if (!select) return;
-    const hasSpecific = values.size > 0;
-    [...select.options].forEach((opt) => {
-      if (opt.value === "all") {
-        opt.selected = !hasSpecific;
-      } else {
-        opt.selected = values.has(opt.value);
-      }
-    });
+    const options = getPlantOptions();
+    const hasValue = options.some((opt) => opt.value === value);
+    select.value = hasValue ? value : (options[0]?.value || "");
   }
 
   function updatePlantTriggerText() {
     const label = el("filterPlantLabel");
     if (!label) return;
-    const specificOptions = getPlantSpecificOptions();
-    const selectedValues = getPlantSelectedValues();
-
-    if (!specificOptions.length || !selectedValues.size || selectedValues.size === specificOptions.length) {
-      label.textContent = "All";
-      return;
-    }
-
-    if (selectedValues.size === 1) {
-      const match = specificOptions.find((opt) => selectedValues.has(opt.value));
-      label.textContent = match ? match.textContent : "1 selected";
-      return;
-    }
-
-    label.textContent = `${selectedValues.size} selected`;
+    const selectedValue = getSelectedPlantValue();
+    const match = getPlantOptions().find((opt) => opt.value === selectedValue);
+    label.textContent = match ? match.textContent : "Select plant";
   }
 
   function renderPlantOptionsPanel() {
     const panel = el("filterPlantOptions");
     if (!panel) return;
 
-    const specificOptions = getPlantSpecificOptions();
-    const selectedValues = getPlantSelectedValues();
-    const allChecked = !specificOptions.length || !selectedValues.size || selectedValues.size === specificOptions.length;
+    const options = getPlantOptions();
+    const selectedValue = getSelectedPlantValue();
 
     panel.innerHTML = "";
 
-    const allRow = document.createElement("label");
-    allRow.className = "plant-multi-option all";
-    const allInput = document.createElement("input");
-    allInput.type = "checkbox";
-    allInput.dataset.role = "all";
-    allInput.checked = allChecked;
-    const allText = document.createElement("span");
-    allText.textContent = "All";
-    allRow.appendChild(allInput);
-    allRow.appendChild(allText);
-    panel.appendChild(allRow);
-
-    if (!specificOptions.length) {
+    if (!options.length) {
       const empty = document.createElement("div");
       empty.className = "plant-multi-option";
       empty.textContent = "No plant data";
@@ -1256,13 +1347,14 @@
       return;
     }
 
-    specificOptions.forEach((opt) => {
+    options.forEach((opt) => {
       const row = document.createElement("label");
       row.className = "plant-multi-option";
       const input = document.createElement("input");
-      input.type = "checkbox";
+      input.type = "radio";
+      input.name = "focus-plant";
       input.value = opt.value;
-      input.checked = selectedValues.has(opt.value);
+      input.checked = selectedValue === opt.value;
       const text = document.createElement("span");
       text.textContent = opt.textContent;
       row.appendChild(input);
@@ -1309,21 +1401,15 @@
     if (panel) {
       panel.addEventListener("change", (event) => {
         const target = event.target;
-        if (!(target instanceof HTMLInputElement) || target.type !== "checkbox") return;
+        if (!(target instanceof HTMLInputElement) || target.type !== "radio") return;
 
-        if (target.dataset.role === "all") {
-          setPlantSelectedValues(new Set());
-        } else {
-          const selectedValues = getPlantSelectedValues();
-          if (target.checked) selectedValues.add(target.value);
-          else selectedValues.delete(target.value);
-          setPlantSelectedValues(selectedValues);
-        }
+        setPlantSelectedValue(target.value);
 
         renderPlantOptionsPanel();
         updatePlantTriggerText();
         const select = getPlantSelect();
         if (select) select.dispatchEvent(new Event("change", { bubbles: true }));
+        closePlantDropdown();
       });
     }
 
@@ -1352,13 +1438,12 @@
 
     if (typeof opts.selectedValue === "string") {
       const hasSelected = [...dom.options].some((opt) => opt.value === opts.selectedValue);
-      dom.value = hasSelected ? opts.selectedValue : (includeAll ? "all" : (dom.options[0]?.value || ""));
+      dom.value = hasSelected ? opts.selectedValue : (dom.options[0]?.value || "");
     }
 
     if (selectId === "filterPlant") {
       initPlantMultiSelect();
-      const selectedValues = opts.selectedValues instanceof Set ? opts.selectedValues : new Set();
-      setPlantSelectedValues(selectedValues);
+      setPlantSelectedValue(opts.selectedValue || dom.options[0]?.value || "");
       renderPlantOptionsPanel();
       updatePlantTriggerText();
     }
@@ -1451,10 +1536,7 @@
     const currentBu = getSingleFilterValue("filterBu");
     const currentRegion = getSingleFilterValue("filterRegion");
 
-    const plantSpecificOptions = getPlantSpecificOptions();
-    const plantSelection = getPlantSelectedValues();
-    const plantAllSelected =
-      !plantSpecificOptions.length || !plantSelection.size || plantSelection.size === plantSpecificOptions.length;
+    const currentPlant = getSelectedPlantValue();
 
     const companyValuesRaw = sortedUnique(organizationRows.map((r) => r.company));
     const companyValues = companyValuesRaw.includes("CPAC")
@@ -1504,15 +1586,11 @@
       .map(([value, label]) => ({ value, label }));
 
     const validPlantValues = new Set(plantOptions.map((p) => p.value));
-    let nextPlantSelection = new Set();
-    if (!plantAllSelected) {
-      nextPlantSelection = new Set([...plantSelection].filter((v) => validPlantValues.has(v)));
-    }
+    const nextPlantValue = validPlantValues.has(currentPlant) ? currentPlant : (plantOptions[0]?.value || "");
 
     fillSelect("filterPlant", plantOptions, {
-      includeAll: true,
-      allLabel: "All",
-      selectedValues: nextPlantSelection,
+      includeAll: false,
+      selectedValue: nextPlantValue,
     });
   }
 
@@ -1560,6 +1638,9 @@
     const rows = await loadOrganizationRows();
     renderOrgMenu(rows);
     applyOrganizationToFilters(rows);
+    if (typeof window.refreshAllDataViews === "function") {
+      requestAnimationFrame(() => window.refreshAllDataViews());
+    }
   }
 
   window.refreshPlantMultiUi = () => {
@@ -1588,12 +1669,33 @@
 (() => {
   const CONTRACT_CSV_PATH = "./referrence/contract_period_2026227.csv";
   const LOCATION_CSV_PATH = "./cpac_plant_locations.csv";
+  const ORGANIZATION_CSV_PATH = "./plant_dataocean_202602271417.csv";
+  const SAMPLE_UPLOAD_CSV_PATH = "./sample_contract_upload.csv";
+  const SAMPLE_DATA = window.ISUPPLY_SAMPLE_DATA || {};
+  const SAMPLE_UPLOAD_COLUMNS = [
+    "plant_code",
+    "plant_name",
+    "material_code",
+    "material_name",
+    "contract_type",
+    "source_category",
+    "source_name",
+    "transporter_name",
+    "effective_date",
+    "end_date",
+    "distance_km",
+    "rawmat_price",
+    "transport_price",
+    "total_price",
+  ];
   const byId = (id) => document.getElementById(id);
   const state = {
     contractRows: [],
     locationMap: new Map(),
+    cpacPlantSet: new Set(),
     benchmarkRows: [],
     focusKey: "",
+    capacityKey: "",
     loading: false,
     heatmapSort: {
       field: "gap_pct",
@@ -1676,9 +1778,23 @@
     try {
       const res = await fetch(path, { cache: "no-store" });
       if (!res.ok) throw new Error("Fetch failed: " + res.status);
-      return parseCsv(decodeBest(await res.arrayBuffer()));
+      const rows = parseCsv(decodeBest(await res.arrayBuffer()));
+      return rows;
     } catch (_) {
       return parseCsv(await xhrText(path));
+    }
+  }
+
+  function cloneRows(rows) {
+    return (rows || []).map((row) => ({ ...row }));
+  }
+
+  async function fetchCsvRowsWithFallback(path, fallbackRows) {
+    try {
+      const rows = await fetchCsvRows(path);
+      return rows.length ? rows : cloneRows(fallbackRows);
+    } catch (_) {
+      return cloneRows(fallbackRows);
     }
   }
 
@@ -1722,6 +1838,12 @@
     return "green";
   }
 
+  function getGapLabel(gapPct) {
+    if (gapPct > 5) return "Gap > 5%";
+    if (gapPct >= 3) return "Gap 3 - 5%";
+    return "Gap ไม่เกิน 2%";
+  }
+
   function updateHeatmapSortUi() {
     document.querySelectorAll("[data-sort-field]").forEach((button) => {
       const field = button.getAttribute("data-sort-field");
@@ -1736,6 +1858,9 @@
     const { field, direction } = state.heatmapSort;
     const factor = direction === "asc" ? 1 : -1;
     return rows.slice().sort((a, b) => {
+      if (a.is_focus_plant !== b.is_focus_plant) {
+        return a.is_focus_plant ? -1 : 1;
+      }
       const diff = (Number(a[field] || 0) - Number(b[field] || 0)) * factor;
       if (diff !== 0) return diff;
       return a.plant_name.localeCompare(b.plant_name, "th");
@@ -1748,6 +1873,370 @@
     if (name.includes("ทราย") || name.includes("ฝุ่น")) return "sand";
     if (name.includes("หิน")) return "rock";
     return "";
+  }
+
+  function materialGroupFromCode(materialCode) {
+    const code = clean(materialCode).toUpperCase();
+    if (code.startsWith("MF")) return "Fly Ash (MF)";
+    if (code.startsWith("C")) return "Cement (C)";
+    if (code.startsWith("R")) return "Stone (R)";
+    if (code.startsWith("S")) return "Sand (S)";
+    if (code.startsWith("D")) return "Admixture Type D";
+    if (code.startsWith("F")) return "Admixture Type F";
+    return "Other";
+  }
+
+  function formatListPreview(values, limit = 3) {
+    const list = [...values].filter(Boolean);
+    if (!list.length) return "-";
+    if (list.length <= limit) return list.join(", ");
+    return `${list.slice(0, limit).join(", ")} +${list.length - limit}`;
+  }
+
+  function createSummaryMap(rows, keyFactory, seedFactory, accumulator) {
+    const map = new Map();
+    rows.forEach((row) => {
+      const key = keyFactory(row);
+      if (!map.has(key)) map.set(key, seedFactory(row));
+      accumulator(map.get(key), row);
+    });
+    return [...map.values()];
+  }
+
+  function buildContractSummaryBaseRows() {
+    const cpacPlants = state.cpacPlantSet;
+    const seen = new Set();
+
+    return state.contractRows
+      .filter((row) => !cpacPlants.size || cpacPlants.has(clean(row.plant_code)))
+      .filter((row) => {
+        const key = [
+          clean(row.plant_code),
+          clean(row.material_code),
+          clean(row.material_name),
+          clean(row.contract_type),
+          clean(row.source_category),
+          clean(row.source_name),
+          clean(row.transporter_name),
+          clean(row.effective_date),
+          clean(row.end_date),
+          clean(row.total_price),
+        ].join("|");
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      })
+      .map((row) => ({
+        plant_code: clean(row.plant_code),
+        plant_name: clean(row.plant_name),
+        material_code: clean(row.material_code),
+        material_name: clean(row.material_name),
+        material_group: materialGroupFromCode(row.material_code),
+        contract_type: clean(row.contract_type) || "-",
+        source_category: clean(row.source_category) || "-",
+        source_name: clean(row.source_name) || clean(row.source_plant_name) || "-",
+        transporter_name: clean(row.transporter_name) || "-",
+        effective_date: clean(row.effective_date),
+        end_date: clean(row.end_date),
+      }));
+  }
+
+  function renderContractSummary() {
+    const rows = buildContractSummaryBaseRows();
+    const cardsHost = byId("contractSummaryCards");
+    const sourceBody = byId("contractSourceSummaryTbody");
+    const materialBody = byId("contractMaterialGroupTbody");
+    const transporterBody = byId("contractTransporterSummaryTbody");
+    const typeBody = byId("contractTypeSummaryTbody");
+    if (!cardsHost || !sourceBody || !materialBody || !transporterBody || !typeBody) return;
+
+    if (!rows.length) {
+      cardsHost.innerHTML = `
+        <article class="card"><div class="card-body"><div class="text-muted">No contract data available</div></div></article>
+      `;
+      [sourceBody, materialBody, transporterBody, typeBody].forEach((node) => {
+        node.innerHTML = `<tr><td colspan="7" class="text-center text-muted">No contract data</td></tr>`;
+      });
+      return;
+    }
+
+    const plants = new Set(rows.map((row) => row.plant_code));
+    const sources = new Set(rows.map((row) => row.source_name));
+    const transporters = new Set(rows.map((row) => row.transporter_name));
+    const materialGroups = new Set(rows.map((row) => row.material_group));
+    const primaryCount = rows.filter((row) => row.source_category === "หลัก").length;
+    const backupCount = rows.filter((row) => row.source_category === "สำรอง").length;
+
+    cardsHost.innerHTML = `
+      <article class="card"><div class="card-body"><div class="text-sm text-muted">Contract Records</div><div class="text-3xl font-black mt-1">${formatCompact(rows.length, 0)}</div><div class="text-sm text-muted mt-2">deduped records from contract_period_2026227.csv</div></div></article>
+      <article class="card"><div class="card-body"><div class="text-sm text-muted">CPAC Plants Served</div><div class="text-3xl font-black mt-1">${formatCompact(plants.size, 0)}</div><div class="text-sm text-muted mt-2">plants receiving at least one active contract line</div></div></article>
+      <article class="card"><div class="card-body"><div class="text-sm text-muted">Active Sources</div><div class="text-3xl font-black mt-1">${formatCompact(sources.size, 0)}</div><div class="text-sm text-muted mt-2">distinct source_name / source_plant_name</div></div></article>
+      <article class="card"><div class="card-body"><div class="text-sm text-muted">Transporters</div><div class="text-3xl font-black mt-1">${formatCompact(transporters.size, 0)}</div><div class="text-sm text-muted mt-2">distinct transporter_name</div></div></article>
+      <article class="card"><div class="card-body"><div class="text-sm text-muted">Primary / Backup</div><div class="text-3xl font-black mt-1">${formatCompact(primaryCount, 0)} / ${formatCompact(backupCount, 0)}</div><div class="text-sm text-muted mt-2">${materialGroups.size} material groups in scope</div></div></article>
+    `;
+
+    const sourceSummary = createSummaryMap(
+      rows,
+      (row) => [row.source_name, row.material_group, row.source_category].join("|"),
+      (row) => ({
+        source_name: row.source_name,
+        material_group: row.material_group,
+        source_category: row.source_category,
+        plants: new Set(),
+        plant_labels: new Set(),
+        transporters: new Set(),
+        contract_types: new Set(),
+        materials: new Set(),
+        records: 0,
+      }),
+      (bucket, row) => {
+        bucket.records += 1;
+        bucket.plants.add(row.plant_code);
+        bucket.plant_labels.add(`${row.plant_code} ${row.plant_name}`.trim());
+        bucket.transporters.add(row.transporter_name);
+        bucket.contract_types.add(row.contract_type);
+        bucket.materials.add(`${row.material_code} ${row.material_name}`.trim());
+      }
+    ).sort((a, b) => b.plants.size - a.plants.size || a.source_name.localeCompare(b.source_name, "th"));
+
+    sourceBody.innerHTML = sourceSummary.map((row) => `
+      <tr>
+        <td><div class="font-semibold">${escapeHtml(row.source_name)}</div><div class="text-xs text-muted">${row.records} lines</div></td>
+        <td>${escapeHtml(row.material_group)}</td>
+        <td>${escapeHtml(row.source_category)}</td>
+        <td><div class="font-semibold">${row.plants.size}</div><div class="text-xs text-muted">${escapeHtml(formatListPreview(row.plant_labels, 4))}</div></td>
+        <td>${escapeHtml(formatListPreview(row.transporters, 3))}</td>
+        <td>${escapeHtml(formatListPreview(row.contract_types, 2))}</td>
+        <td>${escapeHtml(formatListPreview(row.materials, 3))}</td>
+      </tr>
+    `).join("");
+
+    const materialSummary = createSummaryMap(
+      rows,
+      (row) => row.material_group,
+      (row) => ({
+        material_group: row.material_group,
+        records: 0,
+        sources: new Set(),
+        transporters: new Set(),
+        plants: new Set(),
+      }),
+      (bucket, row) => {
+        bucket.records += 1;
+        bucket.sources.add(row.source_name);
+        bucket.transporters.add(row.transporter_name);
+        bucket.plants.add(row.plant_code);
+      }
+    ).sort((a, b) => b.records - a.records);
+
+    materialBody.innerHTML = materialSummary.map((row) => `
+      <tr>
+        <td>${escapeHtml(row.material_group)}</td>
+        <td>${formatCompact(row.records, 0)}</td>
+        <td>${formatCompact(row.sources.size, 0)}</td>
+        <td>${formatCompact(row.transporters.size, 0)}</td>
+        <td>${formatCompact(row.plants.size, 0)}</td>
+      </tr>
+    `).join("");
+
+    const transporterSummary = createSummaryMap(
+      rows,
+      (row) => [row.transporter_name, row.material_group].join("|"),
+      (row) => ({
+        transporter_name: row.transporter_name,
+        material_group: row.material_group,
+        plants: new Set(),
+        sources: new Set(),
+        source_categories: new Set(),
+      }),
+      (bucket, row) => {
+        bucket.plants.add(`${row.plant_code} ${row.plant_name}`.trim());
+        bucket.sources.add(row.source_name);
+        bucket.source_categories.add(row.source_category);
+      }
+    ).sort((a, b) => b.plants.size - a.plants.size || a.transporter_name.localeCompare(b.transporter_name, "th"));
+
+    const transporterGrouped = transporterSummary.reduce((map, row) => {
+      if (!map.has(row.transporter_name)) {
+        map.set(row.transporter_name, {
+          transporter_name: row.transporter_name,
+          material_groups: [],
+          total_plants: new Set(),
+        });
+      }
+      const group = map.get(row.transporter_name);
+      group.material_groups.push(row);
+      row.plants.forEach((plant) => group.total_plants.add(plant));
+      return map;
+    }, new Map());
+
+    transporterBody.innerHTML = [...transporterGrouped.values()]
+      .sort((a, b) => b.total_plants.size - a.total_plants.size || a.transporter_name.localeCompare(b.transporter_name, "th"))
+      .map((group) => {
+        const materialRows = group.material_groups
+          .sort((a, b) => b.plants.size - a.plants.size || a.material_group.localeCompare(b.material_group, "en"));
+        return materialRows.map((row, index) => `
+          <tr>
+            ${index === 0 ? `<td rowspan="${materialRows.length}"><div class="font-semibold">${escapeHtml(group.transporter_name)}</div><div class="text-xs text-muted">${materialRows.length} material groups / ${group.total_plants.size} CPAC plants</div></td>` : ""}
+            <td>${escapeHtml(row.material_group)}</td>
+            <td><div class="font-semibold">${row.plants.size}</div><div class="text-xs text-muted">${escapeHtml(formatListPreview(row.plants, 4))}</div></td>
+            <td>${escapeHtml(formatListPreview(row.sources, 3))}</td>
+            <td>${escapeHtml(formatListPreview(row.source_categories, 2))}</td>
+          </tr>
+        `).join("");
+      })
+      .join("");
+
+    const typeSummary = createSummaryMap(
+      rows,
+      (row) => row.contract_type,
+      (row) => ({
+        contract_type: row.contract_type,
+        records: 0,
+        sources: new Set(),
+        transporters: new Set(),
+        plants: new Set(),
+        material_groups: new Set(),
+      }),
+      (bucket, row) => {
+        bucket.records += 1;
+        bucket.sources.add(row.source_name);
+        bucket.transporters.add(row.transporter_name);
+        bucket.plants.add(row.plant_code);
+        bucket.material_groups.add(row.material_group);
+      }
+    ).sort((a, b) => b.records - a.records);
+
+    typeBody.innerHTML = typeSummary.map((row) => `
+      <tr>
+        <td>${escapeHtml(row.contract_type)}</td>
+        <td>${formatCompact(row.records, 0)}</td>
+        <td>${formatCompact(row.sources.size, 0)}</td>
+        <td>${formatCompact(row.transporters.size, 0)}</td>
+        <td>${formatCompact(row.plants.size, 0)}</td>
+        <td>${escapeHtml(formatListPreview(row.material_groups, 2))}</td>
+      </tr>
+    `).join("");
+  }
+
+  function renderSampleColumnList() {
+    const host = byId("sampleColumnList");
+    if (!host) return;
+    const columnDescriptions = {
+      plant_code: "รหัสโรงงาน",
+      plant_name: "ชื่อโรงงาน",
+      material_code: "รหัสวัตถุดิบ",
+      material_name: "ชื่อวัตถุดิบ",
+      contract_type: "ประเภทสัญญา",
+      source_category: "หลัก / สำรอง",
+      source_name: "ชื่อต้นแหล่ง",
+      transporter_name: "ชื่อผู้ขนส่ง",
+      effective_date: "วันที่เริ่มมีผล",
+      end_date: "วันที่สิ้นสุด",
+      distance_km: "ระยะทางขนส่ง",
+      rawmat_price: "ราคาเนื้อวัตถุดิบ",
+      transport_price: "ค่าขนส่ง",
+      total_price: "ราคารวม",
+    };
+    host.innerHTML = SAMPLE_UPLOAD_COLUMNS.map((col) => `
+      <div class="insight-card">
+        <div class="label">Column</div>
+        <div class="value" style="font-size:16px;">${escapeHtml(col)}</div>
+        <div class="sub">${escapeHtml(columnDescriptions[col] || "-")}</div>
+      </div>
+    `).join("");
+  }
+
+  function renderPreviewTable(rows) {
+    const table = byId("previewTable");
+    if (!table) return;
+    if (!rows.length) {
+      table.innerHTML = "<tr><td class='text-muted'>No preview data</td></tr>";
+      return;
+    }
+    const columns = Object.keys(rows[0]);
+    const previewRows = rows.slice(0, 8);
+    table.innerHTML = `
+      <thead>
+        <tr>${columns.map((col) => `<th>${escapeHtml(col)}</th>`).join("")}</tr>
+      </thead>
+      <tbody>
+        ${previewRows.map((row) => `
+          <tr>${columns.map((col) => `<td>${escapeHtml(row[col])}</td>`).join("")}</tr>
+        `).join("")}
+      </tbody>
+    `;
+  }
+
+  function renderValidationList(rows, fileLabel = "sample_contract_upload.csv") {
+    const host = byId("validationList");
+    if (!host) return;
+    if (!rows.length) {
+      host.innerHTML = `<div class="text-sm text-muted">No validation result</div>`;
+      return;
+    }
+
+    const columns = Object.keys(rows[0]);
+    const missingColumns = SAMPLE_UPLOAD_COLUMNS.filter((col) => !columns.includes(col));
+    const invalidDateRows = rows.filter((row) => row.effective_date && !parseDateValue(row.effective_date)).length
+      + rows.filter((row) => row.end_date && !parseDateValue(row.end_date)).length;
+    const invalidPriceRows = rows.filter((row) => !Number.isFinite(parseNumber(row.total_price, NaN))).length;
+    const invalidSourceCategoryRows = rows.filter((row) => {
+      const value = clean(row.source_category);
+      return value && value !== "หลัก" && value !== "สำรอง";
+    }).length;
+
+    const items = [
+      { label: "File", value: fileLabel, tone: "green" },
+      { label: "Columns detected", value: String(columns.length), tone: "green" },
+      { label: "Missing required columns", value: missingColumns.length ? missingColumns.join(", ") : "None", tone: missingColumns.length ? "red" : "green" },
+      { label: "Invalid date cells", value: String(invalidDateRows), tone: invalidDateRows ? "yellow" : "green" },
+      { label: "Invalid total_price rows", value: String(invalidPriceRows), tone: invalidPriceRows ? "yellow" : "green" },
+      { label: "Unexpected source_category rows", value: String(invalidSourceCategoryRows), tone: invalidSourceCategoryRows ? "yellow" : "green" },
+    ];
+
+    host.innerHTML = items.map((item) => `
+      <div class="chip ${item.tone}" style="display:block; margin-bottom:8px;">
+        <strong>${escapeHtml(item.label)}:</strong> ${escapeHtml(item.value)}
+      </div>
+    `).join("");
+  }
+
+  async function initDataManagementSample() {
+    renderSampleColumnList();
+    try {
+      const sampleRows = await fetchCsvRows(SAMPLE_UPLOAD_CSV_PATH);
+      const rows = sampleRows.length ? sampleRows : cloneRows(SAMPLE_DATA.sampleUploadRows);
+      renderPreviewTable(rows);
+      renderValidationList(rows, "sample_contract_upload.csv");
+    } catch (error) {
+      console.error("Sample CSV load failed:", error);
+      const rows = cloneRows(SAMPLE_DATA.sampleUploadRows);
+      renderPreviewTable(rows);
+      renderValidationList(rows, "sample_contract_upload.csv (fallback)");
+    }
+  }
+
+  function bindDataManagementEvents() {
+    const input = byId("csvUpload");
+    if (!input) return;
+    input.addEventListener("change", async () => {
+      const file = input.files?.[0];
+      if (!file) {
+        initDataManagementSample();
+        return;
+      }
+      try {
+        const text = await file.text();
+        const rows = parseCsv(text);
+        renderPreviewTable(rows);
+        renderValidationList(rows, file.name);
+      } catch (error) {
+        console.error("CSV upload preview failed:", error);
+        renderPreviewTable([]);
+        renderValidationList([]);
+      }
+    });
   }
 
   function contractModelOf(row) {
@@ -1809,24 +2298,31 @@
     return earthRadiusKm * (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)));
   }
 
-  function getPlantSelectOptions() {
-    const select = byId("filterPlant");
-    if (!select) return [];
-    return [...select.options].filter((opt) => opt.value !== "all");
-  }
-
   function getAllowedPlantCodes() {
-    return new Set(getPlantSelectOptions().map((opt) => clean(opt.value)).filter(Boolean));
+    const select = byId("filterPlant");
+    if (!select) return new Set();
+    return new Set([...select.options].map((opt) => clean(opt.value)).filter(Boolean));
   }
 
-  function getSelectedPlantCodes() {
-    return new Set(getPlantSelectOptions().filter((opt) => opt.selected).map((opt) => clean(opt.value)).filter(Boolean));
+  function getSelectedPlantCode() {
+    const select = byId("filterPlant");
+    if (!select) return "";
+    return clean(select.value) || clean(select.options[0]?.value || "");
+  }
+
+  function getSelectedPlantLabel() {
+    const selected = getSelectedPlantCode();
+    const select = byId("filterPlant");
+    const match = select ? [...select.options].find((opt) => opt.value === selected) : null;
+    return match ? clean(match.textContent) : selected;
   }
 
   function getFilters() {
     const priceBasis = clean(byId("filterPriceBasis")?.value || "total");
     const allowedPlantCodes = getAllowedPlantCodes();
     return {
+      focusPlantCode: getSelectedPlantCode(),
+      focusPlantLabel: getSelectedPlantLabel(),
       radiusKm: parseNumber(byId("filterRadius")?.value, 50),
       priceBasis,
       compareField: priceBasisField(priceBasis),
@@ -1839,7 +2335,6 @@
       contractModel: clean(byId("filterContractModel")?.value || "all"),
       fromDate: parseDateValue(byId("filterDateFrom")?.value),
       toDate: parseDateValue(byId("filterDateTo")?.value),
-      displayPlants: getSelectedPlantCodes(),
       allowedPlants: allowedPlantCodes,
       gapOnly: Boolean(byId("filterGapOnly")?.checked),
       gapThreshold: parseNumber(byId("filterGapX")?.value, 3),
@@ -1936,21 +2431,33 @@
       return { ...row, compare_value: compareValue };
     });
 
-    const displayRows = filters.displayPlants.size
-      ? candidates.filter((row) => filters.displayPlants.has(row.plant_code))
-      : candidates;
+    const focusPlantCode = filters.focusPlantCode;
+    const focusLocation = state.locationMap.get(focusPlantCode);
+    if (!focusPlantCode || !focusLocation) return [];
 
-    const rowsWithBenchmarks = displayRows.map((row) => {
-      const peers = candidates
+    const peerPlantDistances = new Map();
+    candidates.forEach((candidate) => {
+      if (peerPlantDistances.has(candidate.plant_code)) return;
+      const distanceFromFocus =
+        candidate.plant_code === focusPlantCode
+          ? 0
+          : haversineKm(focusLocation.latitude, focusLocation.longitude, candidate.latitude, candidate.longitude);
+      if (distanceFromFocus <= filters.radiusKm) {
+        peerPlantDistances.set(candidate.plant_code, distanceFromFocus);
+      }
+    });
+
+    const peerGroupRows = candidates
+      .filter((row) => peerPlantDistances.has(row.plant_code))
+      .map((row) => ({
+        ...row,
+        distance_from_focus: peerPlantDistances.get(row.plant_code) ?? 0,
+        is_focus_plant: row.plant_code === focusPlantCode,
+      }));
+
+    const rowsWithBenchmarks = peerGroupRows.map((row) => {
+      const peers = peerGroupRows
         .filter((candidate) => candidate.material_name === row.material_name)
-        .map((candidate) => ({
-          ...candidate,
-          distance_from_focus:
-            candidate.plant_code === row.plant_code
-              ? 0
-              : haversineKm(row.latitude, row.longitude, candidate.latitude, candidate.longitude),
-        }))
-        .filter((candidate) => candidate.distance_from_focus <= filters.radiusKm)
         .sort((a, b) => b.total_cost - a.total_cost || b.compare_value - a.compare_value || a.plant_name.localeCompare(b.plant_name, "th"));
 
       const benchmarkPeer = [...peers].sort((a, b) => a.compare_value - b.compare_value || a.total_cost - b.total_cost)[0];
@@ -1963,7 +2470,7 @@
         peer_count: peers.length,
         benchmark_value: benchmarkValue,
         benchmark_plant: benchmarkPeer ? benchmarkPeer.plant_name : row.plant_name,
-        benchmark_distance: benchmarkPeer ? benchmarkPeer.distance_from_focus : 0,
+        benchmark_distance: benchmarkPeer ? (benchmarkPeer.distance_from_focus ?? 0) : 0,
         peers,
       };
     });
@@ -1972,7 +2479,71 @@
       ? rowsWithBenchmarks.filter((row) => row.gap_pct > filters.gapThreshold)
       : rowsWithBenchmarks;
 
-    return filteredRows.sort((a, b) => b.gap_pct - a.gap_pct || b.compare_value - a.compare_value || a.plant_name.localeCompare(b.plant_name, "th"));
+    return filteredRows.sort((a, b) => {
+      if (a.is_focus_plant !== b.is_focus_plant) return a.is_focus_plant ? -1 : 1;
+      return b.gap_pct - a.gap_pct || b.compare_value - a.compare_value || a.plant_name.localeCompare(b.plant_name, "th");
+    });
+  }
+
+  function computeCapacityMatrixRows(filters) {
+    const candidates = buildRepresentativeRows(filters).map((row) => {
+      const compareValue = row[filters.compareField] ?? row.total_cost;
+      return { ...row, compare_value: compareValue };
+    });
+
+    const focusPlantCode = filters.focusPlantCode;
+    const focusLocation = state.locationMap.get(focusPlantCode);
+    if (!focusPlantCode || !focusLocation) return [];
+
+    const peerPlantDistances = new Map();
+    candidates.forEach((candidate) => {
+      if (peerPlantDistances.has(candidate.plant_code)) return;
+      const distanceFromFocus =
+        candidate.plant_code === focusPlantCode
+          ? 0
+          : haversineKm(focusLocation.latitude, focusLocation.longitude, candidate.latitude, candidate.longitude);
+      if (distanceFromFocus <= filters.radiusKm) {
+        peerPlantDistances.set(candidate.plant_code, distanceFromFocus);
+      }
+    });
+
+    let rows = candidates
+      .filter((row) => peerPlantDistances.has(row.plant_code))
+      .map((row) => {
+        const peers = candidates
+          .filter((candidate) => peerPlantDistances.has(candidate.plant_code) && candidate.material_name === row.material_name)
+          .map((candidate) => ({
+            ...candidate,
+            distance_from_focus: peerPlantDistances.get(candidate.plant_code) ?? 0,
+          }))
+          .sort((a, b) => a.compare_value - b.compare_value || a.total_cost - b.total_cost || a.plant_name.localeCompare(b.plant_name, "th"));
+
+        const benchmarkPeer = peers[0] || row;
+        const benchmarkValue = benchmarkPeer.compare_value || row.compare_value;
+        const gapPct = benchmarkValue > 0 ? ((row.compare_value - benchmarkValue) / benchmarkValue) * 100 : 0;
+        return {
+          ...row,
+          distance_from_focus: peerPlantDistances.get(row.plant_code) ?? 0,
+          is_focus_plant: row.plant_code === focusPlantCode,
+          peer_count: peers.length,
+          benchmark_value: benchmarkValue,
+          benchmark_plant: benchmarkPeer.plant_name || row.plant_name,
+          benchmark_distance: benchmarkPeer.distance_from_focus ?? 0,
+          gap_pct: gapPct,
+          peers,
+        };
+      });
+
+    if (filters.gapOnly) {
+      rows = rows.filter((row) => row.gap_pct > filters.gapThreshold);
+    }
+
+    return rows.sort((a, b) => {
+      if (a.is_focus_plant !== b.is_focus_plant) return a.is_focus_plant ? -1 : 1;
+      const plantCompare = a.plant_name.localeCompare(b.plant_name, "th");
+      if (plantCompare !== 0) return plantCompare;
+      return a.material_name.localeCompare(b.material_name, "th");
+    });
   }
 
   function renderKpis(rows, filters) {
@@ -1993,13 +2564,19 @@
     const avgGap = rows.reduce((sum, row) => sum + row.gap_pct, 0) / rows.length;
     const withPeers = rows.filter((row) => row.peer_count > 1).length;
     const uniqueMaterials = new Set(rows.map((row) => row.material_name)).size;
+    const uniquePeerPlants = new Set(rows.map((row) => row.plant_code)).size;
     const worst = rows.reduce((maxRow, row) => (row.gap_pct > maxRow.gap_pct ? row : maxRow), rows[0]);
 
     host.innerHTML = `
       <div class="benchmark-kpi">
+        <div class="label">Center Plant</div>
+        <div class="value">${escapeHtml(filters.focusPlantLabel || "-")}</div>
+        <div class="sub">${uniquePeerPlants} peer plants within ${formatCompact(filters.radiusKm, 0)} km</div>
+      </div>
+      <div class="benchmark-kpi">
         <div class="label">Visible Plant / Material</div>
         <div class="value">${rows.length}</div>
-        <div class="sub">${uniqueMaterials} material groups in current scope</div>
+        <div class="sub">${uniqueMaterials} material groups in current peer scope</div>
       </div>
       <div class="benchmark-kpi">
         <div class="label">Average Gap</div>
@@ -2022,7 +2599,7 @@
   function renderHeatmap(rows, filters) {
     const host = byId("heatmapList");
     const subtitle = byId("heatmapSubtitle");
-    if (subtitle) subtitle.textContent = `${filters.compareLabel} benchmark = minimum ${filters.compareLabel} within ${formatCompact(filters.radiusKm, 0)} km`;
+    if (subtitle) subtitle.textContent = `${filters.focusPlantLabel || "-"} เป็นศูนย์กลาง benchmark = minimum ${filters.compareLabel} ภายใน ${formatCompact(filters.radiusKm, 0)} km`;
     if (!host) return;
     updateHeatmapSortUi();
 
@@ -2031,8 +2608,13 @@
       return;
     }
 
-    if (!state.focusKey || !rows.some((row) => row.key === state.focusKey)) {
-      state.focusKey = rows[0].key;
+    const preferredRow =
+      rows.find((row) => row.key === state.focusKey) ||
+      rows.find((row) => row.is_focus_plant) ||
+      rows[0];
+
+    if (preferredRow) {
+      state.focusKey = preferredRow.key;
     }
 
     host.innerHTML = rows.map((row) => {
@@ -2040,11 +2622,12 @@
       const isBenchmark = Math.abs(row.compare_value - row.benchmark_value) < 0.005;
       const benchmarkText = `${row.benchmark_plant} (${formatCompact(row.benchmark_distance, 1)} km)`;
       return `
-        <button type="button" class="heatmap-row ${row.key === state.focusKey ? "active" : ""}" data-row-key="${escapeHtml(row.key)}">
+        <button type="button" class="heatmap-row ${row.key === state.focusKey ? "active" : ""}" data-row-key="${escapeHtml(row.key)}" data-plant-code="${escapeHtml(row.plant_code)}">
           <div class="plant-cell">
-            <div class="name">${escapeHtml(row.plant_name)}</div>
+            <div class="name">${escapeHtml(row.plant_name)}${row.is_focus_plant ? ' <span class="chip" style="margin-left:6px;">Center</span>' : ""}</div>
             <div class="meta">${escapeHtml(row.plant_code)} · ${escapeHtml(row.contract_label)}</div>
             <div class="meta subtle">source: ${escapeHtml(row.source_name)}</div>
+            <div class="meta subtle">distance from center: ${formatCompact(row.distance_from_focus || 0, 1)} km</div>
           </div>
           <div class="material-cell">
             <div class="main">${escapeHtml(row.material_name)}</div>
@@ -2067,7 +2650,7 @@
     const subtitle = byId("peerChartSubtitle");
     if (!host || !metaHost || !subtitle) return;
 
-    subtitle.textContent = `ต้นทุนบาท / ตัน ในรัศมี ${formatCompact(filters.radiusKm, 0)} km ของ ${focusRow ? focusRow.material_name : "-"}`;
+    subtitle.textContent = `ต้นทุนบาท / ตัน ของกลุ่มโรงงานรอบ ${filters.focusPlantLabel || "-"} ในรัศมี ${formatCompact(filters.radiusKm, 0)} km`;
 
     if (!focusRow) {
       metaHost.innerHTML = "";
@@ -2081,7 +2664,8 @@
     const compareLabel = filters.compareLabel;
 
     metaHost.innerHTML = `
-      <div class="meta-chip">Focus: ${escapeHtml(focusRow.plant_name)}</div>
+      <div class="meta-chip">Center plant: ${escapeHtml(filters.focusPlantLabel || "-")}</div>
+      <div class="meta-chip">Focus row: ${escapeHtml(focusRow.plant_name)}</div>
       <div class="meta-chip">Material: ${escapeHtml(focusRow.material_name)}</div>
       <div class="meta-chip">Benchmark ${escapeHtml(compareLabel)}: ${formatNumber(focusRow.benchmark_value)}</div>
       <div class="meta-chip">Peer plants: ${peers.length}</div>
@@ -2100,7 +2684,7 @@
       return `
         <div class="peer-bar-col">
           <div class="total-label">${formatNumber(peer.total_cost)}</div>
-          <div class="peer-bar ${isSelf ? "self" : ""}" title="${escapeHtml(peer.plant_name)} | ${escapeHtml(compareLabel)} ${formatNumber(peer.compare_value)}">
+          <div class="peer-bar ${isSelf ? "self" : ""}" data-peer-plant-code="${escapeHtml(peer.plant_code)}" data-peer-key="${escapeHtml(peer.key)}" title="${escapeHtml(peer.plant_name)} | ${escapeHtml(compareLabel)} ${formatNumber(peer.compare_value)}">
             ${peer.transport_cost > 0 ? `<div class="peer-bar-segment transport" style="height:${transportHeight}px">${segmentLabel(peer.transport_cost, transportHeight)}</div>` : ""}
             ${peer.other_cost > 0.01 ? `<div class="peer-bar-segment other" style="height:${otherHeight}px">${segmentLabel(peer.other_cost, otherHeight)}</div>` : ""}
             ${peer.source_cost > 0 ? `<div class="peer-bar-segment raw" style="height:${rawHeight}px">${segmentLabel(peer.source_cost, rawHeight)}</div>` : ""}
@@ -2134,7 +2718,12 @@
 
     host.innerHTML = `
       <div class="insight-card">
-        <div class="label">${escapeHtml(filters.compareLabel)} ของโรงงานที่เลือก</div>
+        <div class="label">Center Plant</div>
+        <div class="value">${escapeHtml(filters.focusPlantLabel || "-")}</div>
+        <div class="sub">Peer radius ${formatCompact(filters.radiusKm, 0)} km</div>
+      </div>
+      <div class="insight-card">
+        <div class="label">${escapeHtml(filters.compareLabel)} ของ row ที่เลือก</div>
         <div class="value">${formatNumber(focusRow.compare_value)}</div>
         <div class="sub">${escapeHtml(focusRow.plant_name)} · อันดับ ${rank} จาก ${focusRow.peers.length} โรงงาน</div>
       </div>
@@ -2144,19 +2733,154 @@
         <div class="sub">${escapeHtml(focusRow.benchmark_plant)} ห่าง ${formatCompact(focusRow.benchmark_distance, 1)} km</div>
       </div>
       <div class="insight-card">
-        <div class="label">Gap ปัจจุบัน</div>
-        <div class="value">${formatPct(focusRow.gap_pct)}</div>
-        <div class="sub">peer average total ${formatNumber(avgPeerTotal)}</div>
-      </div>
-      <div class="insight-card">
-        <div class="label">ค่าขนส่ง / ค่าอื่น</div>
-        <div class="value">${formatNumber(focusRow.transport_cost)} / ${formatNumber(focusRow.other_cost)}</div>
+        <div class="label">Gap ปัจจุบัน / Peer Avg</div>
+        <div class="value">${formatPct(focusRow.gap_pct)} / ${formatNumber(avgPeerTotal)}</div>
         <div class="sub">scope average gap ${formatPct(avgGap)}</div>
       </div>
     `;
 
     footnote.textContent =
-      `Representative row rule: เลือก source_category = "หลัก" ก่อน ถ้าไม่มีใช้รายการที่ total ต่ำสุด. Peer comparison ใช้ระยะโรงงาน-โรงงาน และเทียบเฉพาะ material เดียวกัน.`;
+      `Representative row rule: เลือก source_category = "หลัก" ก่อน ถ้าไม่มีใช้รายการที่ total ต่ำสุด. Peer group ใช้โรงงานศูนย์กลาง "${filters.focusPlantLabel || "-"}" และคำนวณระยะโรงงาน-โรงงานตาม Radius (km).`;
+  }
+
+  function renderCapacityMatrix() {
+    if (state.loading) return;
+    const filters = getFilters();
+    const rows = computeCapacityMatrixRows(filters);
+    const summaryHost = byId("capacitySummaryCards");
+    const subtitle = byId("capacityMatrixSubtitle");
+    const tbody = byId("capacityMatrixTbody");
+    const detailCards = byId("capacityDetailCards");
+    const detailTitle = byId("capacityDetailTitle");
+    const detailSubtitle = byId("capacityDetailSubtitle");
+    const peerBody = byId("capacityPeerTbody");
+    if (!summaryHost || !tbody || !detailCards || !detailTitle || !detailSubtitle || !peerBody) return;
+
+    if (subtitle) {
+      subtitle.textContent = `${filters.focusPlantLabel || "-"} เป็น center plant และเปรียบเทียบกับโรงงานรอบตัวในรัศมี ${formatCompact(filters.radiusKm, 0)} km`;
+    }
+
+    if (!rows.length) {
+      summaryHost.innerHTML = `
+        <div class="benchmark-kpi">
+          <div class="label">Matrix Rows</div>
+          <div class="value">0</div>
+          <div class="sub">No rows match the current center plant and filter set</div>
+        </div>
+      `;
+      tbody.innerHTML = `<tr><td colspan="10" class="text-center text-muted">ไม่พบข้อมูล matrix ในเงื่อนไขที่เลือก</td></tr>`;
+      detailCards.innerHTML = `<div class="insight-card"><div class="label">Detail</div><div class="value">-</div><div class="sub">เลือกแถวใน matrix เพื่อดูรายละเอียด</div></div>`;
+      detailTitle.textContent = "Peer Detail";
+      detailSubtitle.textContent = "คลิกแถวใน matrix เพื่อดูรายละเอียดโรงงานรอบตัว";
+      peerBody.innerHTML = `<tr><td colspan="6" class="text-center text-muted">No peer detail</td></tr>`;
+      return;
+    }
+
+    const peerPlantCount = new Set(rows.map((row) => row.plant_code)).size;
+    const greenCount = rows.filter((row) => getGapClass(row.gap_pct) === "green").length;
+    const yellowCount = rows.filter((row) => getGapClass(row.gap_pct) === "yellow").length;
+    const redCount = rows.filter((row) => getGapClass(row.gap_pct) === "red").length;
+    const avgGap = rows.reduce((sum, row) => sum + row.gap_pct, 0) / rows.length;
+
+    summaryHost.innerHTML = `
+      <div class="benchmark-kpi">
+        <div class="label">Center Plant</div>
+        <div class="value">${escapeHtml(filters.focusPlantLabel || "-")}</div>
+        <div class="sub">${peerPlantCount} plants in peer scope</div>
+      </div>
+      <div class="benchmark-kpi">
+        <div class="label">Matrix Rows</div>
+        <div class="value">${formatCompact(rows.length, 0)}</div>
+        <div class="sub">Plant x material rows in current scope</div>
+      </div>
+      <div class="benchmark-kpi">
+        <div class="label">Green / Yellow / Red</div>
+        <div class="value">${greenCount} / ${yellowCount} / ${redCount}</div>
+        <div class="sub">ใช้ rule เดียวกับ Current Heatmap</div>
+      </div>
+      <div class="benchmark-kpi">
+        <div class="label">Average Gap</div>
+        <div class="value">${formatPct(avgGap)}</div>
+        <div class="sub">Compared by ${escapeHtml(filters.compareLabel)}</div>
+      </div>
+    `;
+
+    const selectedRow =
+      rows.find((row) => row.key === state.capacityKey) ||
+      rows.find((row) => row.is_focus_plant) ||
+      rows[0];
+    state.capacityKey = selectedRow.key;
+
+    tbody.innerHTML = rows.map((row) => {
+      const gapClass = getGapClass(row.gap_pct);
+      const statusLabel = getGapLabel(row.gap_pct);
+      const isSelected = row.key === state.capacityKey;
+      return `
+        <tr data-capacity-key="${escapeHtml(row.key)}" class="${isSelected ? "table-group-row" : ""}">
+          <td>
+            <div class="font-semibold">${escapeHtml(row.plant_name)}${row.is_focus_plant ? ' <span class="chip" style="margin-left:6px;">Center</span>' : ""}</div>
+            <div class="text-xs text-muted">${escapeHtml(row.plant_code)} · ${formatCompact(row.distance_from_focus || 0, 1)} km</div>
+          </td>
+          <td>${escapeHtml(row.material_name)}</td>
+          <td>${escapeHtml(row.contract_label)}</td>
+          <td>${escapeHtml(row.source_category)}</td>
+          <td>${escapeHtml(row.source_name)}</td>
+          <td>${escapeHtml(row.transporter_name)}</td>
+          <td class="mono">${formatNumber(row.total_cost)}</td>
+          <td class="mono">${formatNumber(row.benchmark_value)}</td>
+          <td><span class="chip ${gapClass}">${formatPct(row.gap_pct)}</span></td>
+          <td><span class="chip ${gapClass}">${escapeHtml(statusLabel)}</span></td>
+        </tr>
+      `;
+    }).join("");
+
+    detailTitle.textContent = `${selectedRow.plant_name} / ${selectedRow.material_name}`;
+    detailSubtitle.textContent = `source ${selectedRow.source_name} · transporter ${selectedRow.transporter_name} · center ${filters.focusPlantLabel || "-"}`;
+
+    detailCards.innerHTML = `
+      <div class="insight-card">
+        <div class="label">Total Price</div>
+        <div class="value">${formatNumber(selectedRow.total_cost)}</div>
+        <div class="sub">${escapeHtml(selectedRow.contract_label)}</div>
+      </div>
+      <div class="insight-card">
+        <div class="label">Benchmark</div>
+        <div class="value">${formatNumber(selectedRow.benchmark_value)}</div>
+        <div class="sub">${escapeHtml(selectedRow.benchmark_plant)} · ${formatCompact(selectedRow.benchmark_distance, 1)} km</div>
+      </div>
+      <div class="insight-card">
+        <div class="label">Gap Status</div>
+        <div class="value">${formatPct(selectedRow.gap_pct)}</div>
+        <div class="sub">${escapeHtml(getGapLabel(selectedRow.gap_pct))}</div>
+      </div>
+      <div class="insight-card">
+        <div class="label">Peer Plants</div>
+        <div class="value">${selectedRow.peers.length}</div>
+        <div class="sub">same material within selected radius</div>
+      </div>
+    `;
+
+    peerBody.innerHTML = selectedRow.peers
+      .slice()
+      .sort((a, b) => a.compare_value - b.compare_value || a.total_cost - b.total_cost)
+      .map((peer) => {
+        const gapClass = getGapClass(
+          selectedRow.benchmark_value > 0 ? ((peer.compare_value - selectedRow.benchmark_value) / selectedRow.benchmark_value) * 100 : 0
+        );
+        const peerGap =
+          selectedRow.benchmark_value > 0 ? ((peer.compare_value - selectedRow.benchmark_value) / selectedRow.benchmark_value) * 100 : 0;
+        return `
+          <tr>
+            <td><div class="font-semibold">${escapeHtml(peer.plant_name)}</div><div class="text-xs text-muted">${escapeHtml(peer.plant_code)}</div></td>
+            <td>${formatCompact(peer.distance_from_focus || 0, 1)}</td>
+            <td>${escapeHtml(peer.source_name)}</td>
+            <td>${escapeHtml(peer.transporter_name)}</td>
+            <td class="mono">${formatNumber(peer.total_cost)}</td>
+            <td><span class="chip ${gapClass}">${formatPct(peerGap)}</span></td>
+          </tr>
+        `;
+      })
+      .join("");
   }
 
   function renderBenchmarking() {
@@ -2171,6 +2895,50 @@
     renderChart(focusRow, filters);
     renderInsights(focusRow, filters, rows);
   }
+
+  function renderLinkedViews() {
+    renderBenchmarking();
+    renderCapacityMatrix();
+  }
+
+  function applyBootstrapSampleData() {
+    if (!state.contractRows.length && SAMPLE_DATA.contractRows?.length) {
+      state.contractRows = cloneRows(SAMPLE_DATA.contractRows);
+    }
+
+    if (!state.locationMap.size && SAMPLE_DATA.locationRows?.length) {
+      state.locationMap = new Map(
+        SAMPLE_DATA.locationRows.map((row) => [
+          clean(row.plant_no),
+          {
+            plant_name: clean(row.plant_name),
+            latitude: parseNumber(row.latitude),
+            longitude: parseNumber(row.longitude),
+          },
+        ])
+      );
+    }
+
+    if (!state.cpacPlantSet.size && SAMPLE_DATA.organizationRows?.length) {
+      state.cpacPlantSet = new Set(
+        SAMPLE_DATA.organizationRows
+          .filter((row) => clean(row.PLANT_TYPE).toUpperCase() === "CPAC")
+          .map((row) => clean(row.PLANT_NO))
+          .filter(Boolean)
+      );
+    }
+
+    renderLinkedViews();
+    renderContractSummary();
+    renderPreviewTable(cloneRows(SAMPLE_DATA.sampleUploadRows));
+    renderValidationList(cloneRows(SAMPLE_DATA.sampleUploadRows), "sample_contract_upload.csv (bootstrap)");
+  }
+
+  window.refreshAllDataViews = () => {
+    renderLinkedViews();
+    renderContractSummary();
+    initDataManagementSample();
+  };
 
   function exportCurrentRows() {
     const rows = state.benchmarkRows;
@@ -2230,14 +2998,24 @@
 
     const plantSelect = byId("filterPlant");
     if (plantSelect) {
-      [...plantSelect.options].forEach((opt) => {
-        opt.selected = opt.value === "all";
-      });
+      plantSelect.value = plantSelect.options[0]?.value || "";
       plantSelect.dispatchEvent(new Event("change", { bubbles: true }));
       if (typeof window.refreshPlantMultiUi === "function") window.refreshPlantMultiUi();
     }
 
-    requestAnimationFrame(renderBenchmarking);
+    requestAnimationFrame(renderLinkedViews);
+  }
+
+  function setCenterPlant(plantCode, preferredRowKey = "") {
+    const select = byId("filterPlant");
+    if (!select || !plantCode) return;
+    const hasPlant = [...select.options].some((opt) => opt.value === plantCode);
+    if (!hasPlant) return;
+    state.focusKey = preferredRowKey || state.focusKey;
+    state.capacityKey = preferredRowKey || state.capacityKey;
+    select.value = plantCode;
+    if (typeof window.refreshPlantMultiUi === "function") window.refreshPlantMultiUi();
+    select.dispatchEvent(new Event("change", { bubbles: true }));
   }
 
   function bindEvents() {
@@ -2260,18 +3038,18 @@
     renderOnChangeIds.forEach((id) => {
       const node = byId(id);
       if (!node) return;
-      node.addEventListener("change", () => requestAnimationFrame(renderBenchmarking));
+      node.addEventListener("change", () => requestAnimationFrame(renderLinkedViews));
     });
 
     const radius = byId("filterRadius");
     if (radius) {
       radius.addEventListener("input", () => {
         if (byId("radiusValue")) byId("radiusValue").textContent = clean(radius.value) || "50";
-        requestAnimationFrame(renderBenchmarking);
+        requestAnimationFrame(renderLinkedViews);
       });
     }
 
-    byId("searchBtn")?.addEventListener("click", renderBenchmarking);
+    byId("searchBtn")?.addEventListener("click", renderLinkedViews);
     byId("resetBtn")?.addEventListener("click", resetFilters);
     byId("refreshAllBtn")?.addEventListener("click", loadBenchmarkData);
     byId("exportCsvBtn")?.addEventListener("click", exportCurrentRows);
@@ -2279,8 +3057,9 @@
     byId("heatmapList")?.addEventListener("click", (event) => {
       const button = event.target instanceof Element ? event.target.closest("[data-row-key]") : null;
       if (!button) return;
-      state.focusKey = button.getAttribute("data-row-key") || "";
-      renderBenchmarking();
+      const nextKey = button.getAttribute("data-row-key") || "";
+      const plantCode = button.getAttribute("data-plant-code") || "";
+      setCenterPlant(plantCode, nextKey);
     });
 
     document.querySelector(".heatmap-head")?.addEventListener("click", (event) => {
@@ -2297,19 +3076,37 @@
       renderBenchmarking();
     });
 
+    byId("capacityMatrixTbody")?.addEventListener("click", (event) => {
+      const row = event.target instanceof Element ? event.target.closest("[data-capacity-key]") : null;
+      if (!row) return;
+      state.capacityKey = row.getAttribute("data-capacity-key") || "";
+      renderCapacityMatrix();
+    });
+
     const plantSelect = byId("filterPlant");
     if (plantSelect) {
-      const observer = new MutationObserver(() => requestAnimationFrame(renderBenchmarking));
+      const observer = new MutationObserver(() => requestAnimationFrame(renderLinkedViews));
       observer.observe(plantSelect, { childList: true, subtree: true });
     }
+
+    byId("peerChartBars")?.addEventListener("click", (event) => {
+      const bar = event.target instanceof Element ? event.target.closest("[data-peer-plant-code]") : null;
+      if (!bar) return;
+      const plantCode = bar.getAttribute("data-peer-plant-code") || "";
+      const nextKey = bar.getAttribute("data-peer-key") || "";
+      setCenterPlant(plantCode, nextKey);
+    });
+
+    bindDataManagementEvents();
   }
 
   async function loadBenchmarkData() {
     state.loading = true;
     try {
-      const [contractRows, locationRows] = await Promise.all([
-        fetchCsvRows(CONTRACT_CSV_PATH),
-        fetchCsvRows(LOCATION_CSV_PATH),
+      const [contractRows, locationRows, organizationRows] = await Promise.all([
+        fetchCsvRowsWithFallback(CONTRACT_CSV_PATH, SAMPLE_DATA.contractRows),
+        fetchCsvRowsWithFallback(LOCATION_CSV_PATH, SAMPLE_DATA.locationRows),
+        fetchCsvRowsWithFallback(ORGANIZATION_CSV_PATH, SAMPLE_DATA.organizationRows),
       ]);
 
       state.contractRows = contractRows;
@@ -2323,6 +3120,12 @@
           },
         ])
       );
+      state.cpacPlantSet = new Set(
+        organizationRows
+          .filter((row) => clean(row.PLANT_TYPE).toUpperCase() === "CPAC")
+          .map((row) => clean(row.PLANT_NO))
+          .filter(Boolean)
+      );
     } catch (error) {
       console.error("Benchmark data load failed:", error);
       const heatmap = byId("heatmapList");
@@ -2331,10 +3134,13 @@
       state.loading = false;
     }
 
-    renderBenchmarking();
+    renderLinkedViews();
+    renderContractSummary();
+    initDataManagementSample();
   }
 
   bindEvents();
+  applyBootstrapSampleData();
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", loadBenchmarkData);
