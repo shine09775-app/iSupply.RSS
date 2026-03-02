@@ -41,11 +41,17 @@
       border: 1px solid var(--border);
       background: var(--surface);
       border-radius: 10px;
-      padding: 6px 12px;
-      font-size: 12px;
+      width: 38px;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      font-size: 16px;
       font-weight: 700;
       color: var(--text-2);
       cursor: pointer;
+      line-height: 1;
     }
     .filter-panel .filter-toggle-btn:hover { background: #f8fafc; }
     .filter-panel .filter-grid-scroll { flex: 1 1 auto; overflow: visible; padding-right: 0; }
@@ -333,6 +339,10 @@
       background: #27ae60;
       color: #ffffff;
     }
+    .gap-pill.neutral {
+      background: #e5e7eb;
+      color: #475569;
+    }
     .peer-pill {
       background: #eef2f7;
       color: #475569;
@@ -584,7 +594,7 @@
           <div class="card-title">Filter Bar</div>
           <div class="text-sm text-muted">Radius benchmark + contract feasibility filters</div>
         </div>
-        <button id="toggleFilterBarBtn" class="filter-toggle-btn" type="button" aria-expanded="true">ยุบ</button>
+        <button id="toggleFilterBarBtn" class="filter-toggle-btn" type="button" aria-expanded="true" aria-label="ยุบ">▴</button>
       </div>
       <div class="card-body">
         <div class="filter-grid-scroll">
@@ -630,7 +640,14 @@
 
           <label class="field">
             <span class="label">Material Spec</span>
-            <select id="filterMaterial" class="select"></select>
+            <div id="filterMaterialMulti" class="plant-multi">
+              <button id="filterMaterialTrigger" class="plant-multi-trigger" type="button" aria-expanded="false" aria-controls="filterMaterialOptions">
+                <span id="filterMaterialLabel" class="plant-multi-text">All</span>
+                <span aria-hidden="true">v</span>
+              </button>
+              <div id="filterMaterialOptions" class="plant-multi-panel" role="listbox" aria-multiselectable="true"></div>
+              <select id="filterMaterial" class="select plant-select-hidden" multiple></select>
+            </div>
           </label>
 
           <label class="field">
@@ -695,10 +712,10 @@
     <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 benchmark-layout">
       <article class="card">
         <div class="card-header">
-          <div>
-            <h2 class="card-title">Current Heatmap</h2>
-            <p id="heatmapSubtitle" class="card-subtitle">Benchmark by selected price basis within selected radius</p>
-          </div>
+        <div>
+          <h2 class="card-title">Current Heatmap</h2>
+          <p id="heatmapSubtitle" class="card-subtitle">Peers compared to Center Plant by selected price basis within selected radius</p>
+        </div>
           <div class="benchmark-legend">
             <span><span class="legend-dot red"></span>Gap &gt; 5%</span>
             <span><span class="legend-dot yellow"></span>Gap 3 - 5%</span>
@@ -709,7 +726,7 @@
           <div class="heatmap-board">
             <div class="heatmap-head">
               <div>โรงงาน</div>
-              <div>Material / Benchmark</div>
+                <div>Material / Center Plant Base</div>
               <div class="text-center">
                 <button type="button" class="heatmap-sort" data-sort-field="source_cost">
                   <span>ค่าวัตถุดิบ</span>
@@ -734,7 +751,7 @@
                   <span class="heatmap-sort-indicator">↕</span>
                 </button>
               </div>
-              <div class="text-center">Peers</div>
+              <div class="text-center">Rank / Peers</div>
             </div>
             <div id="heatmapList" class="heatmap-list"></div>
           </div>
@@ -956,7 +973,7 @@
                   <th>Source</th>
                   <th>Transporter</th>
                   <th>Total</th>
-                  <th>Benchmark Gap%</th>
+                  <th>Center Plant Gap%</th>
                 </tr>
               </thead>
               <tbody id="capacityPeerTbody"></tbody>
@@ -1343,6 +1360,7 @@ window.ISUPPLY_SAMPLE_DATA = Object.freeze(window.ISUPPLY_SAMPLE_DATA);
   }
 
   let plantMultiInitialized = false;
+  let materialMultiInitialized = false;
 
   function getPlantSelect() {
     return el("filterPlant");
@@ -1471,18 +1489,223 @@ window.ISUPPLY_SAMPLE_DATA = Object.freeze(window.ISUPPLY_SAMPLE_DATA);
     });
   }
 
+  function getMaterialSelect() {
+    return el("filterMaterial");
+  }
+
+  function getMaterialOptions() {
+    const select = getMaterialSelect();
+    if (!select) return [];
+    return [...select.options];
+  }
+
+  function getSelectedMaterialValues() {
+    const select = getMaterialSelect();
+    if (!select) return [];
+    return [...select.selectedOptions].map((opt) => clean(opt.value)).filter(Boolean);
+  }
+
+  function getActiveMaterialCodes() {
+    const selectedValues = getSelectedMaterialValues();
+    return !selectedValues.length || areAllMaterialValuesSelected(selectedValues) ? new Set() : new Set(selectedValues);
+  }
+
+  function areAllMaterialValuesSelected(values = getSelectedMaterialValues()) {
+    const options = getMaterialOptions();
+    return !options.length || values.length === options.length;
+  }
+
+  function hasAnyMaterialSelected(values = getSelectedMaterialValues()) {
+    return values.length > 0;
+  }
+
+  function getAllMaterialValues() {
+    return getMaterialOptions().map((opt) => clean(opt.value)).filter(Boolean);
+  }
+
+  function setSelectedMaterialValues(values) {
+    const select = getMaterialSelect();
+    if (!select) return;
+    const requested = new Set((values || []).map((value) => clean(value)).filter(Boolean));
+    const options = getMaterialOptions();
+    options.forEach((opt) => {
+      opt.selected = requested.has(clean(opt.value));
+    });
+  }
+
+  function updateMaterialTriggerText() {
+    const label = el("filterMaterialLabel");
+    if (!label) return;
+    const options = getMaterialOptions();
+    const selectedValues = getSelectedMaterialValues();
+
+    if (!options.length || !selectedValues.length || areAllMaterialValuesSelected(selectedValues)) {
+      label.textContent = "All";
+      return;
+    }
+
+    const selectedLabels = options
+      .filter((opt) => selectedValues.includes(clean(opt.value)))
+      .map((opt) => clean(opt.textContent));
+
+    if (!selectedLabels.length) {
+      label.textContent = "All";
+      return;
+    }
+
+    label.textContent = selectedLabels.length === 1
+      ? selectedLabels[0]
+      : `${selectedLabels[0]} +${selectedLabels.length - 1}`;
+  }
+
+  function renderMaterialOptionsPanel() {
+    const panel = el("filterMaterialOptions");
+    if (!panel) return;
+
+    const options = getMaterialOptions();
+    const selectedValues = new Set(getSelectedMaterialValues());
+
+    panel.innerHTML = "";
+
+    if (!options.length) {
+      const empty = document.createElement("div");
+      empty.className = "plant-multi-option";
+      empty.textContent = "No material data";
+      panel.appendChild(empty);
+      return;
+    }
+
+    const allRow = document.createElement("label");
+    allRow.className = "plant-multi-option all";
+    const allInput = document.createElement("input");
+    allInput.type = "checkbox";
+    allInput.value = "all";
+    const optionValues = options.map((opt) => clean(opt.value));
+    const selectedCount = optionValues.filter((value) => selectedValues.has(value)).length;
+    allInput.checked = options.length > 0 && selectedCount === options.length;
+    allInput.indeterminate = selectedCount > 0 && selectedCount < options.length;
+    const allText = document.createElement("span");
+    allText.textContent = "All";
+    allRow.appendChild(allInput);
+    allRow.appendChild(allText);
+    panel.appendChild(allRow);
+
+    options.forEach((opt) => {
+      const row = document.createElement("label");
+      row.className = "plant-multi-option";
+      const input = document.createElement("input");
+      input.type = "checkbox";
+      input.value = opt.value;
+      input.checked = selectedValues.has(clean(opt.value));
+      const text = document.createElement("span");
+      text.textContent = opt.textContent;
+      row.appendChild(input);
+      row.appendChild(text);
+      panel.appendChild(row);
+    });
+  }
+
+  function closeMaterialDropdown() {
+    const panel = el("filterMaterialOptions");
+    const trigger = el("filterMaterialTrigger");
+    if (panel) panel.classList.remove("open");
+    if (trigger) trigger.setAttribute("aria-expanded", "false");
+  }
+
+  function toggleMaterialDropdown() {
+    const panel = el("filterMaterialOptions");
+    const trigger = el("filterMaterialTrigger");
+    if (!panel || !trigger) return;
+    const willOpen = !panel.classList.contains("open");
+    if (willOpen) {
+      panel.classList.add("open");
+      trigger.setAttribute("aria-expanded", "true");
+    } else {
+      closeMaterialDropdown();
+    }
+  }
+
+  function syncMaterialSelection(nextValues) {
+    setSelectedMaterialValues(nextValues);
+    renderMaterialOptionsPanel();
+    updateMaterialTriggerText();
+    getMaterialSelect()?.dispatchEvent(new Event("change", { bubbles: true }));
+  }
+
+  function initMaterialMultiSelect() {
+    if (materialMultiInitialized) return;
+    materialMultiInitialized = true;
+
+    const wrapper = el("filterMaterialMulti");
+    const trigger = el("filterMaterialTrigger");
+    const panel = el("filterMaterialOptions");
+
+    if (trigger) {
+      trigger.addEventListener("click", (event) => {
+        event.preventDefault();
+        toggleMaterialDropdown();
+      });
+    }
+
+    if (panel) {
+      panel.addEventListener("change", (event) => {
+        const target = event.target;
+        if (!(target instanceof HTMLInputElement) || target.type !== "checkbox") return;
+
+        if (target.value === "all") {
+          syncMaterialSelection(target.checked ? getAllMaterialValues() : []);
+          return;
+        }
+
+        const selectedValues = new Set(getSelectedMaterialValues());
+        if (target.checked) selectedValues.add(target.value);
+        else selectedValues.delete(target.value);
+
+        syncMaterialSelection(selectedValues.size ? [...selectedValues] : []);
+      });
+    }
+
+    document.addEventListener("click", (event) => {
+      if (!wrapper) return;
+      const target = event.target;
+      if (!(target instanceof Node)) return;
+      if (!wrapper.contains(target)) closeMaterialDropdown();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeMaterialDropdown();
+    });
+  }
+
   function fillSelect(selectId, values, opts = {}) {
     const dom = el(selectId);
     if (!dom) return;
 
     const includeAll = opts.includeAll !== false;
     const allLabel = opts.allLabel || "All";
-    const html = [];
-    if (includeAll) html.push(`<option value="all">${allLabel}</option>`);
-    values.forEach((v) => html.push(`<option value="${v.value}">${v.label}</option>`));
-    dom.innerHTML = html.join("");
+    dom.innerHTML = "";
 
-    if (typeof opts.selectedValue === "string") {
+    if (includeAll) {
+      const allOption = document.createElement("option");
+      allOption.value = "all";
+      allOption.textContent = allLabel;
+      dom.appendChild(allOption);
+    }
+
+    values.forEach((v) => {
+      const option = document.createElement("option");
+      option.value = v.value;
+      option.textContent = v.label;
+      dom.appendChild(option);
+    });
+
+    if (dom.multiple && Array.isArray(opts.selectedValues)) {
+      const selectedSet = new Set(opts.selectedValues.map((value) => clean(value)).filter(Boolean));
+      const selectAll = !selectedSet.size;
+      [...dom.options].forEach((opt) => {
+        opt.selected = selectAll || selectedSet.has(clean(opt.value));
+      });
+    } else if (typeof opts.selectedValue === "string") {
       const hasSelected = [...dom.options].some((opt) => opt.value === opts.selectedValue);
       dom.value = hasSelected ? opts.selectedValue : (dom.options[0]?.value || "");
     }
@@ -1492,6 +1715,13 @@ window.ISUPPLY_SAMPLE_DATA = Object.freeze(window.ISUPPLY_SAMPLE_DATA);
       setPlantSelectedValue(opts.selectedValue || dom.options[0]?.value || "");
       renderPlantOptionsPanel();
       updatePlantTriggerText();
+    }
+
+    if (selectId === "filterMaterial") {
+      initMaterialMultiSelect();
+      setSelectedMaterialValues(opts.selectedValues || []);
+      renderMaterialOptionsPanel();
+      updateMaterialTriggerText();
     }
   }
 
@@ -1517,17 +1747,24 @@ window.ISUPPLY_SAMPLE_DATA = Object.freeze(window.ISUPPLY_SAMPLE_DATA);
     if (matStone && matStone.checked) selectedTypes.push("rock");
     if (matSand && matSand.checked) selectedTypes.push("sand");
 
-    const prevValue = clean(materialSelect.value);
-    const specs = [];
-    selectedTypes.forEach((type) => {
-      const list = MATERIAL_SPEC_BY_TYPE[type] || [];
-      list.forEach((item) => specs.push({ value: item, label: item }));
+    const prevValues = getSelectedMaterialValues();
+    const useAll = areAllMaterialValuesSelected(prevValues);
+    const specs = typeof window.getMaterialFilterOptions === "function"
+      ? window.getMaterialFilterOptions(selectedTypes)
+      : selectedTypes.flatMap((type) => {
+          const list = MATERIAL_SPEC_BY_TYPE[type] || [];
+          return list.map((item) => ({ value: item, label: item }));
+        });
+
+    const validValues = new Set(specs.map((item) => item.value));
+    const nextValues = useAll
+      ? []
+      : prevValues.filter((value) => validValues.has(value));
+
+    fillSelect("filterMaterial", specs, {
+      includeAll: false,
+      selectedValues: nextValues,
     });
-
-    fillSelect("filterMaterial", specs, { includeAll: true, allLabel: "All" });
-
-    const hasPrev = specs.some((x) => x.value === prevValue);
-    materialSelect.value = hasPrev ? prevValue : "all";
   }
 
   function initMaterialSpecFilter() {
@@ -1545,8 +1782,9 @@ window.ISUPPLY_SAMPLE_DATA = Object.freeze(window.ISUPPLY_SAMPLE_DATA);
 
     const renderState = () => {
       const isCollapsed = panel.classList.contains("collapsed");
-      toggleBtn.textContent = isCollapsed ? "ขยาย" : "ยุบ";
+      toggleBtn.textContent = isCollapsed ? "▾" : "▴";
       toggleBtn.setAttribute("aria-expanded", String(!isCollapsed));
+      toggleBtn.setAttribute("aria-label", isCollapsed ? "ขยาย" : "ยุบ");
     };
 
     toggleBtn.addEventListener("click", () => {
@@ -1694,6 +1932,10 @@ window.ISUPPLY_SAMPLE_DATA = Object.freeze(window.ISUPPLY_SAMPLE_DATA);
     updatePlantTriggerText();
   };
 
+  window.getActiveMaterialCodes = getActiveMaterialCodes;
+  window.refreshMaterialSpecOptions = refreshMaterialSpecOptions;
+  window.syncMaterialSelection = syncMaterialSelection;
+
   initMaterialSpecFilter();
   initFilterBarToggle();
 
@@ -1737,6 +1979,7 @@ window.ISUPPLY_SAMPLE_DATA = Object.freeze(window.ISUPPLY_SAMPLE_DATA);
   const byId = (id) => document.getElementById(id);
   const state = {
     contractRows: [],
+    contractRowsSource: "none",
     locationMap: new Map(),
     cpacPlantSet: new Set(),
     benchmarkRows: [],
@@ -1748,6 +1991,28 @@ window.ISUPPLY_SAMPLE_DATA = Object.freeze(window.ISUPPLY_SAMPLE_DATA);
       direction: "desc",
     },
   };
+
+  const CONTRACT_FILE_MATERIAL_OPTIONS = [
+    { value: "A51", label: "A51 - ยกเลิก" },
+    { value: "C01", label: "C01 - SCG Portland Cement Type I" },
+    { value: "C03", label: "C03 - OPC for RMC (High Belite Cement)" },
+    { value: "C12", label: "C12 - SCG Hybrid Cement" },
+    { value: "C30", label: "C30 - SCG Hybrid gen II" },
+    { value: "D21", label: "D21 - SIKA-D1601" },
+    { value: "D24", label: "D24 - Daratard P848" },
+    { value: "D29", label: "D29 - SIKA-D2323" },
+    { value: "F18", label: "F18 - MIGHTY 150HB-2" },
+    { value: "F47", label: "F47 - MIGHTY 150HB-9" },
+    { value: "MF1", label: "MF1 - Fly Ash (MAEMOH)" },
+    { value: "MF3", label: "MF3 - Fly Ash (BLCP)" },
+    { value: "MFA", label: "MFA - LC2" },
+    { value: "R01", label: "R01 - หิน 3/4\"-#4" },
+    { value: "R02", label: "R02 - หิน 1/2\" - #4 (ผ่าน Barmac)" },
+    { value: "R09", label: "R09 - หิน 3/8\"-#4" },
+    { value: "R38", label: "R38 - Recycled concrete aggregate" },
+    { value: "S01", label: "S01 - ทรายหยาบ-ปกติ" },
+    { value: "S14", label: "S14 - หินฝุ่นล้าง" },
+  ];
 
   const clean = (value) => String(value ?? "").replace(/^\uFEFF/, "").replace(/^"+|"+$/g, "").trim();
   const escapeHtml = (value) =>
@@ -1878,6 +2143,18 @@ window.ISUPPLY_SAMPLE_DATA = Object.freeze(window.ISUPPLY_SAMPLE_DATA);
     })}%`;
   }
 
+  function getPeerRankStats(row) {
+    if (!row?.peers?.length) {
+      return { rank: 1, total: 1 };
+    }
+    const orderedPeers = row.peers
+      .slice()
+      .sort((a, b) => a.total_cost - b.total_cost || a.compare_value - b.compare_value || a.plant_name.localeCompare(b.plant_name, "th"));
+    const rank = Math.max(orderedPeers.findIndex((peer) => peer.key === row.key) + 1, 1);
+    const total = orderedPeers.length;
+    return { rank, total };
+  }
+
   function getGapClass(gapPct) {
     if (gapPct > 5) return "red";
     if (gapPct >= 3) return "yellow";
@@ -1913,13 +2190,46 @@ window.ISUPPLY_SAMPLE_DATA = Object.freeze(window.ISUPPLY_SAMPLE_DATA);
     });
   }
 
-  function materialTypeOf(materialName) {
+  function materialTypeOf(materialName, materialCode = "") {
+    const code = clean(materialCode).toUpperCase();
     const name = clean(materialName);
+    if (code.startsWith("R")) return "rock";
+    if (code.startsWith("S")) return "sand";
     if (!name) return "";
     if (name.includes("ทราย") || name.includes("ฝุ่น")) return "sand";
     if (name.includes("หิน")) return "rock";
     return "";
   }
+
+  function getMaterialFilterOptions(selectedTypes = []) {
+    const selectedTypeSet = new Set((selectedTypes || []).filter(Boolean));
+    const sourceRows = state.contractRowsSource === "file" ? state.contractRows : [];
+    const optionMap = new Map();
+
+    if (sourceRows.length) {
+      sourceRows.forEach((row) => {
+        const materialCode = clean(row.material_code);
+        const materialName = clean(row.material_name);
+        const materialType = materialTypeOf(materialName, materialCode);
+        if (!materialCode || !materialName || !selectedTypeSet.has(materialType)) return;
+        if (!optionMap.has(materialCode)) {
+          optionMap.set(materialCode, { value: materialCode, label: `${materialCode} - ${materialName}` });
+        }
+      });
+    } else {
+      CONTRACT_FILE_MATERIAL_OPTIONS.forEach((item) => {
+        const [materialCode, ...labelParts] = item.label.split(" - ");
+        const materialName = labelParts.join(" - ");
+        const materialType = materialTypeOf(materialName, materialCode);
+        if (!selectedTypeSet.has(materialType)) return;
+        optionMap.set(item.value, { ...item });
+      });
+    }
+
+    return [...optionMap.values()].sort((a, b) => a.label.localeCompare(b.label, "th"));
+  }
+
+  window.getMaterialFilterOptions = getMaterialFilterOptions;
 
   function materialGroupFromCode(materialCode) {
     const code = clean(materialCode).toUpperCase();
@@ -2366,6 +2676,9 @@ window.ISUPPLY_SAMPLE_DATA = Object.freeze(window.ISUPPLY_SAMPLE_DATA);
   function getFilters() {
     const priceBasis = clean(byId("filterPriceBasis")?.value || "total");
     const allowedPlantCodes = getAllowedPlantCodes();
+    const materialCodes = typeof window.getActiveMaterialCodes === "function"
+      ? window.getActiveMaterialCodes()
+      : new Set();
     return {
       focusPlantCode: getSelectedPlantCode(),
       focusPlantLabel: getSelectedPlantLabel(),
@@ -2373,7 +2686,7 @@ window.ISUPPLY_SAMPLE_DATA = Object.freeze(window.ISUPPLY_SAMPLE_DATA);
       priceBasis,
       compareField: priceBasisField(priceBasis),
       compareLabel: priceBasisLabel(priceBasis),
-      materialSpec: clean(byId("filterMaterial")?.value),
+      materialCodes,
       materialTypes: {
         rock: Boolean(byId("matStone")?.checked),
         sand: Boolean(byId("matSand")?.checked),
@@ -2398,9 +2711,10 @@ window.ISUPPLY_SAMPLE_DATA = Object.freeze(window.ISUPPLY_SAMPLE_DATA);
     if (!location) return null;
 
     return {
-      key: `${clean(row.plant_code)}|${clean(row.material_name)}`,
+      key: `${clean(row.plant_code)}|${clean(row.material_code) || clean(row.material_name)}`,
       plant_code: clean(row.plant_code),
       plant_name: clean(row.plant_name) || location.plant_name || clean(row.plant_code),
+      material_code: clean(row.material_code),
       material_name: clean(row.material_name),
       source_cost: sourceCost,
       transport_cost: transportCost,
@@ -2434,12 +2748,13 @@ window.ISUPPLY_SAMPLE_DATA = Object.freeze(window.ISUPPLY_SAMPLE_DATA);
 
   function buildRepresentativeRows(filters) {
     const rows = state.contractRows.filter((row) => {
+      const materialCode = clean(row.material_code);
       const materialName = clean(row.material_name);
-      const materialType = materialTypeOf(materialName);
+      const materialType = materialTypeOf(materialName, materialCode);
       if (!materialType) return false;
       if (!filters.materialTypes.rock && materialType === "rock") return false;
       if (!filters.materialTypes.sand && materialType === "sand") return false;
-      if (filters.materialSpec && filters.materialSpec !== "all" && materialName !== filters.materialSpec) return false;
+      if (filters.materialCodes.size && !filters.materialCodes.has(materialCode)) return false;
       if (filters.contractModel !== "all" && contractModelOf(row) !== filters.contractModel) return false;
       if (!dateOverlaps(row, filters.fromDate, filters.toDate)) return false;
       if (filters.allowedPlants.size && !filters.allowedPlants.has(clean(row.plant_code))) return false;
@@ -2450,7 +2765,7 @@ window.ISUPPLY_SAMPLE_DATA = Object.freeze(window.ISUPPLY_SAMPLE_DATA);
     const grouped = new Map();
 
     dedupedRows.forEach((row) => {
-      const key = `${clean(row.plant_code)}|${clean(row.material_name)}`;
+      const key = `${clean(row.plant_code)}|${clean(row.material_code) || clean(row.material_name)}`;
       if (!grouped.has(key)) grouped.set(key, []);
       grouped.get(key).push(row);
     });
@@ -2501,25 +2816,32 @@ window.ISUPPLY_SAMPLE_DATA = Object.freeze(window.ISUPPLY_SAMPLE_DATA);
         is_focus_plant: row.plant_code === focusPlantCode,
       }));
 
+    const centerRowsByMaterial = new Map(
+      peerGroupRows
+        .filter((row) => row.is_focus_plant)
+        .map((row) => [row.material_code, row])
+    );
+
     const rowsWithBenchmarks = peerGroupRows.map((row) => {
+      const centerPeer = centerRowsByMaterial.get(row.material_code);
+      if (!centerPeer) return null;
       const peers = peerGroupRows
-        .filter((candidate) => candidate.material_name === row.material_name)
+        .filter((candidate) => candidate.material_code === row.material_code)
         .sort((a, b) => b.total_cost - a.total_cost || b.compare_value - a.compare_value || a.plant_name.localeCompare(b.plant_name, "th"));
 
-      const benchmarkPeer = [...peers].sort((a, b) => a.compare_value - b.compare_value || a.total_cost - b.total_cost)[0];
-      const benchmarkValue = benchmarkPeer ? benchmarkPeer.compare_value : row.compare_value;
-      const gapPct = benchmarkValue > 0 ? ((row.compare_value - benchmarkValue) / benchmarkValue) * 100 : 0;
+      const benchmarkValue = centerPeer.compare_value;
+      const gapPct = row.is_focus_plant ? 0 : (benchmarkValue > 0 ? ((row.compare_value - benchmarkValue) / benchmarkValue) * 100 : 0);
 
       return {
         ...row,
         gap_pct: gapPct,
         peer_count: peers.length,
         benchmark_value: benchmarkValue,
-        benchmark_plant: benchmarkPeer ? benchmarkPeer.plant_name : row.plant_name,
-        benchmark_distance: benchmarkPeer ? (benchmarkPeer.distance_from_focus ?? 0) : 0,
+        benchmark_plant: centerPeer.plant_name,
+        benchmark_distance: centerPeer.distance_from_focus ?? 0,
         peers,
       };
-    });
+    }).filter(Boolean);
 
     const filteredRows = filters.gapOnly
       ? rowsWithBenchmarks.filter((row) => row.gap_pct > filters.gapThreshold)
@@ -2553,32 +2875,41 @@ window.ISUPPLY_SAMPLE_DATA = Object.freeze(window.ISUPPLY_SAMPLE_DATA);
       }
     });
 
-    let rows = candidates
+    const scopedCandidates = candidates
       .filter((row) => peerPlantDistances.has(row.plant_code))
+      .map((row) => ({
+        ...row,
+        distance_from_focus: peerPlantDistances.get(row.plant_code) ?? 0,
+        is_focus_plant: row.plant_code === focusPlantCode,
+      }));
+
+    const centerRowsByMaterial = new Map(
+      scopedCandidates
+        .filter((row) => row.is_focus_plant)
+        .map((row) => [row.material_code, row])
+    );
+
+    let rows = scopedCandidates
       .map((row) => {
-        const peers = candidates
-          .filter((candidate) => peerPlantDistances.has(candidate.plant_code) && candidate.material_name === row.material_name)
-          .map((candidate) => ({
-            ...candidate,
-            distance_from_focus: peerPlantDistances.get(candidate.plant_code) ?? 0,
-          }))
+        const centerPeer = centerRowsByMaterial.get(row.material_code);
+        if (!centerPeer) return null;
+        const peers = scopedCandidates
+          .filter((candidate) => candidate.material_code === row.material_code)
           .sort((a, b) => a.compare_value - b.compare_value || a.total_cost - b.total_cost || a.plant_name.localeCompare(b.plant_name, "th"));
 
-        const benchmarkPeer = peers[0] || row;
-        const benchmarkValue = benchmarkPeer.compare_value || row.compare_value;
-        const gapPct = benchmarkValue > 0 ? ((row.compare_value - benchmarkValue) / benchmarkValue) * 100 : 0;
+        const benchmarkValue = centerPeer.compare_value || row.compare_value;
+        const gapPct = row.is_focus_plant ? 0 : (benchmarkValue > 0 ? ((row.compare_value - benchmarkValue) / benchmarkValue) * 100 : 0);
         return {
           ...row,
-          distance_from_focus: peerPlantDistances.get(row.plant_code) ?? 0,
-          is_focus_plant: row.plant_code === focusPlantCode,
           peer_count: peers.length,
           benchmark_value: benchmarkValue,
-          benchmark_plant: benchmarkPeer.plant_name || row.plant_name,
-          benchmark_distance: benchmarkPeer.distance_from_focus ?? 0,
+          benchmark_plant: centerPeer.plant_name || row.plant_name,
+          benchmark_distance: centerPeer.distance_from_focus ?? 0,
           gap_pct: gapPct,
           peers,
         };
-      });
+      })
+      .filter(Boolean);
 
     if (filters.gapOnly) {
       rows = rows.filter((row) => row.gap_pct > filters.gapThreshold);
@@ -2645,7 +2976,7 @@ window.ISUPPLY_SAMPLE_DATA = Object.freeze(window.ISUPPLY_SAMPLE_DATA);
   function renderHeatmap(rows, filters) {
     const host = byId("heatmapList");
     const subtitle = byId("heatmapSubtitle");
-    if (subtitle) subtitle.textContent = `${filters.focusPlantLabel || "-"} เป็นศูนย์กลาง benchmark = minimum ${filters.compareLabel} ภายใน ${formatCompact(filters.radiusKm, 0)} km`;
+    if (subtitle) subtitle.textContent = `${filters.focusPlantLabel || "-"} เป็น Center Plant ของวง peer และ peers เทียบกับ ${filters.compareLabel} ของ Center Plant ภายใน ${formatCompact(filters.radiusKm, 0)} km`;
     if (!host) return;
     updateHeatmapSortUi();
 
@@ -2664,27 +2995,29 @@ window.ISUPPLY_SAMPLE_DATA = Object.freeze(window.ISUPPLY_SAMPLE_DATA);
     }
 
     host.innerHTML = rows.map((row) => {
-      const gapClass = getGapClass(row.gap_pct);
+      const gapClass = row.is_focus_plant ? "neutral" : getGapClass(row.gap_pct);
       const isBenchmark = Math.abs(row.compare_value - row.benchmark_value) < 0.005;
       const benchmarkText = `${row.benchmark_plant} (${formatCompact(row.benchmark_distance, 1)} km)`;
+      const rankStats = getPeerRankStats(row);
+      const rankText = `${rankStats.rank}/${rankStats.total}`;
       return `
         <button type="button" class="heatmap-row ${row.key === state.focusKey ? "active" : ""}" data-row-key="${escapeHtml(row.key)}" data-plant-code="${escapeHtml(row.plant_code)}">
           <div class="plant-cell">
-            <div class="name">${escapeHtml(row.plant_name)}${row.is_focus_plant ? ' <span class="chip" style="margin-left:6px;">Center</span>' : ""}</div>
+            <div class="name">${escapeHtml(row.plant_name)}${row.is_focus_plant ? ' <span class="chip" style="margin-left:6px;">Center Plant</span>' : ""}</div>
             <div class="meta">${escapeHtml(row.plant_code)} · ${escapeHtml(row.contract_label)}</div>
             <div class="meta subtle">source: ${escapeHtml(row.source_name)}</div>
             <div class="meta subtle">distance from center: ${formatCompact(row.distance_from_focus || 0, 1)} km</div>
           </div>
           <div class="material-cell">
             <div class="main">${escapeHtml(row.material_name)}</div>
-            <div class="meta">benchmark ${escapeHtml(filters.compareLabel)}: ${formatNumber(row.benchmark_value)}</div>
-            <div class="meta subtle">best nearby: ${escapeHtml(benchmarkText)}</div>
+            <div class="meta">Center Plant ${escapeHtml(filters.compareLabel)}: ${formatNumber(row.benchmark_value)}</div>
+            <div class="meta subtle">base row: ${escapeHtml(benchmarkText)}</div>
           </div>
           <div class="cost-pill ${isBenchmark && filters.compareField === "source_cost" ? "soft" : ""}">${formatNumber(row.source_cost)}</div>
           <div class="cost-pill ${isBenchmark && filters.compareField === "transport_cost" ? "soft" : ""}">${formatNumber(row.transport_cost)}</div>
           <div class="cost-pill total ${gapClass}">${formatNumber(row.total_cost)}</div>
           <div class="gap-pill ${gapClass}">${formatPct(row.gap_pct)}</div>
-          <div class="peer-pill">${row.peer_count}</div>
+          <div class="peer-pill">${escapeHtml(rankText)}</div>
         </button>
       `;
     }).join("");
@@ -2713,7 +3046,7 @@ window.ISUPPLY_SAMPLE_DATA = Object.freeze(window.ISUPPLY_SAMPLE_DATA);
       <div class="meta-chip">Center plant: ${escapeHtml(filters.focusPlantLabel || "-")}</div>
       <div class="meta-chip">Focus row: ${escapeHtml(focusRow.plant_name)}</div>
       <div class="meta-chip">Material: ${escapeHtml(focusRow.material_name)}</div>
-      <div class="meta-chip">Benchmark ${escapeHtml(compareLabel)}: ${formatNumber(focusRow.benchmark_value)}</div>
+      <div class="meta-chip">Center Plant ${escapeHtml(compareLabel)}: ${formatNumber(focusRow.benchmark_value)}</div>
       <div class="meta-chip">Peer plants: ${peers.length}</div>
       <div class="meta-chip">Rule: หลัก ก่อน, ถ้าไม่มีใช้ total ต่ำสุด</div>
     `;
@@ -2754,27 +3087,25 @@ window.ISUPPLY_SAMPLE_DATA = Object.freeze(window.ISUPPLY_SAMPLE_DATA);
       return;
     }
 
-    const benchmarkPeer = focusRow.peers.find((peer) => peer.plant_name === focusRow.benchmark_plant) || focusRow.peers[focusRow.peers.length - 1] || focusRow;
     const avgPeerTotal = focusRow.peers.reduce((sum, peer) => sum + peer.total_cost, 0) / Math.max(focusRow.peers.length, 1);
-    const rank = focusRow.peers
-      .slice()
-      .sort((a, b) => a.compare_value - b.compare_value || a.total_cost - b.total_cost)
-      .findIndex((peer) => peer.key === focusRow.key) + 1;
+    const focusRank = getPeerRankStats(focusRow);
+    const centerRow = rows.find((row) => row.is_focus_plant && row.material_code === focusRow.material_code) || null;
+    const centerRank = centerRow ? getPeerRankStats(centerRow) : null;
     const avgGap = rows.length ? rows.reduce((sum, row) => sum + row.gap_pct, 0) / rows.length : 0;
 
     host.innerHTML = `
       <div class="insight-card">
         <div class="label">Center Plant</div>
         <div class="value">${escapeHtml(filters.focusPlantLabel || "-")}</div>
-        <div class="sub">Peer radius ${formatCompact(filters.radiusKm, 0)} km</div>
+        <div class="sub">${centerRow ? `Price rank ${centerRank.rank}/${centerRank.total}` : `Peer radius ${formatCompact(filters.radiusKm, 0)} km`}</div>
       </div>
       <div class="insight-card">
         <div class="label">${escapeHtml(filters.compareLabel)} ของ row ที่เลือก</div>
         <div class="value">${formatNumber(focusRow.compare_value)}</div>
-        <div class="sub">${escapeHtml(focusRow.plant_name)} · อันดับ ${rank} จาก ${focusRow.peers.length} โรงงาน</div>
+        <div class="sub">${escapeHtml(focusRow.plant_name)} · Price rank ${focusRank.rank}/${focusRank.total}</div>
       </div>
       <div class="insight-card">
-        <div class="label">Benchmark ต่ำสุดในรัศมี</div>
+        <div class="label">Center Plant Base</div>
         <div class="value">${formatNumber(focusRow.benchmark_value)}</div>
         <div class="sub">${escapeHtml(focusRow.benchmark_plant)} ห่าง ${formatCompact(focusRow.benchmark_distance, 1)} km</div>
       </div>
@@ -2786,7 +3117,7 @@ window.ISUPPLY_SAMPLE_DATA = Object.freeze(window.ISUPPLY_SAMPLE_DATA);
     `;
 
     footnote.textContent =
-      `Representative row rule: เลือก source_category = "หลัก" ก่อน ถ้าไม่มีใช้รายการที่ total ต่ำสุด. Peer group ใช้โรงงานศูนย์กลาง "${filters.focusPlantLabel || "-"}" และคำนวณระยะโรงงาน-โรงงานตาม Radius (km).`;
+      `Representative row rule: เลือก source_category = "หลัก" ก่อน ถ้าไม่มีใช้รายการที่ total ต่ำสุด. Peer group ใช้โรงงานศูนย์กลาง "${filters.focusPlantLabel || "-"}" และคำนวณ Gap เทียบกับราคา Center Plant ของ material เดียวกันภายใน Radius (km).`;
   }
 
   function renderCapacityMatrix() {
@@ -2864,7 +3195,7 @@ window.ISUPPLY_SAMPLE_DATA = Object.freeze(window.ISUPPLY_SAMPLE_DATA);
       return `
         <tr data-capacity-key="${escapeHtml(row.key)}" class="${isSelected ? "table-group-row" : ""}">
           <td>
-            <div class="font-semibold">${escapeHtml(row.plant_name)}${row.is_focus_plant ? ' <span class="chip" style="margin-left:6px;">Center</span>' : ""}</div>
+            <div class="font-semibold">${escapeHtml(row.plant_name)}${row.is_focus_plant ? ' <span class="chip" style="margin-left:6px;">Center Plant</span>' : ""}</div>
             <div class="text-xs text-muted">${escapeHtml(row.plant_code)} · ${formatCompact(row.distance_from_focus || 0, 1)} km</div>
           </td>
           <td>${escapeHtml(row.material_name)}</td>
@@ -2890,7 +3221,7 @@ window.ISUPPLY_SAMPLE_DATA = Object.freeze(window.ISUPPLY_SAMPLE_DATA);
         <div class="sub">${escapeHtml(selectedRow.contract_label)}</div>
       </div>
       <div class="insight-card">
-        <div class="label">Benchmark</div>
+        <div class="label">Center Plant Base</div>
         <div class="value">${formatNumber(selectedRow.benchmark_value)}</div>
         <div class="sub">${escapeHtml(selectedRow.benchmark_plant)} · ${formatCompact(selectedRow.benchmark_distance, 1)} km</div>
       </div>
@@ -2950,6 +3281,11 @@ window.ISUPPLY_SAMPLE_DATA = Object.freeze(window.ISUPPLY_SAMPLE_DATA);
   function applyBootstrapSampleData() {
     if (!state.contractRows.length && SAMPLE_DATA.contractRows?.length) {
       state.contractRows = cloneRows(SAMPLE_DATA.contractRows);
+      state.contractRowsSource = "sample";
+    }
+
+    if (typeof window.refreshMaterialSpecOptions === "function") {
+      window.refreshMaterialSpecOptions();
     }
 
     if (!state.locationMap.size && SAMPLE_DATA.locationRows?.length) {
@@ -3007,7 +3343,8 @@ window.ISUPPLY_SAMPLE_DATA = Object.freeze(window.ISUPPLY_SAMPLE_DATA);
     const csv = [header, ...body]
       .map((cols) => cols.map((value) => `"${String(value ?? "").replace(/"/g, "\"\"")}"`).join(","))
       .join("\r\n");
-    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const utf8Bom = "\uFEFF";
+    const blob = new Blob([utf8Bom, csv], { type: "text/csv;charset=utf-8;" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
@@ -3039,7 +3376,12 @@ window.ISUPPLY_SAMPLE_DATA = Object.freeze(window.ISUPPLY_SAMPLE_DATA);
     if (byId("matSand")) byId("matSand").checked = true;
     byId("matStone")?.dispatchEvent(new Event("change", { bubbles: true }));
     byId("matSand")?.dispatchEvent(new Event("change", { bubbles: true }));
-    setValue("filterMaterial", "all");
+    if (typeof window.refreshMaterialSpecOptions === "function") {
+      window.refreshMaterialSpecOptions();
+    }
+    if (typeof window.syncMaterialSelection === "function") {
+      window.syncMaterialSelection([]);
+    }
     byId("filterCompany")?.dispatchEvent(new Event("change", { bubbles: true }));
 
     const plantSelect = byId("filterPlant");
@@ -3149,13 +3491,26 @@ window.ISUPPLY_SAMPLE_DATA = Object.freeze(window.ISUPPLY_SAMPLE_DATA);
   async function loadBenchmarkData() {
     state.loading = true;
     try {
-      const [contractRows, locationRows, organizationRows] = await Promise.all([
-        fetchCsvRowsWithFallback(CONTRACT_CSV_PATH, SAMPLE_DATA.contractRows),
+      const [locationRows, organizationRows] = await Promise.all([
         fetchCsvRowsWithFallback(LOCATION_CSV_PATH, SAMPLE_DATA.locationRows),
         fetchCsvRowsWithFallback(ORGANIZATION_CSV_PATH, SAMPLE_DATA.organizationRows),
       ]);
 
-      state.contractRows = contractRows;
+      let contractRows = [];
+      try {
+        contractRows = await fetchCsvRows(CONTRACT_CSV_PATH);
+      } catch (_) {
+        contractRows = [];
+      }
+
+      if (contractRows.length) {
+        state.contractRows = contractRows;
+        state.contractRowsSource = "file";
+      }
+
+      if (typeof window.refreshMaterialSpecOptions === "function") {
+        window.refreshMaterialSpecOptions();
+      }
       state.locationMap = new Map(
         locationRows.map((row) => [
           clean(row.plant_no),
